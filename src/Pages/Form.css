@@ -1,0 +1,70 @@
+.login-div{
+    /* border: solid 1px; */
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 99%;
+    position: absolute;
+    right: 2%;
+    top: 0%;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 5%;
+    /* background-color: rgb(14, 73, 14); */
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    /* border: solid 1px; */
+    height : 60%;
+    width: 80%;
+    align-items: center;
+}
+
+.input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2% 0px 2% 3%;
+    width: 80%;
+    height: 15%;
+    border: 1px solid #273238;
+    border-radius: 24px;
+}
+
+.button{
+    width: 80%;
+    height: 18%;
+    background:  #1F4583;
+    border-radius: 24px;
+    border: 0px;
+    color: white;
+}
+
+
+.image-div {
+    /* border: solid 1px; */
+    width :50%;
+    max-width: 100%;
+    height: 100%;
+    position: relative;
+    /* background-image: url('../Images/Vector2.png'); */
+}
+
+
+.back-image {
+    height: 99vh;
+    width: 100%;
+    position: relative;
+    left: 10%;
+}
+
+.front-image {
+    height: 99vh;
+    width: 100%;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
