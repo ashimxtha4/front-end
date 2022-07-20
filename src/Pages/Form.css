@@ -1,5 +1,56 @@
 .login-div{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 99%;
+    position: absolute;
+    right: 5%;
+    top: 0%;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 5%;
     /* border: solid 1px; */
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height : 60%;
+    width: 80%;
+    align-items: center;
+    /* border: solid 1px; */
+}
+
+.back-image {
+    transform:rotate(90deg);
+    position: absolute;
+    top: -300px;
+    width: 100%;
+    z-index: -2;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.front-image {
+    transform:rotate(90deg);
+    position: absolute;
+    top: -360px;
+    left: 15px;
+    width: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.image-div {
+    position: relative;
+    top: 0%;
+    /* border: solid 1px; */
+    height: 20vh;
+}
+
+
+/* .login-div{
     display: flex;
     flex-direction: column;
     width: 50%;
@@ -10,14 +61,14 @@
     justify-content: space-evenly;
     align-items: center;
     border-radius: 5%;
-    /* background-color: rgb(14, 73, 14); */
+
 }
 
 .login-form {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    /* border: solid 1px; */
+
     height : 60%;
     width: 80%;
     align-items: center;
@@ -45,12 +96,11 @@
 
 
 .image-div {
-    /* border: solid 1px; */
+
     width :50%;
     max-width: 100%;
     height: 100%;
     position: relative;
-    /* background-image: url('../Images/Vector2.png'); */
 }
 
 
@@ -67,4 +117,4 @@
     position: absolute;
     top: 0%;
     left: 0%;
-}
+} */

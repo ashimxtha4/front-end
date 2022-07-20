@@ -1,54 +1,57 @@
-// import React from 'react'
+import React from 'react'
+import '../App.css'
+import {motion} from "framer-motion";
+import {BsFileEarmarkText,BsFillCalendar2PlusFill,BsClipboardCheck,BsPerson} from 'react-icons/bs';
+import {FiAlertCircle} from 'react-icons/fi';
+import {NavLink} from 'react-router-dom';
 
-// function SideBar({children}) {
-//     const menuItem = [
-//       {
-//         path:"/",
-//         name:"",
-//         icon: "icon"
-//       },
-//       {
-//         path:"/",
-//         name:"",
-//         icon: "icon"
-//       },
-//       {
-//         path:"/",
-//         name:"",
-//         icon: "icon"
-//       },
-//       {
-//         path:"/",
-//         name:"",
-//         icon: "icon"
-//       },
-//       {
-//         path:"/",
-//         name:"",
-//         icon: "icon"
-//       }
-//     ]
-//   return (
-//     <>
-//         <div className='SideBar-div'>
-//             <div className='top-section'>
-//               <h1 className='logo'>LOGO</h1>
-//               <div className='bars'>
-//                 <FaBars />
-//               </div>
-//             </div>
-//             {
-//               menuItem.map((item,index) => (
-//               <NavLink to={item.path} key={index} className="link" activeclassName="active">
-//                 <div className='icon'>{item.icon}</div>
-//                 <div className='link-text'>{item.name}</div>
-//               </NavLink>
-//               ))
-//             }
-//         </div>
-//         <main>{children}</main>
-//     </>
-//   )
-// }
+const SideBar=({children})=> {
+    const routes = [
+      {
+        path:"/",
+        name:"Projects",
+        icon:<BsFileEarmarkText/>
+      },
+      {
+        path:"/task",
+        name:"Task",
+        icon: <BsClipboardCheck />
+      },
+      {
+        path:"/notice",
+        name:"Notice",
+        icon: <FiAlertCircle />
+      },
+      {
+        path:"/events",
+        name:"Events",
+        icon: <BsFillCalendar2PlusFill />
+      },
+      {
+        path:"/profile",
+        name:"Profile",
+        icon: <BsPerson />
+      }
+    ]
+  return (
 
-// export default SideBar
+        <div className='main-container'>
+            <motion.div animate={{width:"200px"}} className="sidebar">
+              <section className='routes'>
+                {routes.map((route)=>(
+                  <NavLink to={route.path} key={route.name} className="list">
+                    <div className='icons'>{route.icon}</div>
+                    <div className='link_text'>{route.name}</div>    
+                  </NavLink>
+                  
+                ))}
+              </section>    
+            </motion.div>
+            <main>
+              {children}
+            </main>
+        </div>
+  )
+}
+
+export default SideBar

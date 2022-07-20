@@ -1,12 +1,17 @@
 import React from 'react';
-import './App.css';
-import LogIn from "./Pages/LogIn"
+import MyRoutes from "./Components/MyRoutes"
+import { BrowserRouter} from 'react-router-dom';
+import SideBar from './Components/SideBar';
 
 
 const App = ()=> {
   return (
     <>
-    <LogIn />
+    <BrowserRouter>
+    <SideBar>
+        <MyRoutes />
+    </SideBar>
+    </BrowserRouter>
     </>
   );
 }
