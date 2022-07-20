@@ -9,7 +9,7 @@
     justify-content: space-evenly;
     align-items: center;
     border-radius: 5%;
-    /* border: solid 1px; */
+   
 }
 
 .login-form {
@@ -19,7 +19,7 @@
     height : 60%;
     width: 80%;
     align-items: center;
-    /* border: solid 1px; */
+   
 }
 
 .back-image {
@@ -45,9 +45,15 @@
 .image-div {
     position: relative;
     top: 0%;
-    /* border: solid 1px; */
+
     height: 20vh;
 }
+
+
+
+
+
+
 
 
 /* .login-div{
