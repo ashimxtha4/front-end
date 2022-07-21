@@ -41,18 +41,14 @@ const routes = [
   }
 ]
 
-const SideBar=({children})=> {
-  const [isOpen,setIsOpen] = useState(false) ;
+const SideBar=()=> {
+  const [isOpen,setIsOpen] = useState(true) ;
   const toggle = () =>{
     setIsOpen(!isOpen);
   }
   return (
     <>
-        <div className='heading'>
-                <h1 className='logo'>
-                    TaskIt
-                </h1>
-        </div>
+        
         <div className='main-container'>
             <motion.div animate={{width: isOpen ? "247px" : "45px"}} className="sidebar">
               <div className='top-section'>
@@ -63,7 +59,7 @@ const SideBar=({children})=> {
                     <img src= {Ellipse14} alt="profile_image" />
                     <h3>NAME</h3>
                     <p>DESIGNATION</p>
-                  </div>  }
+                  </div> }
                   
               </div>
               
@@ -81,9 +77,6 @@ const SideBar=({children})=> {
                 ))}
               </section>    
             </motion.div>
-            <main>
-              {children}
-            </main>
         </div>
       </>
   )

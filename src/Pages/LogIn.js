@@ -1,7 +1,7 @@
 import React from 'react';
 import './Form.css';
-import Vector1 from '../Images/Vector2.png'
-import Vector2 from '../Images/Vector1.png'
+import Vector1 from '../Images/Vector2.svg'
+import Vector2 from '../Images/Vector1.svg'
 
 const LogIn = () => {
   return (
@@ -10,8 +10,8 @@ const LogIn = () => {
       <img src={Vector1} alt='effect' className='back-image'/>
       <img src={Vector2} alt='effect' className='front-image'/>
     </div>
-        <div className='login-div'>
-            <h1>
+        <div className='main-div'>
+            <h1 className='heading'>
                 Welcome to Asterdio
             </h1>
             <form className='login-form'>
@@ -20,7 +20,7 @@ const LogIn = () => {
                 <a className='forget-pass' href='ForgerPassword.js'>Forget your password ?</a>
                 <input type="button" name="Log-In" value="Log-In" className='button'/>    
             </form>
-            <p>Register if you are new<a href='signUp.js'>Sing Up?</a></p>
+            {/* <p>Register if you are new<Link exact to="/signup">Sing Up?</Link></p> */}
         </div>
     </>
     

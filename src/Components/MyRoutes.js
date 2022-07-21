@@ -6,16 +6,19 @@ import Notice from '../Pages/Notice'
 import Events from '../Pages/Events'
 import Profile from '../Pages/Profile'
 import DashBoard from '../Pages/DashBoard'
+import SignUp from '../Pages/SignUp';
 
 const MyRoutes = () => {
   return (
     <Routes>
+    
     <Route path='/' element={<DashBoard />} />
     <Route path='/projects' element={<Projects />} />
     <Route path='/task' element={<Task />} />
-    <Route path='/notiec' element={<Notice />} />
+    <Route path='/notice' element={<Notice />} />
     <Route path='/events' element={<Events />} />
     <Route path='/profile' element={<Profile />} />
+    <Route path='/signup' element={<SignUp />}/>
   </Routes>
   )
 }
