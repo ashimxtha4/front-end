@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import '../App.css'
+import Ellipse14 from "../Images/Ellipse14.svg"
 import {motion} from "framer-motion";
 import {BsFileEarmarkText,BsFillCalendar2PlusFill,BsClipboardCheck,BsPerson} from 'react-icons/bs';
 import {FiAlertCircle} from 'react-icons/fi';
@@ -55,9 +56,15 @@ const SideBar=({children})=> {
         <div className='main-container'>
             <motion.div animate={{width: isOpen ? "247px" : "45px"}} className="sidebar">
               <div className='top-section'>
-                <div className='bars'>
+                <div className='manage-bars'><div className='bars'>
                   <FaBars onClick={toggle}/>
-                </div>
+                </div></div>
+                {isOpen && <div className='profile'>
+                    <img src= {Ellipse14} alt="profile_image" />
+                    <h3>NAME</h3>
+                    <p>DESIGNATION</p>
+                  </div>  }
+                  
               </div>
               
 
