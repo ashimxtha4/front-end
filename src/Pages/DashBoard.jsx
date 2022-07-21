@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import ProjectComponent from "../Components/ProjectComponent";
 
 const DashBoard = () => {
   return (
-    <div>Dashboard</div>
-  )
-}
+    <>
+      <ProjectComponent />
+    </>
+  );
+};
 
-export default DashBoard
+export default DashBoard;
