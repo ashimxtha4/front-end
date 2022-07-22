@@ -5,11 +5,6 @@ import './Tempelate.css'
 const Project = () => {
   return (
     <>
-    <div className='heading'>
-                <h1 className='logo'>
-                    TaskIt
-                </h1>
-        </div>
     <div className='tempelate-div'>
     <div className='side-div'>
       <SideBar />

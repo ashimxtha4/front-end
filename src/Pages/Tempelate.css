@@ -9,3 +9,9 @@
 .content-div {
     width: 100%;
 }
+
+.heading {
+    height : 60px;
+    background-color: #273238;
+    color: white;
+}

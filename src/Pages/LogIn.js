@@ -2,8 +2,10 @@ import React from 'react';
 import './Form.css';
 import Vector1 from '../Images/Vector2.svg'
 import Vector2 from '../Images/Vector1.svg'
+import { Link,useNavigate  } from 'react-router-dom';
 
 const LogIn = () => {
+  const navigate=useNavigate();
   return (
     <>
     <div className='image-div'>
@@ -11,16 +13,16 @@ const LogIn = () => {
       <img src={Vector2} alt='effect' className='front-image'/>
     </div>
         <div className='main-div'>
-            <h1 className='heading'>
+            <h1 className='form-heading'>
                 Welcome to Asterdio
             </h1>
-            <form className='login-form'>
-                <input type="text" className='input' placeholder='User-Name/email' />
+            <form className='login-form' method='post'>
+                <input type="text" className='input' placeholder='Username/Email' required />
                 <input type="password" className='input' placeholder='Password' />
                 <a className='forget-pass' href='ForgerPassword.js'>Forget your password ?</a>
-                <input type="button" name="Log-In" value="Log-In" className='button'/>    
+                <input type="submit" name="Log-In" value="Log-In" className='button' onClick={()=>{navigate("/dashboard")}} /> 
             </form>
-            {/* <p>Register if you are new<Link exact to="/signup">Sing Up?</Link></p> */}
+            <p>Register if you are new  <Link exact to="/signup">Sing Up?</Link></p>
         </div>
     </>
     

@@ -2,15 +2,15 @@ import React, { useState } from 'react'
 import '../App.css'
 import Ellipse14 from "../Images/Ellipse14.svg"
 import {motion} from "framer-motion";
-import {BsFileEarmarkText,BsFillCalendar2PlusFill,BsClipboardCheck,BsPerson} from 'react-icons/bs';
-import {FiAlertCircle} from 'react-icons/fi';
+import {BsFileEarmarkText,BsClipboardCheck,BsPerson} from 'react-icons/bs';
 import {FaBars} from 'react-icons/fa'
 import {NavLink} from 'react-router-dom';
 import {MdOutlineDashboard} from 'react-icons/md';
+import {TbLogout} from 'react-icons/tb';
 
 const routes = [
   {
-    path:"/",
+    path:"/dashboard",
     name:"Dashboard",
     icon:<MdOutlineDashboard/>
   },
@@ -25,19 +25,14 @@ const routes = [
     icon: <BsClipboardCheck />
   },
   {
-    path:"/notice",
-    name:"Notice",
-    icon: <FiAlertCircle />
-  },
-  {
-    path:"/events",
-    name:"Events",
-    icon: <BsFillCalendar2PlusFill />
-  },
-  {
     path:"/profile",
     name:"Profile",
     icon: <BsPerson />
+  },
+  {
+    path:"/",
+    name:"Log Out",
+    icon: <TbLogout />
   }
 ]
 
@@ -52,9 +47,17 @@ const SideBar=()=> {
         <div className='main-container'>
             <motion.div animate={{width: isOpen ? "247px" : "45px"}} className="sidebar">
               <div className='top-section'>
-                <div className='manage-bars'><div className='bars'>
-                  <FaBars onClick={toggle}/>
-                </div></div>
+                <div className='manage-bars'>
+                {isOpen && <div className='heading'>
+                  <h1 className='logo'>
+                      TaskIt
+                  </h1>
+                  </div>}
+                  
+                  <div className='bars'>
+                    <FaBars onClick={toggle}/>
+                  </div>
+                </div>
                 {isOpen && <div className='profile'>
                     <img src= {Ellipse14} alt="profile_image" />
                     <h3>NAME</h3>
