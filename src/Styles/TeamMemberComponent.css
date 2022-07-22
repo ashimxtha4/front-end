@@ -1,0 +1,107 @@
+/* Main card */
+.members-main-div {
+  position: relative;
+  background-color: #f6f9ff;
+  width: 352px;
+  height: 305px;
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-right: 40px;
+  box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);
+}
+
+.members-body-div {
+  position: relative;
+  border-radius: 10px;
+  height: 250px;
+  margin-top: 20px;
+}
+
+/* .members-body-top {
+    padding-top: 10px;
+    padding-left: 10px;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .members-body-top span {
+    padding-right: 20px;
+  }
+   */
+.members-footer-div {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.members-title-div h2 {
+  color: #1f4583;
+  font-family: "Inter", sans-serif;
+  font-size: 28px;
+}
+
+.members-body-bot {
+  padding: 10px;
+}
+
+.members-footer-div a {
+  color: #00255d;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.members-details-main-div {
+  display: flex;
+}
+
+.members-details-assigned-div {
+  width: 18%;
+  margin-top: 5px;
+}
+
+.members-details-right-div {
+  width: 82%;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+
+.members-details-name-div h3{
+    color: #273238;
+    
+}
+
+.members-details-pos-div{
+    color: #646464;
+}
+
+.members-details-name-div {
+    margin-top: 8px;
+}
+
+.members-details-main-div {
+  margin-top: 10px;
+  padding: 4px;
+  position: relative;
+  background-color: #eaefff;
+  border-radius: 4px;
+}
+
+/* .members-details-title-div h3{
+    font-size: 14px;
+}
+
+.members-details-progress-div{
+    position: absolute;
+    right: 0;
+    top:30%;
+    padding-right: 10px;
+}
+
+.members-details-assigned-div img{
+    padding-right: 6px;
+} */
