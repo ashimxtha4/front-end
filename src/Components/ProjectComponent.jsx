@@ -11,11 +11,11 @@ const ProjectComponent = (props) => {
 
       <div className="project-body-div">
         <div className="project-body-top">
-          <span>{props.cardtabtitle1}</span>
-          <span>{props.cardtabtitle2}</span>
+          <button>{props.cardtabtitle1}</button>
+          <button>{props.cardtabtitle2}</button>
         </div>
         <div className="project-body-bot">
-          <ProjectTaskDetails />
+          <ProjectTaskDetails  />
           <ProjectTaskDetails />
         </div>
 
