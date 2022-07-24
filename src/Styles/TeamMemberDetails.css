@@ -1,0 +1,43 @@
+.members-details-main-div {
+  display: flex;
+}
+
+.members-details-assigned-div {
+  width: 18%;
+  margin-top: 5px;
+}
+
+.members-details-right-div {
+  width: 82%;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+}
+
+.members-details-name-div h3 {
+  color: #273238;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+.members-details-pos-div h3 {
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+.members-details-pos-div {
+  color: #646464;
+}
+
+.members-details-name-div {
+  margin-top: 8px;
+}
+
+.members-details-main-div {
+  margin-top: 10px;
+  padding: 4px;
+  position: relative;
+  background-color: #eaefff;
+  border-radius: 4px;
+}

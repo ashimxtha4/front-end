@@ -16,7 +16,6 @@
   position: relative;
   border-radius: 10px;
   height: 250px;
-  margin-top: 20px;
 }
 
 /* .members-body-top {
@@ -36,13 +35,15 @@
   bottom: 0;
   width: 100%;
   text-align: center;
-  padding-bottom: 10px;
+  padding-bottom: 0px;
 }
 
 .members-title-div h2 {
   color: #1f4583;
-  font-family: "Inter", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 28px;
+  font-weight: 500;
+  padding-left: 10px;
 }
 
 .members-body-bot {
@@ -55,7 +56,7 @@
   font-size: 14px;
 }
 
-.members-details-main-div {
+/* .members-details-main-div {
   display: flex;
 }
 
@@ -89,7 +90,7 @@
   position: relative;
   background-color: #eaefff;
   border-radius: 4px;
-}
+} */
 
 /* .members-details-title-div h3{
     font-size: 14px;

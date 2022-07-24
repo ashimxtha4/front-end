@@ -1,5 +1,5 @@
 /* Main card */
-.project-main-div {
+.mytask-main-div {
   position: relative;
   background-color: #f6f9ff;
   width: 352px;
@@ -13,14 +13,14 @@
   margin-bottom: 20px;
 }
 
-.project-body-div {
+.mytask-body-div {
   position: relative;
   border-radius: 10px;
   height: 250px;
   margin-top: 20px;
 }
 
-.project-body-top {
+.mytask-body-top {
   padding-top: 10px;
   padding-left: 10px;
   font-family: "Inter", sans-serif;
@@ -28,11 +28,11 @@
   font-weight: 500;
 }
 
-.project-body-top span {
+.mytask-body-top span {
   padding-right: 20px;
 }
 
-.project-body-top button {
+.mytask-body-top button {
   padding-right: 20px;
   color: #1f4583;
   font-family: 'Roboto', sans-serif;
@@ -44,11 +44,11 @@
   cursor: pointer;
 }
 
-.project-body-top button:hover{
+.mytask-body-top button:hover{
   text-decoration: underline;
 }
 
-.project-footer-div {
+.mytask-footer-div {
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -56,7 +56,7 @@
   padding-bottom: 20px;
 }
 
-.project-title-div h2 {
+.mytask-title-div h2 {
   color: #1f4583;
   font-family: 'Roboto', sans-serif;
   font-size: 28px;
@@ -64,11 +64,11 @@
   padding-left: 10px;
 }
 
-.project-body-bot {
+.mytask-body-bot {
   padding: 10px;
 }
 
-.project-footer-div a {
+.mytask-footer-div a {
   color: #00255d;
   text-decoration: none;
   font-size: 14px;
