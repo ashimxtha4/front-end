@@ -1,9 +1,13 @@
-import React from 'react'
+import React from "react";
+import ProjectComponent from "../Components/ProjectComponent";
+import DashboardHome from "./DashboardHome";
 
 const DashBoard = () => {
   return (
-    <div>Dashboard</div>
-  )
-}
+    <>    
+      <DashboardHome />
+    </>
+  );
+};
 
-export default DashBoard
+export default DashBoard;
