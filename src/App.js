@@ -8,9 +8,7 @@ const App = ()=> {
   return (
     <>
     <BrowserRouter>
-    <SideBar>
         <MyRoutes />
-    </SideBar>
     </BrowserRouter>
     </>
   );
