@@ -1,0 +1,35 @@
+.notice-details-main-div {
+  margin-bottom: 10px;
+  padding: 4px;
+  border-radius: 4px;
+  align-items: center;
+  background-color: #eaefff;
+  padding-left: 16px;
+}
+
+.notice-details-top-div {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 4px;
+}
+
+.notice-details-date-div {
+  padding-right: 16px;
+}
+
+.notice-details-bot-div {
+  padding-top: 4px;
+}
+
+.notice-details-title-div h3 {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 100;
+}
+
+.notice-details-bot-div span {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 100;
+  color: #646464;
+}

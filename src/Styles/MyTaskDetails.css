@@ -1,0 +1,49 @@
+.mytask-details-main-div {
+  margin-top: 10px;
+  padding: 10px;
+  position: relative;
+  background-color: #eaefff;
+  border-radius: 4px;
+  display: flex;
+}
+
+.mytask-details-title-div h3 {
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
+.myprojects-details-progress-div {
+  position: absolute;
+  right: 0;
+  top: 30%;
+  padding-right: 10px;
+}
+
+.myprojects-details-assigned-div {
+  margin-top: 10px;
+}
+
+.myprojects-details-assigned-div img {
+  padding-right: 6px;
+}
+
+.mytask-details-icon-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mytask-details-right-div {
+  margin-left: 14px;
+}
+
+.mytask-details-date-div span {
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+}
+
+.mytask-details-icon-div {
+  font-size: 8px;
+  color: #568EF8;
+}

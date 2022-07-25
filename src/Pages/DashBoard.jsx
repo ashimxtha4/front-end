@@ -1,6 +1,7 @@
 import React from 'react'
 import SideBar from '../Components/SideBar'
 import './Tempelate.css'
+import DashboardHome from "./DashboardHome";
 
 
 const DashBoard = () => {
@@ -11,7 +12,7 @@ const DashBoard = () => {
         <SideBar />
       </div>
       <div className='content-div'>
-        DashBoard
+        <DashboardHome />
       </div>
     </div>
     </>
@@ -19,4 +20,4 @@ const DashBoard = () => {
   )
 }
 
-export default DashBoard
+export default DashBoard;

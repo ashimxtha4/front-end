@@ -1,18 +1,9 @@
-import React from 'react'
-import SideBar from '../Components/SideBar'
-import './Tempelate.css'
+import React from "react";
 import "../Styles/Profile.css";
 import profilepicmd from "../Images/profilepicmedium.png"
 
-
 const Profile = () => {
   return (
-    <>
-    <div className='tempelate-div'>
-    <div className='side-div'>
-      <SideBar />
-    </div>
-    <div className='content-div'>
     <div className="profile-main-div">
       <div className="profile-card-div">
         <div className="profile-card-top-div">
@@ -56,11 +47,7 @@ const Profile = () => {
         </div>
       </div>
     </div>
-    </div>
-    </div>
-    </>
-    
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;

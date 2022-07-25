@@ -1,0 +1,99 @@
+label {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  color: #757575;
+}
+
+input {
+  width: 280px;
+  margin-bottom: 20px;
+  height: 36px;
+  border-radius: 6px;
+  border: 1px solid gray;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  padding-left: 10px;
+}
+
+input:focus{
+  outline: none !important;
+  border-color: #1F4583;
+  box-shadow: 0 0 4px #719ECE;
+}
+
+.profile-main-div {
+  background-color: #eaefff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.profile-card-div {
+  background-color: white;
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin: 20px;
+  padding: 40px 24px;
+}
+
+.profile-card-mid-form {
+  display: flex;
+  padding: 14px 0px;
+  margin-top: 40px;
+}
+
+.profile-mid-right-div {
+  margin-left: 40px;
+}
+
+.profile-top-img .pofile-img{
+  width: 124px;
+  max-width: 124px;
+  height: 124px;
+  max-height: 124px;
+}
+
+/* Button styling */
+.bot-cancel-btn{
+  margin-left: 20px;
+  padding: 10px 20px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #1F4583;
+  background-color: transparent;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+
+.bot-cancel-btn:hover{
+  transition-duration: 0.2s;
+  border: 1px solid #1F4583;
+  color: white;
+  background-color: #1F4583;
+  cursor: pointer;
+}
+
+.bot-save-btn{
+  padding: 10px 20px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: #1F4583;
+  color: white;
+  border: 1px solid #1F4583;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+
+.bot-save-btn:hover{
+  transition-duration: 0.2s;
+  border: 1px solid #081f46;
+  background-color: #081f46;
+  cursor: pointer;
+}
+
