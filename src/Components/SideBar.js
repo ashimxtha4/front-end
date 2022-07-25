@@ -45,7 +45,7 @@ const SideBar=()=> {
     <>
         
         <div className='main-container'>
-            <motion.div animate={{width: isOpen ? "247px" : "45px"}} className="sidebar">
+            <motion.div animate={{width: isOpen ? "15vw" : "45px"}} className="sidebar">
               <div className='top-section'>
                 <div className='manage-bars'>
                 {isOpen && <div className='heading'>

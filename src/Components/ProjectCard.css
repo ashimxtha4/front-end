@@ -1,0 +1,38 @@
+.projectcard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 0px;
+    gap: 16px;
+    width: 280px;
+    height: 210px;
+    background-color: #F6F9FF;
+    /* shadow */
+    box-shadow: 0px 4px 10px rgba(31, 69, 131, 0.25);
+    border-radius: 6px;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    /* border: solid black 1px; */
+}
+
+.projectcard-in{
+    
+    border: solid 1px;
+    width: 95%;
+}
+
+.inprogress-div {
+    display: flex;
+}
+
+.blue-link {
+    text-decoration: none;
+}
+
+
+.members {
+
+    width: 95%;
+}
