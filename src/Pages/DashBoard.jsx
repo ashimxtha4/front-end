@@ -7,12 +7,12 @@ const DashBoard = () => {
   return (
     <>
     <div className='tempelate-div'>
-    <div className='side-div'>
-      <SideBar />
-    </div>
-    <div className='content-div'>
-      DashBoard
-    </div>
+      <div className='side-div'>
+        <SideBar />
+      </div>
+      <div className='content-div'>
+        DashBoard
+      </div>
     </div>
     </>
     
