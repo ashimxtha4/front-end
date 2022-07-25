@@ -56,6 +56,11 @@
   font-size: 14px;
 }
 
+.members-footer-div a:hover {
+  color: #01204e;
+  font-weight: 500;
+}
+
 /* .members-details-main-div {
   display: flex;
 }

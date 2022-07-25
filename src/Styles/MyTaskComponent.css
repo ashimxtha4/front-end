@@ -73,3 +73,8 @@
   text-decoration: none;
   font-size: 14px;
 }
+
+.mytask-footer-div a:hover {
+  color: #01204e;
+  font-weight: 500;
+}
