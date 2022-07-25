@@ -1,5 +1,5 @@
 import React from "react";
-import profilepicsmall1 from "../Images/profilepicsmall1.png";
+
 import "../Styles/TeamMemberDetails.css";
 
 const TeamMemberDetails = (props) => {

@@ -4,7 +4,7 @@ import Ellipse14 from "../Images/Ellipse14.svg"
 import {motion} from "framer-motion";
 import {BsFileEarmarkText,BsClipboardCheck,BsPerson} from 'react-icons/bs';
 import {FaBars} from 'react-icons/fa'
-import {NavLink} from 'react-router-dom';
+import {NavLink,Link} from 'react-router-dom';
 import {MdOutlineDashboard} from 'react-icons/md';
 import {TbLogout} from 'react-icons/tb';
 
@@ -28,11 +28,6 @@ const routes = [
     path:"/profile",
     name:"Profile",
     icon: <BsPerson />
-  },
-  {
-    path:"/",
-    name:"Log Out",
-    icon: <TbLogout />
   }
 ]
 
@@ -75,10 +70,17 @@ const SideBar=()=> {
                     <div className='icons'>{route.icon}</div>
                     {isOpen && <div className='link_text'>{route.name}</div>}
                   </div>   
-                  </NavLink>
-                  
+                  </NavLink>                  
                 ))}
               </section>    
+              <div className='logout'>
+                    <Link exact to='/' className='list'>
+                    <div className='span'>
+                    <div className='icons'>{<TbLogout />}</div>
+                    {isOpen && <div className='link_text'>Log Out</div>}
+                  </div>
+                    </Link>
+              </div>
             </motion.div>
         </div>
       </>
