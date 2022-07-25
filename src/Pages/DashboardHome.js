@@ -13,8 +13,8 @@ const DashboardHome = () => {
         <h2>Welcome, User</h2>
       </div>
       <div class="body-card-div-1">
-        <MyTaskComponent cardtitle="My Tasks" cardtabtitle1="Ok" cardtabtitle2="Nice"/>
-        <ProjectComponent cardtitle="My Projects" cardtabtitle1="Overall" cardtabtitle2="Currently"/>
+        <MyTaskComponent cardtitle="My Tasks" cardtabtitle1="Overall (4)" cardtabtitle2="To-do (2)"/>
+        <ProjectComponent cardtitle="My Projects" cardtabtitle1="Overall (3)" cardtabtitle2="Currently (1)"/>
         <TeamMemberComponent cardtitle="Team Members" membername="Nice Name" memberposition="UI/UX Designer"/>
       </div>
       <div class="body-card-div-2">
