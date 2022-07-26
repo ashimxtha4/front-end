@@ -82,6 +82,7 @@
 .bottom-div {
     position: relative;
     top: 15%;
+    height: 38%;
     /* border: solid; */
     display: flex;
     flex-wrap: wrap;

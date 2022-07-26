@@ -1,5 +1,7 @@
 import React from 'react'
 import './ProjectCard.css'
+import progressgoing from '../Images/progressgoing.png'
+import Group1 from '../Images/Group1.svg'
 
 const ProjectComponent = () => {
   return (
@@ -9,17 +11,17 @@ const ProjectComponent = () => {
               Project Name
             </h2>
             <div className='inprogress-div'>
-              <img src='' alt='circle'/>
+              <img src={progressgoing} alt='circle'/>
               <p>In Progress</p>
             </div>
-            <p>PM Name</p>
+            <p className='pm'>PM Name</p>
         </div>
 
         
         <div className='members'>
-          <p className=''>Members</p>
-          <img src='' alt='image'/>
-            <div className=''></div>
+          <p className='members-p'>Members</p>
+          
+            <div className='image-div'><img src={Group1} alt='image'/></div>
         </div>
 
 
