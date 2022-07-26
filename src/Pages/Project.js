@@ -3,11 +3,19 @@ import SideBar from '../Components/SideBar'
 import './Tempelate.css'
 import {BsSearch} from 'react-icons/bs';
 import ProjectCard from '../Components/ProjectCard';
+import PopupComponent from '../Components/PopupComponent';
 
 const Project = () => {
+  const toggle=()=>{
+    var blur = document.getElementById('blur');
+    blur.classList.toggle('up');
+    var popup = document.getElementById('popup');
+    popup.classList.toggle('up');
+  }
   return (
     <>
-    <div className='tempelate-div'>
+    <PopupComponent onClick={toggle} />
+    <div className='tempelate-div' id='blur'>
       <div className='side-div'>
         <SideBar />
       </div>
@@ -26,9 +34,9 @@ const Project = () => {
 
 
         <div className='bottom-div'>
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
+          <ProjectCard onClick={toggle} />
+          <ProjectCard onClick={toggle} />
+          <ProjectCard onClick={toggle} />
         </div>
         
       </div>

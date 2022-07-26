@@ -3,7 +3,7 @@ import './ProjectCard.css'
 import progressgoing from '../Images/progressgoing.png'
 import Group1 from '../Images/Group1.svg'
 
-const ProjectComponent = () => {
+const ProjectComponent = (props) => {
   return (
     <div className='projectcard'>
         <div className='projectcard-in'>
@@ -26,7 +26,7 @@ const ProjectComponent = () => {
 
 
         <div className='bottom-view'>
-          <a href='#' className='blue-link'>View</a>
+          <a href='#' className='blue-link' onClick={props.onClick}>View</a>
         </div>
 
     </div>

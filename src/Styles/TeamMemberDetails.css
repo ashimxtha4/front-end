@@ -1,5 +1,6 @@
 .members-details-main-div {
   display: flex;
+  width: 98%;
 }
 
 .members-details-assigned-div {
@@ -11,6 +12,7 @@
   width: 82%;
   font-family: "Roboto", sans-serif;
   font-size: 14px;
+  margin-left: 5%;
 }
 
 .members-details-name-div h3 {

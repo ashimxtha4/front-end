@@ -33,6 +33,7 @@ const routes = [
 
 const SideBar=()=> {
   const [isOpen,setIsOpen] = useState(true) ;
+
   const toggle = () =>{
     setIsOpen(!isOpen);
   }
@@ -81,7 +82,7 @@ const SideBar=()=> {
                   </div>
                     </Link>
               </div>
-            </motion.div>
+            </motion.div> 
         </div>
       </>
   )
