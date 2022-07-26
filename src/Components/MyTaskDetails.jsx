@@ -5,8 +5,14 @@ import "../Styles/MyTaskDetails.css";
 const MyTaskDetails = (props) => {
   return (
     <div className="mytask-details-main-div">
-      <div className="mytask-details-icon-div">
-        <BsFillCircleFill />
+      <div className="mytask-details-icon-div" id="icon-div">
+        {props.status === "complete" ? (
+          <BsFillCircleFill style={{ color: "green" }} />
+        ) : props.status === "inprogress" ? (
+          <BsFillCircleFill style={{ color: "orange" }} />
+        ) : (
+          <BsFillCircleFill style={{ color: "gray" }} />
+        )}
       </div>
       <div className="mytask-details-right-div">
         <div className="mytask-details-title-div">

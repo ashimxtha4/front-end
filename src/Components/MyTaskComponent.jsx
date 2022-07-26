@@ -1,19 +1,23 @@
 import React, { useState } from "react";
 import MyTaskDetails from "./MyTaskDetails";
 import "../Styles/MyTaskComponent.css";
+import {Link} from "react-router-dom"
 
 const taskArrayOverall = [
   {
     title: "Ov Title 1",
     date: "2022-01-01",
+    status:"complete"
   },
   {
     title: "Ov Title 2",
     date: "2022-01-02",
+    status:"complete"
   },
   {
     title: "Ov Title 3",
     date: "2022-01-03",
+    status:"complete"
   },
 ];
 
@@ -21,19 +25,23 @@ const taskArrayOwn = [
   {
     title: "Own Title 1",
     date: "2022-01-01",
+    status:"assigned"
   },
   {
     title: "Own Title 2",
     date: "2022-01-02",
+    status:"complete"
   },
   {
     title: "Own Title 3",
     date: "2022-01-03",
+    status:"complete"
   },
 ];
 
 const MyTaskComponent = (props) => {
   const [cardStatus, setState] = useState("overall");
+  
 
   const changeOverAll = () => {
     setState("overall");
@@ -63,6 +71,7 @@ const MyTaskComponent = (props) => {
                     <MyTaskDetails
                       tasktitle={item.title}
                       taskdate={item.date}
+                      status= {item.status}
                     />
                   );
               })
@@ -73,13 +82,14 @@ const MyTaskComponent = (props) => {
                     <MyTaskDetails
                       tasktitle={item.title}
                       taskdate={item.date}
+                      status= {item.status}
                     />
                   );
               })}
         </div>
 
         <div className="mytask-footer-div">
-          <a href="#">See more</a>
+          <Link exact to = '/task'>See more</Link>
         </div>
       </div>
     </div>

@@ -1,24 +1,42 @@
-import React from 'react'
-import "../Styles/ProjectTaskDetails.css"
-import profilepicsmall from "../Images/profilepicsmall.png"
-import improgressimg from "../Images/progressgoing.png"
+import React from "react";
+import "../Styles/ProjectTaskDetails.css";
+import profilepicsmall from "../Images/profilepicsmall.png";
+import { BsFillCircleFill } from "react-icons/bs";
 
-const Projectprojectsprojects = () => {
+const Projectprojectsprojects = (props) => {
   return (
-    <div className='projects-details-main-div'>
-        <div className='projects-details-title-div'>
-          <h3>Projects Management System</h3>
+    <div className="projects-details-main-div">
+      <div className="projects-details-title-div">
+        <h3>{props.projecttitle}</h3>
+      </div>
+      <div className="projects-details-assigned-div">
+        <img src={profilepicsmall} alt="profilepic" />
+        <img src={profilepicsmall} alt="profilepic" />
+        <img src={profilepicsmall} alt="profilepic" />
+      </div>
+      <div className="projects-details-progress-div">
+        <div className="projects-details-icon">
+          {props.projectstatus === "complete" ? (
+            <BsFillCircleFill style={{ color: "green" }} />
+          ) : props.projectstatus === "inprogress" ? (
+            <BsFillCircleFill style={{ color: "orange" }} />
+          ) : (
+            <BsFillCircleFill style={{ color: "gray" }} />
+          )}
         </div>
-        <div className='projects-details-assigned-div'>
-          <img src={profilepicsmall} alt="profilepic" />
-          <img src={profilepicsmall} alt="profilepic" />
-          <img src={profilepicsmall} alt="profilepic" />
+        <div className="projects-details-name">
+          {/* <h3>{props.projectstatus}</h3> */}
+          {props.projectstatus === "inprogress" ? (
+            <h3 style={{ color: "orange" }}>In Progress</h3>
+          ) : props.projectstatus === "complete" ? (
+            <h3 style={{ color: "green" }}>Completed</h3>
+          ) : (
+            <h3 style={{ color: "gray" }}>Assigned</h3>
+          )}
         </div>
-        <div className='projects-details-progress-div'>
-            <img src={improgressimg} alt="" />
-        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Projectprojectsprojects
+export default Projectprojectsprojects;

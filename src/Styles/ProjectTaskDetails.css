@@ -6,7 +6,7 @@
   border-radius: 4px;
 }
 
-.projects-details-title-div h3 {
+h3 {
   font-size: 14px;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
@@ -17,6 +17,7 @@
   right: 0;
   top: 30%;
   padding-right: 10px;
+  display: flex;
 }
 
 .projects-details-assigned-div {
@@ -25,4 +26,15 @@
 
 .projects-details-assigned-div img {
   padding-right: 6px;
+}
+
+.projects-details-name{
+  margin-left: 6px;
+}
+
+.projects-details-icon{
+  font-size: 10px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
