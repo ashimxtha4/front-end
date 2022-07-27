@@ -54,9 +54,10 @@
 }
 
 .mytask-footer-div {
-
+  position: absolute;
   width: 100%;
   text-align: center;
+  bottom: 0%;
   padding-bottom: 0px;
 }
 
