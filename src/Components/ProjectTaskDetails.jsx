@@ -18,10 +18,8 @@ const Projectprojectsprojects = (props) => {
         <div className="projects-details-icon">
           {props.projectstatus === "complete" ? (
             <BsFillCircleFill style={{ color: "green" }} />
-          ) : props.projectstatus === "inprogress" ? (
-            <BsFillCircleFill style={{ color: "orange" }} />
           ) : (
-            <BsFillCircleFill style={{ color: "gray" }} />
+            <BsFillCircleFill style={{ color: "orange" }} />
           )}
         </div>
         <div className="projects-details-name">

@@ -22,7 +22,7 @@ const projectArrayOverall = [
 const projectCurrently = [
   {
     title: "Project 4",
-    status: "assigned",
+    status: "complete",
   },
   {
     title: "Project 5",
