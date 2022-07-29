@@ -6,13 +6,13 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0; 
 }
 
-label {
+label, option, select {
   font-family: "Roboto", sans-serif;
   font-size: 20px;
   color: #757575;
 }
 
-input {
+input, option, select {
   width: 280px;
   margin-bottom: 20px;
   height: 36px;
@@ -66,6 +66,85 @@ input:focus{
 }
 
 /* Button styling */
+.bot-cancel-btn-act{
+  margin-left: 20px;
+  padding: 10px 20px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 1px solid #1F4583;
+  background-color: transparent;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+
+.bot-cancel-btn-act:hover{
+  transition-duration: 0.2s;
+  border: 1px solid #1F4583;
+  color: white;
+  background-color: #1F4583;
+  cursor: pointer;
+}
+
+.bot-save-btn-act{
+  padding: 10px 20px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: #1F4583;
+  color: white;
+  border: 1px solid #1F4583;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+
+.bot-save-btn-act:hover{
+  transition-duration: 0.2s;
+  border: 1px solid #081f46;
+  background-color: #081f46;
+  cursor: pointer;
+}
+
+.profile-card-top-div{
+  display: flex;
+}
+
+.profile-top-text{
+  margin-left: 30px;
+  display: flex;
+  flex-direction: column; 
+  justify-content: space-between;
+}
+
+.profile-top-text-btn-change{
+  padding-top: 30px;
+  color: #002093;
+}
+
+.profile-top-text-btn-change button{
+  color: #002093;
+}
+
+.profile-top-text-btn-remove button{
+  color: #646464;
+}
+
+.profile-top-text-btn-remove{
+  padding-bottom: 30px;
+}
+
+.profile-top-text button{
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.profile-top-text button:hover{
+  text-decoration: underline;
+}
+
 .bot-cancel-btn{
   margin-left: 20px;
   padding: 10px 20px;
@@ -78,30 +157,28 @@ input:focus{
   transition-duration: 0.2s;
 }
 
-.bot-cancel-btn:hover{
-  transition-duration: 0.2s;
-  border: 1px solid #1F4583;
-  color: white;
-  background-color: #1F4583;
-  cursor: pointer;
-}
-
-.bot-save-btn{
+/* Button inactive state. */
+.bot-cancel-btn-inact{
+  margin-left: 20px;
   padding: 10px 20px;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   border-radius: 10px;
-  background-color: #1F4583;
+  border: 1px solid #BFBFBF;
+  background-color: transparent;
+  cursor: pointer;
+  color: #BFBFBF;
+  transition-duration: 0.2s;
+}
+
+.bot-save-btn-inact{
+  padding: 10px 20px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  border-radius: 10px;
+  background-color: #646464;
   color: white;
-  border: 1px solid #1F4583;
+  border: 1px solid #646464;
   cursor: pointer;
   transition-duration: 0.2s;
 }
-
-.bot-save-btn:hover{
-  transition-duration: 0.2s;
-  border: 1px solid #081f46;
-  background-color: #081f46;
-  cursor: pointer;
-}
-
