@@ -1,21 +1,34 @@
-import React from 'react'
+import React,{useState} from 'react'
 import SideBar from '../Components/SideBar'
 import './Tempelate.css'
 import {BsSearch} from 'react-icons/bs';
 import ProjectCard from '../Components/ProjectCard';
+import PopupComponent from '../Components/PopupComponent';
 
-const Task = () => {
+const Project = () => {
+  const [status,setStatus]=useState("To-Do")
+
+
+
+  const toggle=()=>{
+    var blur = document.getElementById('blur');
+    blur.classList.toggle('up');
+    var popup = document.getElementById('popup');
+    popup.classList.toggle('up');
+  }
   return (
     <>
-    <div className='tempelate-div'>
+    <PopupComponent onClick={toggle} />
+    <div className='tempelate-div' id='blur'>
       <div className='side-div'>
         <SideBar />
       </div>
       <div className='content-div'>
         <div className='selection-div'>
             <div className='button-div'>
-              <span><button className='selection-button'>Overall</button></span>
-              <span><button className='selection-button'>Currently</button></span>
+              <span><button className='selection-button' onClick={()=>{setStatus("todo")}}>To-Do</button></span>
+              <span><button className='selection-button'onClick={()=>{setStatus("inprogress")}}>In Progress</button></span>
+              <span><button className='selection-button'onClick={()=>{setStatus("completed")}}>Completed</button></span>
             </div>
           <from className='selection-div-form'>
             <input type="text" className='search' placeholder='search' />
@@ -26,9 +39,9 @@ const Task = () => {
 
 
         <div className='bottom-div'>
-          <ProjectCard />
-          <ProjectCard />
-          <ProjectCard />
+          <ProjectCard onClick={toggle} />
+          <ProjectCard onClick={toggle} />
+          <ProjectCard onClick={toggle} />
         </div>
         
       </div>
@@ -37,4 +50,4 @@ const Task = () => {
   )
 }
 
-export default Task
+export default Project
