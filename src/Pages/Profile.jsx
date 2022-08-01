@@ -128,7 +128,7 @@ const Profile = () => {
                     <br></br>
                     <input
                       type="text"
-                      name="lastName"
+                      placeholder={userData[0].lastName}
                       onKeyDown={() => {
                         setformChange(true);
                         formChange();
@@ -138,7 +138,7 @@ const Profile = () => {
                   <div className="profile-mid-input-div">
                     <label for="password">Password</label>
                     <br></br>
-                    <input type="password" name="password"></input>
+                    <input type="password"></input>
                   </div>
                   <div className="profile-mid-input-div">
                     <label for="designation">Designation</label>
