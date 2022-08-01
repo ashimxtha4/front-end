@@ -1,18 +1,22 @@
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0; 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
 }
 
-label, option, select {
+label,
+option,
+select {
   font-family: "Roboto", sans-serif;
   font-size: 20px;
   color: #757575;
 }
 
-input, option, select {
+input,
+option,
+select {
   width: 280px;
   margin-bottom: 20px;
   height: 36px;
@@ -23,10 +27,12 @@ input, option, select {
   padding-left: 10px;
 }
 
-input:focus{
+input:focus,
+option:focus,
+select:focus {
   outline: none !important;
-  border-color: #1F4583;
-  box-shadow: 0 0 4px #719ECE;
+  border-color: #1f4583;
+  box-shadow: 0 0 4px #719ece;
 }
 
 .profile-main-div {
@@ -58,7 +64,7 @@ input:focus{
   margin-left: 40px;
 }
 
-.profile-top-img .pofile-img{
+.profile-top-img .pofile-img {
   width: 124px;
   max-width: 124px;
   height: 124px;
@@ -66,74 +72,74 @@ input:focus{
 }
 
 /* Button styling */
-.bot-cancel-btn-act{
+.bot-cancel-btn-act {
   margin-left: 20px;
   padding: 10px 20px;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   border-radius: 10px;
-  border: 1px solid #1F4583;
+  border: 1px solid #1f4583;
   background-color: transparent;
   cursor: pointer;
   transition-duration: 0.2s;
 }
 
-.bot-cancel-btn-act:hover{
+.bot-cancel-btn-act:hover {
   transition-duration: 0.2s;
-  border: 1px solid #1F4583;
+  border: 1px solid #1f4583;
   color: white;
-  background-color: #1F4583;
+  background-color: #1f4583;
   cursor: pointer;
 }
 
-.bot-save-btn-act{
+.bot-save-btn-act {
   padding: 10px 20px;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   border-radius: 10px;
-  background-color: #1F4583;
+  background-color: #1f4583;
   color: white;
-  border: 1px solid #1F4583;
+  border: 1px solid #1f4583;
   cursor: pointer;
   transition-duration: 0.2s;
 }
 
-.bot-save-btn-act:hover{
+.bot-save-btn-act:hover {
   transition-duration: 0.2s;
   border: 1px solid #081f46;
   background-color: #081f46;
   cursor: pointer;
 }
 
-.profile-card-top-div{
+.profile-card-top-div {
   display: flex;
 }
 
-.profile-top-text{
+.profile-top-text {
   margin-left: 30px;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   justify-content: space-between;
 }
 
-.profile-top-text-btn-change{
+.profile-top-text-btn-change {
   padding-top: 30px;
   color: #002093;
 }
 
-.profile-top-text-btn-change button{
+.profile-top-text-btn-change button {
   color: #002093;
 }
 
-.profile-top-text-btn-remove button{
+.profile-top-text-btn-remove button {
   color: #646464;
 }
 
-.profile-top-text-btn-remove{
+.profile-top-text-btn-remove {
   padding-bottom: 30px;
 }
 
-.profile-top-text button{
+.profile-top-text button {
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   border: none;
@@ -141,37 +147,37 @@ input:focus{
   cursor: pointer;
 }
 
-.profile-top-text button:hover{
+.profile-top-text button:hover {
   text-decoration: underline;
 }
 
-.bot-cancel-btn{
+.bot-cancel-btn {
   margin-left: 20px;
   padding: 10px 20px;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   border-radius: 10px;
-  border: 1px solid #1F4583;
+  border: 1px solid #1f4583;
   background-color: transparent;
   cursor: pointer;
   transition-duration: 0.2s;
 }
 
 /* Button inactive state. */
-.bot-cancel-btn-inact{
+.bot-cancel-btn-inact {
   margin-left: 20px;
   padding: 10px 20px;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   border-radius: 10px;
-  border: 1px solid #BFBFBF;
+  border: 1px solid #bfbfbf;
   background-color: transparent;
   cursor: pointer;
-  color: #BFBFBF;
+  color: #bfbfbf;
   transition-duration: 0.2s;
 }
 
-.bot-save-btn-inact{
+.bot-save-btn-inact {
   padding: 10px 20px;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
