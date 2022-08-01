@@ -5,7 +5,6 @@ import Vector2 from '../Images/Vector1.svg'
 import { Link,useNavigate  } from 'react-router-dom';
 import { useDispatch,useSelector } from 'react-redux';
 import LogInAction from '../redux/actions/LogInAction';
-import GetAllUserAction from '../redux/actions/GetAllUserAction';
 
 
 const LogIn = () => {
@@ -18,15 +17,20 @@ const LogIn = () => {
 
   const Verify=() =>{
     try{
-      const abc={email:email,password:pwd}
-      console.log(abc)
-      dispatch(LogInAction(abc)); 
-      console.log(loginState,"user asdasdasd sa")
-      // navigate("/dashboard")
+      const credentials={email:email,password:pwd}
+      console.log(credentials)
+      dispatch(LogInAction(credentials)); 
+      console.log(loginState.user,"user asdasdasd sa")
+      if(loginState.user)
+      {
+        navigate("/dashboard")
+      }
+      
     }catch(err){
     console.log(err)
     }   
   }
+ 
   return (
     <>
     <div className='image-div'>
@@ -39,7 +43,7 @@ const LogIn = () => {
             </h1>
             <form className='login-form'>
                 <input type="text" className='input' placeholder='Username/Email' value={email} onChange={(e)=>setEmail(e.target.value)} required />
-                <input type="password" className='input' value={pwd} onChange={(e)=>setPwd(e.target.value)} placeholder='Password' />
+                <input type="password" className='input' value={pwd} onChange={(e)=>setPwd(e.target.value)} placeholder='Password' required/ >
                 <a className='forget-pass' href='ForgerPassword.js'>Forget your password ?</a>
                 <button type='button' value="" className='button' onClick={Verify} >Log-In</button> 
             </form>

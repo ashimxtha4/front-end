@@ -7,6 +7,7 @@ import {FaBars} from 'react-icons/fa'
 import {NavLink,Link} from 'react-router-dom';
 import {MdOutlineDashboard} from 'react-icons/md';
 import {TbLogout} from 'react-icons/tb';
+import { useSelector } from 'react-redux';
 
 const routes = [
   {
@@ -31,8 +32,10 @@ const routes = [
   }
 ]
 
-const SideBar=()=> {
+const SideBar=(props)=> {
   const [isOpen,setIsOpen] = useState(true) ;
+  const {loginState} = useSelector(state => state.logIn);
+  const user=loginState.user;
 
   const toggle = () =>{
     setIsOpen(!isOpen);
@@ -56,8 +59,8 @@ const SideBar=()=> {
                 </div>
                 {isOpen && <div className='profile'>
                     <img src= {Ellipse14} alt="profile_image" />
-                    <h3>NAME</h3>
-                    <p>DESIGNATION</p>
+                    <h3>{user.firstName}</h3>
+                    <p>{user.designation}</p>
                   </div> }
                   
               </div>

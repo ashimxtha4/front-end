@@ -3,9 +3,16 @@ import './Form.css';
 import Vector1 from '../Images/Vector2.svg'
 import Vector2 from '../Images/Vector1.svg'
 import { Link,useNavigate  } from 'react-router-dom';
+import { useDispatch,useSelector } from 'react-redux';
+import SingUpAction from '../redux/actions/SignUpAction';
 
 function SignUp() {
   const navigate=useNavigate();
+  const dispatch=useDispatch()
+  const {signUpState} = useSelector(state => state.signUp);
+  const register = ()=>{
+    const credentials ={}
+  }
   return (
     <>
     <div className='image-div'>
@@ -31,7 +38,7 @@ function SignUp() {
                       <option value="Finance" />
                     </datalist>
 
-                <input type="submit" name="Log-In" value="Sign-Up" className='button' onClick={()=>{navigate("/")}} />    
+                <input type="submit" name="Log-In" value="Sign-Up" className='button' onClick={register} />    
             </form>
             <p>Already a User  <Link exact to="/">Log In</Link></p>
         </div>
