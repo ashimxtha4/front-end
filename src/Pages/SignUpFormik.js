@@ -54,18 +54,20 @@ function SignUp() {
         >
           {({ errors, touched, handleChange, handleSubmit }) => (
             <form className="signup-form">
-              <input
-                type="text"
-                className="input"
-                placeholder="First Name"
-                name="firstName"
-                onChange={handleChange("firstName")}
-              />
-              {errors.firstName && touched.firstName ? (
-                <div className="form-firstName-error-div">
-                  {errors.firstName}
-                </div>
-              ) : null}
+              <div className="form-email-div">
+                <input
+                  type="text"
+                  className="input"
+                  placeholder="First Name"
+                  name="firstName"
+                  onChange={handleChange("firstName")}
+                />
+                {errors.firstName && touched.firstName ? (
+                  <div className="form-firstName-error-div">
+                    {errors.firstName}
+                  </div>
+                ) : null}
+              </div>
               <input
                 type="text"
                 className="input"
