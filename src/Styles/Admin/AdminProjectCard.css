@@ -1,0 +1,39 @@
+.admin-project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 20px;
+  position: relative;
+  top: 5%;
+  height: 30%;
+  width: 30%;
+  border: 1px solid red;
+}
+
+.card-status-div {
+  padding-top: 6px;
+  padding-left: 10px;
+}
+
+.card-title-div {
+  padding-left: 10px;
+}
+
+.card-title-div p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.card-members-div {
+  padding-left: 10px;
+}
+
+.image-div {
+  margin-top: 10px;
+}
+
+.card-bot-div {
+  text-align: center;
+  width: 100%;
+  border: 1px solid blue;
+}

@@ -1,0 +1,71 @@
+.admin-project-main-div {
+  width: 100%;
+}
+
+.admin-project-top-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 20px;
+  border: 1px solid red;
+}
+
+.admin-project-body-div {
+  /* position: relative;
+  top: 5%;
+  height: 30%;
+  width: 30%;
+  border: 1px solid red;
+  margin-left: 26px; */
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.top-btn {
+  border: none;
+  padding: 10px 20px;
+  background-color: red;
+}
+
+.admin-project-mid-div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 1.4rem;
+}
+
+.mid-btn {
+  border: none;
+  padding: 10px 20px;
+  background-color: red;
+}
+
+.mid-input-div {
+  border: 1px solid black;
+  padding: 0;
+  margin: 0;
+  width: 20%;
+}
+
+.mid-input-div input {
+  margin: 0;
+  width: 100%;
+}
+
+.mid-btn-div button {
+  padding-right: 20px;
+  color: #1f4583;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin-right: 20px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.mid-btn-div button:hover {
+  text-decoration: underline;
+}
