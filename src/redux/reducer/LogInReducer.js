@@ -1,9 +1,8 @@
 import { LOG_IN } from "../container/constant";
 
-const initState={
-    loginState:{}
-
-}
+const initState = {
+  loginState: {},
+};
 
 export default (state = initState, action)=>{
     var {type , payload}= action;

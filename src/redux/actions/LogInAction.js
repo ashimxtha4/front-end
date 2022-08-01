@@ -1,5 +1,5 @@
 import axios from "axios";
-import { LOG_IN } from '../container/constant';
+import { LOG_IN } from "../container/constant";
 
 const LogInAction = (credentials)=>async(dispatch) => {
 
