@@ -1,49 +1,181 @@
-import React from 'react'
-import './Form.css';
-import Vector1 from '../Images/Vector2.svg'
-import Vector2 from '../Images/Vector1.svg'
-import { Link,useNavigate  } from 'react-router-dom';
-import { useDispatch,useSelector } from 'react-redux';
-import SingUpAction from '../redux/actions/SignUpAction';
+import React from "react";
+import "./Form.css";
+import Vector1 from "../Images/Vector2.svg";
+import Vector2 from "../Images/Vector1.svg";
+import { Link, useNavigate } from "react-router-dom";
+import { Formik } from "formik";
+import * as Yup from "yup";
+
+const SignUpSchema = Yup.object().shape({
+  firstName: Yup.string().required("First name chaincha"),
+  lastName: Yup.string().required("Last name khai?"),
+  email: Yup.string()
+    .email("Ramro email halna paryo sir")
+    .required("Email chaincha hau"),
+  password: Yup.string().required("Password halnu paryo"), // .min(8, "Too short.").matches(/[a-zA-Z]/, "Password can only contain Latin letters."),
+  confirmPassword: Yup.string()
+    .required("Password pheri rakha la")
+    .when("password", {
+      is: (val) => (val && val.length > 0 ? true : false),
+      then: Yup.string().oneOf([Yup.ref("password")], "Password mileko chaina"),
+    }),
+  userName: Yup.string().required("Username pani chaincha"),
+  designation: Yup.string().required("Euta designation choose garnuhos"),
+  phoneNumber: Yup.string().required("Phone number k ho?"),
+});
 
 function SignUp() {
-  const navigate=useNavigate();
-  const dispatch=useDispatch()
-  const {signUpState} = useSelector(state => state.signUp);
-  const register = ()=>{
-    const credentials ={}
-  }
+  const navigate = useNavigate();
+
+  const handleFormSubmit = (values) => {
+    try {
+      console.log(values, "yo signup values ho");
+      // const abc = { email: values.email, password: values.password };
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <>
-    <div className='image-div'>
-      <img src={Vector1} alt='effect' className='back-image'/>
-      <img src={Vector2} alt='effect' className='front-image'/>
-    </div>
-    <div className='main-div'>
-            <h1 className='form-heading'>
-                Welcome to Asterdio
-            </h1>
-            <form className='signup-form'>
-                <input type="text" className='input' placeholder='First Name' />
-                <input type="text" className='input' placeholder='Last Name' />
-                <input type="text" className='input' placeholder='Email' />
-                <input type="password" className='input' placeholder='Password' />
-                <input type="text" className='input' placeholder='Phone Number' />
-                <input list="browsers" name="browser" id="designatio" className='input' placeholder='Designation' />
-                    <datalist id="browsers">
-                      <option value="Front-End Developer" />
-                      <option value="Back-End Developer" />
-                      <option value="QA Engineer" />
-                      <option value="Designer" />
-                      <option value="Finance" />
-                    </datalist>
+      <div className="image-div">
+        <img src={Vector1} alt="effect" className="back-image" />
+        <img src={Vector2} alt="effect" className="front-image" />
+      </div>
+      <div className="main-div">
+        <h1 className="form-heading">Welcome to Asterdio</h1>
+        <Formik
+          initialValues={{
+            firstName: "",
+            lastName: "",
+            email: "",
+            password: "",
+            confirmPassword: "",
+            userName: "",
+            designation: "",
+          }}
+          validationSchema={SignUpSchema}
+          onSubmit={handleFormSubmit}
+        >
+          {({ errors, touched, handleChange, handleSubmit }) => (
+            <form className="signup-form">
+              <div className="signup-input-div">
+                <input
+                  type="text"
+                  className="input"
+                  placeholder="First Name"
+                  name="firstName"
+                  onChange={handleChange("firstName")}
+                />
+                {errors.firstName && touched.firstName ? (
+                  <div className="signup-error-div">{errors.firstName}</div>
+                ) : null}
+              </div>
+              <div className="signup-input-div">
+                <input
+                  type="text"
+                  className="input"
+                  placeholder="Last Name"
+                  name="lastName"
+                  onChange={handleChange("lastName")}
+                />
+                {errors.lastName && touched.lastName ? (
+                  <div className="signup-error-div">{errors.lastName}</div>
+                ) : null}
+              </div>
+              <div className="signup-input-div">
+                <input
+                  type="text"
+                  className="input"
+                  placeholder="Email"
+                  name="email"
+                  onChange={handleChange("email")}
+                />
+                {errors.email && touched.email ? (
+                  <div className="signup-error-div">{errors.email}</div>
+                ) : null}
+              </div>
+              <div className="signup-input-div">
+                <input
+                  type="password"
+                  className="input"
+                  placeholder="Password"
+                  name="password"
+                  onChange={handleChange("password")}
+                />
+                {errors.password && touched.password ? (
+                  <div className="signup-error-div">{errors.password}</div>
+                ) : null}
+              </div>
+              <div className="signup-input-div">
+                <input
+                  type="password"
+                  className="input"
+                  placeholder="Confirm Password"
+                  name="confirmPassword"
+                  onChange={handleChange("confirmPassword")}
+                />
+                {errors.confirmPassword && touched.confirmPassword ? (
+                  <div className="signup-error-div">
+                    {errors.confirmPassword}
+                  </div>
+                ) : null}
+              </div>
+              {/* <input
+                type="text"
+                className="input"
+                placeholder="Phone Number"
+                name="phoneNumber"
+                onChange={handleChange("phoneNumber")}
+              />
+              {errors.phoneNumber && touched.phoneNumber ? (
+                <div className="form-phoneNumber-error-div">
+                  {errors.phoneNumber}
+                </div>
+              ) : null} */}
+              <div className="signup-input-div">
+                <input
+                  list="browsers"
+                  name="browser"
+                  id="designatio"
+                  className="input"
+                  placeholder="Designation"
+                  onChange={handleChange("designation")}
+                />
+                {errors.designation && touched.designation ? (
+                  <div className="signup-error-div">{errors.designation}</div>
+                ) : null}
+              </div>
+              <datalist id="browsers">
+                <option value="Front-End Developer" />
+                <option value="Back-End Developer" />
+                <option value="QA Engineer" />
+                <option value="Designer" />
+                <option value="Finance" />
+              </datalist>
 
-                <input type="submit" name="Log-In" value="Sign-Up" className='button' onClick={register} />    
+              <input
+                type="button"
+                name="Log-In"
+                value="Sign-Up"
+                className="button"
+                // onClick={() => {
+                //   navigate("/");
+                // }}
+                onClick={handleSubmit}
+              />
             </form>
-            <p>Already a User  <Link exact to="/">Log In</Link></p>
-        </div>
+          )}
+        </Formik>
+        <p>
+          Already a User{" "}
+          <Link exact to="/">
+            Log In
+          </Link>
+        </p>
+      </div>
     </>
-  )
+  );
 }
 
 export default SignUp;

@@ -39,13 +39,24 @@
 .form-email-div {
   width: 60%;
   height: 20%;
-  /* border: 1px solid red; */
 }
 
 .form-email-div input {
   width: 100%;
   height: 60%;
   margin: 0;
+}
+
+.signup-input-div {
+  /* border: 1px solid green; */
+  width: 60%;
+  height: 20%;
+}
+
+.signup-input-div input {
+  width: 100%;
+  height: 60%;
+  margin: 0px;
 }
 
 .form-password-div {
@@ -71,6 +82,12 @@
   color: red;
 }
 
+/* Signup error message div */
+.signup-error-div {
+  margin-top: 2px;
+  color: red;
+}
+
 .input {
   display: flex;
   flex-direction: column;
@@ -82,7 +99,7 @@
   border-radius: 10px;
 }
 
-.signup-form .input {
+/* .signup-form .input {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -91,7 +108,7 @@
   height: 10%;
   border: 1px solid #273238;
   border-radius: 10px;
-}
+} */
 
 .button {
   width: 60%;
