@@ -12,7 +12,7 @@ import { useSelector } from 'react-redux';
 
 const DashBoard = () => {
   const {loginState} = useSelector(state => state.logIn);
-  console.log(loginState,"user asdasdasd sa")
+  const user=loginState.user;
   return (
     <>
     <div className='tempelate-div'>
@@ -22,7 +22,7 @@ const DashBoard = () => {
       <div className='content-div'>
         <div class="body-main-div">
             <div class="body-title-div">
-              <h2>Welcome, User </h2>
+              <h2>Welcome,{user.firstName}  </h2>
             </div>
           <div class="body-card-div-1">
             <MyTaskComponent cardtitle="My Tasks" cardtabtitle1="Overall (4)" cardtabtitle2="To-do (2)"/>

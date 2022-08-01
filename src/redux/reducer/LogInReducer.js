@@ -9,8 +9,7 @@ export default (state = initState, action)=>{
     var {type , payload}= action;
     switch (type) {
         case LOG_IN :
-            
-            return {...state,
+                return {...state,
                 loginState : payload};
             
             default :
