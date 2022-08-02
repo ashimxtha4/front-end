@@ -35,7 +35,7 @@ const routes = [
 const SideBar=(props)=> {
   const [isOpen,setIsOpen] = useState(true) ;
   const {loginState} = useSelector(state => state.logIn);
-  const user=loginState.user;
+  const user=JSON.parse(localStorage.getItem('response')).user;
 
   const toggle = () =>{
     setIsOpen(!isOpen);
@@ -59,8 +59,8 @@ const SideBar=(props)=> {
                 </div>
                 {isOpen && <div className='profile'>
                     <img src= {Ellipse14} alt="profile_image" />
-                    <h3>{user.firstName}</h3>
-                    <p>{user.designation}</p>
+                    <h3>{user?.firstName}</h3>
+                    <p>{user?.designation}</p>
                   </div> }
                   
               </div>

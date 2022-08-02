@@ -1,15 +1,20 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import SideBar from '../Components/SideBar'
 import './Tempelate.css'
 import {BsSearch} from 'react-icons/bs';
 import ProjectCard from '../Components/ProjectCard';
 import PopupComponent from '../Components/PopupComponent';
+import { useDispatch} from "react-redux";
 
-const Project = () => {
+const Task = () => {
   const [status,setStatus]=useState("To-Do")
-
-
-
+  const user=JSON.parse(localStorage.getItem('response')).user;
+  const dispatch=useDispatch();
+  const id = user._id;
+  // dispatch(TaskAction(id));
+  useEffect(()=>{
+    
+  },[])
   const toggle=()=>{
     var blur = document.getElementById('blur');
     blur.classList.toggle('up');
@@ -50,4 +55,4 @@ const Project = () => {
   )
 }
 
-export default Project
+export default Task

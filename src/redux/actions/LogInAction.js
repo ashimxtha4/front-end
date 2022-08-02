@@ -7,6 +7,7 @@ const LogInAction = (credentials) => async (dispatch) => {
     credentials
   );
   console.log(response.data, "data");
+  localStorage.setItem('response',JSON.stringify(response.data));
   dispatch({ type: LOG_IN, payload: response.data });
 };
 

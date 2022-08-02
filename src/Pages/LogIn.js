@@ -3,7 +3,7 @@ import "./Form.css";
 import Vector1 from "../Images/Vector2.svg";
 import Vector2 from "../Images/Vector1.svg";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import LogInAction from "../redux/actions/LogInAction";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -15,20 +15,21 @@ const LogInSchema = Yup.object().shape({
   password: Yup.string().required("Password halnu paryo"), // .min(8, "Too short.").matches(/[a-zA-Z]/, "Password can only contain Latin letters."),
 });
 
-const LogIn = () => {
+const LogIn = () => { 
   const navigate = useNavigate();
   // const [email, setEmail] = useState("");
   // const [pwd, setPwd] = useState("");
   const dispatch = useDispatch();
-  const { loginState } = useSelector((state) => state.logIn);
+  const user=JSON.parse(localStorage.getItem('response'));
+  console.log(user.success);
+
 
   const handleFormSubmit = (values) => {
     try {
       console.log(values, "yo values ho");
-      const abc = { email: values.email, password: values.password };
-      dispatch(LogInAction(abc));
-      console.log(loginState, "yo loginState console ho");
-      if (loginState.user) navigate("/dashboard");
+      const credentials = { email: values.email, password: values.password };
+      dispatch(LogInAction(credentials));
+      if (user.success) navigate("/dashboard");
     } catch (err) {
       console.log(err);
     }
