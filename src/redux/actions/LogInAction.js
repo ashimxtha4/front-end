@@ -8,10 +8,11 @@ const LogInAction = (credentials) => async (dispatch) => {
       credentials
     );
     console.log(response.data, "Yo axios post ko response data ho.");
-    dispatch({ type: LOG_IN, payload: response.data });
+    await dispatch({ type: LOG_IN, payload: response.data });
+    localStorage.setItem("response", JSON.stringify(response.data));
   } catch (error) {
-    console.log(error.response.data.msg);
-    dispatch({ type: LOG_IN, payload: error.response.data.msg });
+    console.log("LoginAction ko error ->", error.response.data.msg);
+    dispatch({ type: LOG_IN, payload: error.response.data });
   }
 };
 

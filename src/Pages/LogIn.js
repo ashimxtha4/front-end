@@ -24,7 +24,23 @@ const LogIn = () => {
       const abc = { email: values.email, password: values.password };
       dispatch(LogInAction(abc));
       console.log(loginState, "Yo loginState console ho login.js page ma.");
-      if (loginState.user) navigate("/dashboard");
+
+      setTimeout(async () => {
+        const user = await JSON.parse(localStorage.getItem("response"));
+        console.log(user.success);
+        if (user.success) navigate("/dashboard");
+        // if (loginState.success === true) {
+        //   navigate("/dashboard");
+        // }
+        else if (loginState.status === false) {
+          console.log("If loginState.user not found ->", loginState);
+        }
+      }, 500);
+      // if (loginState.success === true) {
+      //   navigate("/dashboard");
+      // } else if (loginState.status === false) {
+      //   console.log("If loginState.user not found ->", loginState);
+      // }
     } catch (err) {
       console.log("Catching error if not able to login.", err);
     }
@@ -66,6 +82,8 @@ const LogIn = () => {
                 />
                 {errors.email && touched.email ? (
                   <div className="form-email-error-div">{errors.email}</div>
+                ) : loginState.status === false ? (
+                  <div className="form-email-error-div">{loginState.msg}</div>
                 ) : null}
                 {/* <ErrorMessage name="email" /> */}
               </div>
