@@ -1,9 +1,10 @@
-import { LOG_IN } from "../container/constant";
+import { LOG_IN, SIGN_UP } from "../container/constant";
 
 const initState = {
   loginState: {},
 };
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default (state = initState, action) => {
   var { type, payload } = action;
   switch (type) {

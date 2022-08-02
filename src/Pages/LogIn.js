@@ -5,17 +5,13 @@ import Vector2 from "../Images/Vector1.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import LogInAction from "../redux/actions/LogInAction";
-import { Formik } from "formik";
+import { Formik, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-const LogInSchema = Yup.object().shape({
-  email: Yup.string()
-    .email("Email thik chaina hai")
-    .required("Email chaincha hau"),
-  password: Yup.string().required("Password halnu paryo"), // .min(8, "Too short.").matches(/[a-zA-Z]/, "Password can only contain Latin letters."),
-});
-
 const LogIn = () => {
+  // let { error_msg } = useSelector((state) => state.logIn);
+  // console.log(error_msg);
+
   const navigate = useNavigate();
   // const [email, setEmail] = useState("");
   // const [pwd, setPwd] = useState("");
@@ -24,15 +20,23 @@ const LogIn = () => {
 
   const handleFormSubmit = (values) => {
     try {
-      console.log(values, "yo values ho");
+      console.log(values, "Yo form submit garda ko values ho.");
       const abc = { email: values.email, password: values.password };
       dispatch(LogInAction(abc));
-      console.log(loginState, "yo loginState console ho");
+      console.log(loginState, "Yo loginState console ho login.js page ma.");
       if (loginState.user) navigate("/dashboard");
     } catch (err) {
-      console.log(err);
+      console.log("Catching error if not able to login.", err);
     }
   };
+
+  const LogInSchema = Yup.object().shape({
+    email: Yup.string()
+      .email("Email thik chaina hai")
+      .required("Email chaincha"),
+    password: Yup.string().required("Password halnu paryo"), // .min(8, "Too short.").matches(/[a-zA-Z]/, "Password can only contain Latin letters."),
+  });
+
   return (
     <>
       <div className="image-div">
@@ -63,6 +67,7 @@ const LogIn = () => {
                 {errors.email && touched.email ? (
                   <div className="form-email-error-div">{errors.email}</div>
                 ) : null}
+                {/* <ErrorMessage name="email" /> */}
               </div>
               <div className="form-password-div">
                 <input
@@ -84,7 +89,7 @@ const LogIn = () => {
               </a>
               <button
                 type="button"
-                value=""
+                value="Log-In"
                 className="button"
                 onClick={handleSubmit}
                 // onClick={() => {

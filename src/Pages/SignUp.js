@@ -3,6 +3,8 @@ import "./Form.css";
 import Vector1 from "../Images/Vector2.svg";
 import Vector2 from "../Images/Vector1.svg";
 import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import SignUpAction from "../redux/actions/SignUpAction";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
@@ -21,19 +23,48 @@ const SignUpSchema = Yup.object().shape({
     }),
   userName: Yup.string().required("Username pani chaincha"),
   designation: Yup.string().required("Euta designation choose garnuhos"),
-  phoneNumber: Yup.string().required("Phone number k ho?"),
+  // phoneNumber: Yup.string().required("Phone number k ho?"),
 });
 
 function SignUp() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { signUpState } = useSelector((state) => state.signUp);
 
   const handleFormSubmit = (values) => {
     try {
-      console.log(values, "yo signup values ho");
-      // const abc = { email: values.email, password: values.password };
+      console.log(values, "Yo signup data ho.");
+      const form_data = {
+        firstName: values.firstName,
+        lastName: values.lastName,
+        email: values.email,
+        user_name: values.userName,
+        designation: values.designation,
+        password: values.password,
+      };
+      // [
+      //   { firstName: values.firstName },
+      //   { lastName: values.lastName },
+      //   { email: values.email },
+      //   { user_name: values.userName },
+      //   { designation: values.designation },
+      //   { password: values.password },
+      // ];
+
+      dispatch(SignUpAction(form_data));
+      console.log(signUpState, "Yo signupState console ho signup.js page ma.");
+      if (signUpState.success) navigate("/");
     } catch (err) {
-      console.log(err);
+      console.log("Catching error if not able to signup.", err);
     }
+
+    // try {
+    //   console.log(values, "yo signup values ho");
+    //   // const abc = { email: values.email, password: values.password };
+    // } catch (err) {
+    //   console.log(err);
+    // }
   };
 
   return (
@@ -97,6 +128,18 @@ function SignUp() {
               </div>
               <div className="signup-input-div">
                 <input
+                  type="text"
+                  className="input"
+                  placeholder="Username"
+                  name="userName"
+                  onChange={handleChange("userName")}
+                />
+                {errors.userName && touched.userName ? (
+                  <div className="signup-error-div">{errors.userName}</div>
+                ) : null}
+              </div>
+              <div className="signup-input-div">
+                <input
                   type="password"
                   className="input"
                   placeholder="Password"
@@ -121,18 +164,6 @@ function SignUp() {
                   </div>
                 ) : null}
               </div>
-              {/* <input
-                type="text"
-                className="input"
-                placeholder="Phone Number"
-                name="phoneNumber"
-                onChange={handleChange("phoneNumber")}
-              />
-              {errors.phoneNumber && touched.phoneNumber ? (
-                <div className="form-phoneNumber-error-div">
-                  {errors.phoneNumber}
-                </div>
-              ) : null} */}
               <div className="signup-input-div">
                 <input
                   list="browsers"
@@ -154,16 +185,17 @@ function SignUp() {
                 <option value="Finance" />
               </datalist>
 
-              <input
-                type="button"
-                name="Log-In"
+              <button
+                type="submit"
                 value="Sign-Up"
                 className="button"
                 // onClick={() => {
                 //   navigate("/");
                 // }}
                 onClick={handleSubmit}
-              />
+              >
+                Sign-Up
+              </button>
             </form>
           )}
         </Formik>
