@@ -5,24 +5,10 @@ import Vector2 from "../Images/Vector1.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch} from "react-redux";
 import LogInAction from "../redux/actions/LogInAction";
-import { Formik, ErrorMessage } from "formik";
+import { Formik } from "formik";
 import * as Yup from "yup";
 
-<<<<<<< HEAD
-const LogInSchema = Yup.object().shape({
-  email: Yup.string()
-    .email("Email thik chaina hai")
-    .required("Email chaincha hau"),
-  password: Yup.string().required("Password halnu paryo"), // .min(8, "Too short.").matches(/[a-zA-Z]/, "Password can only contain Latin letters."),
-});
-
 const LogIn = () => { 
-=======
-const LogIn = () => {
-  // let { error_msg } = useSelector((state) => state.logIn);
-  // console.log(error_msg);
-
->>>>>>> 4800837cf0011f328f6537a495ac9feeeb584f15
   const navigate = useNavigate();
   // const [email, setEmail] = useState("");
   // const [pwd, setPwd] = useState("");
@@ -33,18 +19,10 @@ const LogIn = () => {
 
   const handleFormSubmit = (values) => {
     try {
-<<<<<<< HEAD
       console.log(values, "yo values ho");
       const credentials = { email: values.email, password: values.password };
       dispatch(LogInAction(credentials));
       if (user.success) navigate("/dashboard");
-=======
-      console.log(values, "Yo form submit garda ko values ho.");
-      const abc = { email: values.email, password: values.password };
-      dispatch(LogInAction(abc));
-      console.log(loginState, "Yo loginState console ho login.js page ma.");
-      if (loginState.user) navigate("/dashboard");
->>>>>>> 4800837cf0011f328f6537a495ac9feeeb584f15
     } catch (err) {
       console.log("Catching error if not able to login.", err);
     }
@@ -112,9 +90,6 @@ const LogIn = () => {
                 value="Log-In"
                 className="button"
                 onClick={handleSubmit}
-                // onClick={() => {
-                //   handleSubmit();
-                // }}
               >
                 Log-In
               </button>
