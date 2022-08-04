@@ -7,11 +7,12 @@ import NoticeComponent from "../Components/NoticeComponent";
 import "../Styles/DashboardHome.css";
 import TeamMemberComponent from "../Components/TeamMemberComponent";
 import MyTaskComponent from "../Components/MyTaskComponent";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 const DashBoard = () => {
-  const { loginState } = useSelector((state) => state.logIn);
-  const user = loginState.user;
+  // const { loginState } = useSelector((state) => state.logIn);
+  const user = JSON.parse(localStorage.getItem("response")).user;
+
   console.log(user, "This is data inside dashboard from loginState.");
   return (
     <>
