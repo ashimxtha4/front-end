@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Form.css";
 import Vector1 from "../Images/Vector2.svg";
 import Vector2 from "../Images/Vector1.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import LogInAction from "../redux/actions/LogInAction";
-import { Formik, ErrorMessage } from "formik";
+import { Formik } from "formik";
 import * as Yup from "yup";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LogIn = () => {
+  useEffect(() => {
+    localStorage.removeItem("response");
+  }, []);
   // let { error_msg } = useSelector((state) => state.logIn);
   // console.log(error_msg);
 
@@ -21,8 +26,8 @@ const LogIn = () => {
   const handleFormSubmit = (values) => {
     try {
       console.log(values, "Yo form submit garda ko values ho.");
-      const abc = { email: values.email, password: values.password };
-      dispatch(LogInAction(abc));
+      const form_data = { email: values.email, password: values.password };
+      dispatch(LogInAction(form_data));
       console.log(loginState, "Yo loginState console ho login.js page ma.");
 
       setTimeout(async () => {
@@ -32,9 +37,9 @@ const LogIn = () => {
         // if (loginState.success === true) {
         //   navigate("/dashboard");
         // }
-        else if (loginState.status === false) {
-          console.log("If loginState.user not found ->", loginState);
-        }
+        // else if (loginState.status === false) {
+        // console.log("If loginState.user not found ->", loginState);
+        // }
       }, 500);
       // if (loginState.success === true) {
       //   navigate("/dashboard");
@@ -76,15 +81,16 @@ const LogIn = () => {
                   name="email"
                   type="text"
                   className="input"
-                  placeholder="Username/Email"
+                  placeholder="Email"
                   // value={email}
                   onChange={handleChange("email")} // handle input change
                 />
                 {errors.email && touched.email ? (
                   <div className="form-email-error-div">{errors.email}</div>
-                ) : loginState.status === false ? (
-                  <div className="form-email-error-div">{loginState.msg}</div>
-                ) : null}
+                ) : // : loginState.status === false ? (
+                //   <div className="form-email-error-div">{loginState.msg}</div>
+                // )
+                null}
                 {/* <ErrorMessage name="email" /> */}
               </div>
               <div className="form-password-div">
@@ -116,6 +122,7 @@ const LogIn = () => {
               >
                 Log-In
               </button>
+              <ToastContainer position="top-left" autoClose={6000} />
             </form>
           )}
         </Formik>

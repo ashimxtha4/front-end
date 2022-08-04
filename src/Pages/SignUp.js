@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Form.css";
 import Vector1 from "../Images/Vector2.svg";
 import Vector2 from "../Images/Vector1.svg";
@@ -7,10 +7,13 @@ import { useDispatch, useSelector } from "react-redux";
 import SignUpAction from "../redux/actions/SignUpAction";
 import { Formik } from "formik";
 import * as Yup from "yup";
+// import { SIGN_UP } from "../redux/container/constant";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUpSchema = Yup.object().shape({
   firstName: Yup.string().required("First name chaincha"),
-  lastName: Yup.string().required("Last name khai?"),
+  // lastName: Yup.string().required("Last name khai?"),
   email: Yup.string()
     .email("Ramro email halna paryo sir")
     .required("Email chaincha hau"),
@@ -30,7 +33,11 @@ function SignUp() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const { signUpState } = useSelector((state) => state.signUp);
+  const { signUpState } = useSelector((state) => state.signUp); // Empty payload ya bata airacha!
+
+  // useEffect(() => {
+  //   dispatch({ type: SIGN_UP, payload: "" });
+  // }, []);
 
   const handleFormSubmit = (values) => {
     try {
@@ -39,7 +46,7 @@ function SignUp() {
         firstName: values.firstName,
         lastName: values.lastName,
         email: values.email,
-        user_name: values.userName,
+        username: values.userName,
         designation: values.designation,
         password: values.password,
       };
@@ -54,7 +61,17 @@ function SignUp() {
 
       dispatch(SignUpAction(form_data));
       console.log(signUpState, "Yo signupState console ho signup.js page ma.");
-      if (signUpState.success) navigate("/");
+
+      if (signUpState.success) {
+        alert("User created successfully.");
+        navigate("/");
+        // dispatch(SignUpAction("kill"));
+      }
+      // !!signUpState.success ?
+      //   (alert("User created successfully.") && navigate("/"))
+      //   // dispatch(SignUpAction("kill"));
+      //  : signUpState.status === "false"?
+      //   (toast.error("This email is not available."))
     } catch (err) {
       console.log("Catching error if not able to signup.", err);
     }
@@ -124,7 +141,8 @@ function SignUp() {
                 />
                 {errors.email && touched.email ? (
                   <div className="signup-error-div">{errors.email}</div>
-                ) : null}
+                ) : // : signUpState.status === "false" ? (<div className="signup-error-div">{signUpState.msg}</div>)
+                null}
               </div>
               <div className="signup-input-div">
                 <input
@@ -196,6 +214,7 @@ function SignUp() {
               >
                 Sign-Up
               </button>
+              <ToastContainer position="top-left" autoClose={6000} />
             </form>
           )}
         </Formik>
