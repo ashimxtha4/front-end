@@ -1,28 +1,51 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Form.css";
 import Vector1 from "../Images/Vector2.svg";
 import Vector2 from "../Images/Vector1.svg";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch} from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import LogInAction from "../redux/actions/LogInAction";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const LogIn = () => { 
+const LogIn = () => {
+  useEffect(() => {
+    localStorage.removeItem("response");
+  }, []);
+  // let { error_msg } = useSelector((state) => state.logIn);
+  // console.log(error_msg);
+
   const navigate = useNavigate();
   // const [email, setEmail] = useState("");
   // const [pwd, setPwd] = useState("");
   const dispatch = useDispatch();
-  const user=JSON.parse(localStorage.getItem('response'));
-  console.log(user.success);
-
+  const { loginState } = useSelector((state) => state.logIn);
 
   const handleFormSubmit = (values) => {
     try {
-      console.log(values, "yo values ho");
-      const credentials = { email: values.email, password: values.password };
-      dispatch(LogInAction(credentials));
-      if (user.success) navigate("/dashboard");
+      console.log(values, "Yo form submit garda ko values ho.");
+      const form_data = { email: values.email, password: values.password };
+      dispatch(LogInAction(form_data));
+      console.log(loginState, "Yo loginState console ho login.js page ma.");
+
+      setTimeout(async () => {
+        const user = await JSON.parse(localStorage.getItem("response"));
+        console.log(user.success);
+        if (user.success) navigate("/dashboard");
+        // if (loginState.success === true) {
+        //   navigate("/dashboard");
+        // }
+        // else if (loginState.status === false) {
+        // console.log("If loginState.user not found ->", loginState);
+        // }
+      }, 500);
+      // if (loginState.success === true) {
+      //   navigate("/dashboard");
+      // } else if (loginState.status === false) {
+      //   console.log("If loginState.user not found ->", loginState);
+      // }
     } catch (err) {
       console.log("Catching error if not able to login.", err);
     }
@@ -58,13 +81,16 @@ const LogIn = () => {
                   name="email"
                   type="text"
                   className="input"
-                  placeholder="Username/Email"
+                  placeholder="Email"
                   // value={email}
                   onChange={handleChange("email")} // handle input change
                 />
                 {errors.email && touched.email ? (
                   <div className="form-email-error-div">{errors.email}</div>
-                ) : null}
+                ) : // : loginState.status === false ? (
+                //   <div className="form-email-error-div">{loginState.msg}</div>
+                // )
+                null}
                 {/* <ErrorMessage name="email" /> */}
               </div>
               <div className="form-password-div">
@@ -90,9 +116,13 @@ const LogIn = () => {
                 value="Log-In"
                 className="button"
                 onClick={handleSubmit}
+                // onClick={() => {
+                //   handleSubmit();
+                // }}
               >
                 Log-In
               </button>
+              <ToastContainer position="top-left" autoClose={6000} />
             </form>
           )}
         </Formik>

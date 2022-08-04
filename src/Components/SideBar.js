@@ -7,7 +7,7 @@ import {FaBars} from 'react-icons/fa'
 import {NavLink,Link} from 'react-router-dom';
 import {MdOutlineDashboard} from 'react-icons/md';
 import {TbLogout} from 'react-icons/tb';
-import { useSelector } from 'react-redux';
+
 
 const routes = [
   {
@@ -32,9 +32,8 @@ const routes = [
   }
 ]
 
-const SideBar=(props)=> {
+const SideBar=()=> {
   const [isOpen,setIsOpen] = useState(true) ;
-  const {loginState} = useSelector(state => state.logIn);
   const user=JSON.parse(localStorage.getItem('response')).user;
 
   const toggle = () =>{

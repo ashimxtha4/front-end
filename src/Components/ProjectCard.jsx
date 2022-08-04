@@ -1,5 +1,5 @@
 import React from 'react'
-import './ProjectCard.css'
+import '../Styles/ProjectCard.css'
 import progressgoing from '../Images/progressgoing.png'
 import Group1 from '../Images/Group1.svg'
 

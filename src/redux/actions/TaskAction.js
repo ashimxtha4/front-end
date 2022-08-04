@@ -1,12 +1,12 @@
 import axios from "axios";
-import {TASK_ID} from '../container/constant';
+import {TASK} from '../container/constant';
 
-const TaskAction = (id)=>async(dispatch) => {
+const TaskAction = ()=>async(dispatch) => {
 
     try{
-        const response = await axios.post('http://192.168.0.155:3000/user/regester',abc);
+        const response = await axios.post('http://192.168.0.155:3000/tasks/getalltasks');
         console.log(response.data,"data");
-        dispatch({ type: SIGN_UP, payload: response.data});
+        dispatch({ type: TASK, payload: response.data});
     } catch(err){
         console.log(err);
     }

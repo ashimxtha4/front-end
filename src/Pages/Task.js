@@ -5,16 +5,27 @@ import {BsSearch} from 'react-icons/bs';
 import ProjectCard from '../Components/ProjectCard';
 import PopupComponent from '../Components/PopupComponent';
 import { useDispatch} from "react-redux";
+import TaskAction from '../redux/actions/TaskAction';
+
+const task=[{
+  _id:1,
+  firstName:"ashim",
+  lastName:"shrestha",
+  
+}]
+
 
 const Task = () => {
+    const dispatch=useDispatch();
+    useEffect(()=>{
+        dispatch(TaskAction())
+    },[])
   const [status,setStatus]=useState("To-Do")
   const user=JSON.parse(localStorage.getItem('response')).user;
-  const dispatch=useDispatch();
+  
   const id = user._id;
   // dispatch(TaskAction(id));
-  useEffect(()=>{
-    
-  },[])
+  
   const toggle=()=>{
     var blur = document.getElementById('blur');
     blur.classList.toggle('up');
