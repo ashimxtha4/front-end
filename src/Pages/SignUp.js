@@ -62,11 +62,20 @@ function SignUp() {
       dispatch(SignUpAction(form_data));
       console.log(signUpState, "Yo signupState console ho signup.js page ma.");
 
-      if (signUpState.success) {
-        alert("User created successfully.");
-        navigate("/");
-        // dispatch(SignUpAction("kill"));
-      }
+      setTimeout(async () => {
+        const user = await JSON.parse(localStorage.getItem("response"));
+        // console.log(user, "This is submitted user data.");
+        if (user.success === true) {
+          alert("User created successfully.");
+          navigate("/");
+        }
+      }, 500);
+
+      // if (signUpState.success) {
+      //   alert("User created successfully.");
+      //   navigate("/");
+      //   // dispatch(SignUpAction("kill"));
+      // }
       // !!signUpState.success ?
       //   (alert("User created successfully.") && navigate("/"))
       //   // dispatch(SignUpAction("kill"));

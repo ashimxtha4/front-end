@@ -11,8 +11,8 @@ const LogInAction = (credentials) => async (dispatch) => {
     console.log(response.data, "Yo axios post ko response data ho.");
     await dispatch({ type: LOG_IN, payload: response.data });
     localStorage.setItem("response", JSON.stringify(response.data));
-    const user = localStorage.getItem("response");
-    console.log("User from local storage - ", user);
+    /* const user = localStorage.getItem("response");
+    console.log("User from local storage - ", user); */
   } catch (error) {
     console.log("LoginAction ko error ->", error.response.data.msg);
     await dispatch({ type: LOG_IN, payload: error.response.data });

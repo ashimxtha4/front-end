@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SideBar from "../Components/SideBar";
 import "./Tempelate.css";
 import "../Styles/Profile.css";
 import profilepicmd from "../Images/profilepicmedium.png";
+import defaultprofilepic from "../Images/Taskit_Default.png";
 
 const userData = [
   {
@@ -34,6 +35,15 @@ const userData = [
 const Profile = () => {
   // const [formChangeState, setformChange] = useState(""); // Empty string results in false.
   const [formChangeState, setformChange] = useState(false); // Empty string results in false.
+  const [profileImage, setProfileImage] = useState("profilepicmd");
+
+  const removeProfileImage = () => {
+    setProfileImage("defaultprofilepic");
+  };
+
+  useEffect(() => {
+    formChange();
+  });
 
   console.log(formChangeState);
   const formChange = () => {
@@ -67,14 +77,19 @@ const Profile = () => {
             <div className="profile-card-div">
               <div className="profile-card-top-div">
                 <div className="profile-top-img">
-                  <img src={profilepicmd} alt="userprofilepic" />
+                  {profileImage === "profilepicmd" ? (
+                    <img src={profilepicmd} alt="userprofilepic" />
+                  ) : profileImage === "defaultprofilepic" ? (
+                    <img src={defaultprofilepic} alt="userprofilepic" />
+                  ) : null}
+                  {/* <img src={profileImage} alt="userprofilepic" /> */}
                 </div>
                 <div className="profile-top-text">
                   <div className="profile-top-text-btn-change">
                     <button>Change</button>
                   </div>
                   <div className="profile-top-text-btn-remove">
-                    <button>Remove</button>
+                    <button onClick={removeProfileImage}>Remove</button>
                   </div>
                 </div>
               </div>
@@ -87,7 +102,7 @@ const Profile = () => {
                       type="text"
                       name="firstName"
                       id="firstName"
-                      value={userData[0].firstName}
+                      // value={userData[0].firstName}
                       // onChange={(e) => {
                       //   setformChange(e.target.value);
                       //   formChange();
@@ -131,7 +146,7 @@ const Profile = () => {
                       placeholder={userData[0].lastName}
                       onKeyDown={() => {
                         setformChange(true);
-                        formChange();
+                        // formChange();
                       }}
                     ></input>
                   </div>
@@ -168,7 +183,7 @@ const Profile = () => {
                   className="bot-cancel-btn-inact"
                   id="bot-cancel-btn"
                   onClick={() => {
-                    setformChange("");
+                    setformChange(false);
                   }}
                 >
                   Cancel

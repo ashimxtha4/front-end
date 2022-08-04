@@ -11,6 +11,7 @@ const SingUpAction = (credentials) => async (dispatch) => {
     );
     console.log(response.data, "Data from axios post request.");
     await dispatch({ type: SIGN_UP, payload: response.data });
+    localStorage.setItem("response", JSON.stringify(response.data));
   } catch (err) {
     console.log("Yo signupaction ko catch error ho.", err.response.data.msg);
     // console.log(err.response.data);
