@@ -1,6 +1,6 @@
 import React from "react";
 import SideBar from "../Components/SideBar";
-import "./Tempelate.css";
+// import "./Tempelate.css";
 import ProjectComponent from "../Components/ProjectComponent";
 import EventComponent from "../Components/EventComponent";
 import NoticeComponent from "../Components/NoticeComponent";

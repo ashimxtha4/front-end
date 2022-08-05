@@ -9,7 +9,6 @@
 }
 
 
-
 /* .side-div {
     
 } */
@@ -89,9 +88,14 @@
 .bottom-div {
     position: relative;
     top: 15%;
-    height: 38%;
-    /* border: solid; */
+    left: 4%;
+    height: 70%;
+    width: 92%;
+    border: solid 1px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: flex-start;
+    padding: 0% 2%;
+    flex: 100%;
+    gap: 5%;
 }

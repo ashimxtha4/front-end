@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 const SingUpAction = (credentials) => async (dispatch) => {
   try {
     const response = await axios.post(
-      "http://192.168.0.155:3000/user/register",
+      "http://localhost:3000/user/register",
       credentials
     );
     console.log(response.data, "Data from axios post request.");

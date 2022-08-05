@@ -83,83 +83,98 @@
     display: flex;
     flex: 70%;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     height: 80%;
     /* border: solid black; */
     width: 98%;
-    padding-right: 10%;
-    margin-top: 5%;
+    padding-right: 8%;
+    gap: 1%;
+
 }
 
 .list {
     text-decoration: none;
     padding-left: 0;
-    align-items: flex-start;
+    align-items: center;
     padding-left: 0;
     transition-delay: 0.1s;
-    border-radius :10px;
     /* border: solid brown; */
     margin-left: 10%;
-    width: 100%;
-    margin-top: 5%;
-    
+    width: 99%;   
+    height: 25%;
+    display: flex; 
 }
-
-
-.list :hover {
-    display: flex;
-    background-color: lightblue;
-    color: #EAEFFF;
-    transition-delay: 0.1s;
-}
-
-.active{
-    display: flex;
-    background-color: lightblue;
-    color: #EAEFFF;
-    transition-delay: 0.1s;
-}
-
-.active div {
-    display: flex;
-    background-color: lightblue;
-    color: #EAEFFF;
-    transition-delay: 0.1s;
-}
-
-.list .span {
-    display: flex;
-    width: 100%;
-    border-radius: 10px;
-}
-
-
 
 .icons {
-    flex: 20%;
+    flex: 10%;
     margin-left:0% ;
     font-size: 24px;
     color: #646464;
     padding-left: 2px;
-    border-radius: 10px;
     padding-top: 5%;
-    padding-bottom: 5%;
+    /* padding-bottom: 5%; */
     height: 100%;
+    /* border: solid 2px black; */
+    align-items: fcenter;
+}
 
+.icons :hover{
+    transform: none;
+    height: 100%;
 }
 
 .link_text {
     flex: 70%;
     text-decoration: none;
     font-style: Regular;
-    font-size: 24px;
-    line-height: 100%;
+    font-size: 135%;
+    height: 100%;
+    /* line-height: 100%; */
     align-self : Right;
     vertical-align: Top;
     color: #646464;
-    border-radius: 10px;
     padding-top: 5%;
     padding-bottom: 5%;
+    /* border: solid 1px blue; */
+    align-items: center;
+}
+
+.list :hover {
+    color:#1F4583;
+    transition-delay: 0.1s;
+}
+/* .list .span{
+    display: flex;
+    color:#646464;
+    border: solid black 1px;
+    width: 100%;
+    transition-delay: 0.1s;
+} */
+
+/* .list.span :hover {
+    display: flex;
+    color:#1F4583;
+    transition-delay: 0.1s;
+}
+
+.list.span div:hover {
+    color:#1F4583;
+    transition-delay: 0.1s;
+    height: 100%;
+} */
+
+.active{
+    display: flex;
+    color:#1F4583;
+    transition-delay: 0.1s;
+    border-right:solid 4px #1F4583;
+}
+
+.active div{
+    display: flex;
+    color:#1F4583;
+    /* border: solid black 1px; */
+    transition-delay: 0.1s;
 }
 
 .logout {

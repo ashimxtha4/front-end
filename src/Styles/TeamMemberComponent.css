@@ -53,6 +53,12 @@
   padding: 10px;
 }
 
+.members-footer-div{
+  position: relative;
+  bottom: 0px;
+}
+
+
 .members-footer-div a {
   color: #00255d;
   text-decoration: none;

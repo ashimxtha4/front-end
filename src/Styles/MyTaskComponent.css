@@ -73,6 +73,11 @@
   padding: 10px;
 }
 
+.mytask-footer-div{
+  position: absolute;
+  bottom: 0px;
+}
+
 .mytask-footer-div a {
   color: #00255d;
   text-decoration: none;

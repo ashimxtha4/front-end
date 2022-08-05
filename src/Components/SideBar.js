@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import '../App.css'
+import '../Styles/SideBar.css'
 import Ellipse14 from "../Images/Ellipse14.svg"
 import {motion} from "framer-motion";
 import {BsFileEarmarkText,BsClipboardCheck,BsPerson} from 'react-icons/bs';
@@ -69,19 +69,15 @@ const SideBar=()=> {
               <section className='routes'>
                 {routes.map((route)=>(
                   <NavLink activeClassName="active" to={route.path} key={route.name} className="list">
-                  <div className='span'>
                     <div className='icons'>{route.icon}</div>
-                    {isOpen && <div className='link_text'>{route.name}</div>}
-                  </div>   
+                    {isOpen && <div className='link_text'>{route.name}</div>} 
                   </NavLink>                  
                 ))}
               </section>    
               <div className='logout'>
                     <Link exact to='/' className='list'>
-                    <div className='span'>
                     <div className='icons'>{<TbLogout />}</div>
                     {isOpen && <div className='link_text'>Log Out</div>}
-                  </div>
                     </Link>
               </div>
             </motion.div> 

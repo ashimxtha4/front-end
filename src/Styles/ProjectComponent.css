@@ -73,7 +73,12 @@
 }
 
 .project-body-bot {
-  padding: 10px;
+  padding: 5px;
+}
+
+.project-footer-div{
+  position: relative;
+  bottom: 0px;
 }
 
 .project-footer-div a {

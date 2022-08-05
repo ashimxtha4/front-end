@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import SideBar from "../Components/SideBar";
-import "./Tempelate.css";
 import "../Styles/Profile.css";
 import profilepicmd from "../Images/profilepicmedium.png";
 
