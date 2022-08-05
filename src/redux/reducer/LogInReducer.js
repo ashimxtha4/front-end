@@ -1,4 +1,4 @@
-import { LOG_IN, SIGN } from "../container/constant";
+import { LOG_IN } from "../container/constant";
 
 const initState = {
   loginState: {},
