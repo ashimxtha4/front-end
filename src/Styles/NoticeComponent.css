@@ -2,13 +2,14 @@
 .notice-main-div {
   position: relative;
   background-color: #f6f9ff;
-  width: 45%;
+  width: 46%;
   border-radius: 8px;
   padding-top: 10px;
   padding-left: 10px;
   padding-right: 10px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   margin-bottom: 20px;
+  height: 250px;
 }
 
 .notice-title-div h2 {

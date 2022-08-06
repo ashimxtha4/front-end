@@ -1,23 +1,38 @@
 import React, { useState } from "react";
 import MyTaskDetails from "./MyTaskDetails";
 import "../Styles/MyTaskComponent.css";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const taskArrayOverall = [
   {
     title: "Ov Title 1",
     date: "2022-01-01",
-    status:"complete"
+    status: "complete",
   },
   {
     title: "Ov Title 2",
     date: "2022-01-02",
-    status:"complete"
+    status: "complete",
   },
   {
     title: "Ov Title 3",
     date: "2022-01-03",
-    status:"complete"
+    status: "complete",
+  },
+  {
+    title: "Ov Title 3",
+    date: "2022-01-03",
+    status: "complete",
+  },
+  {
+    title: "Ov Title 3",
+    date: "2022-01-03",
+    status: "complete",
+  },
+  {
+    title: "Ov Title 3",
+    date: "2022-01-03",
+    status: "complete",
   },
 ];
 
@@ -25,23 +40,22 @@ const taskArrayOwn = [
   {
     title: "Own Title 1",
     date: "2022-01-01",
-    status:"assigned"
+    status: "assigned",
   },
   {
     title: "Own Title 2",
     date: "2022-01-02",
-    status:"complete"
+    status: "complete",
   },
   {
     title: "Own Title 3",
     date: "2022-01-03",
-    status:"complete"
+    status: "complete",
   },
 ];
 
 const MyTaskComponent = (props) => {
   const [cardStatus, setState] = useState("overall");
-  
 
   const changeOverAll = () => {
     setState("overall");
@@ -65,31 +79,31 @@ const MyTaskComponent = (props) => {
         <div className="mytask-body-bot">
           {cardStatus === "overall"
             ? // eslint-disable-next-line array-callback-return
-              taskArrayOverall.map((item, index) => {
-                if (index < 2)
-                  return (
-                    <MyTaskDetails
-                      tasktitle={item.title}
-                      taskdate={item.date}
-                      status= {item.status}
-                    />
-                  );
+              taskArrayOverall.slice(0, 10).map((item, index) => {
+                return (
+                  <MyTaskDetails
+                    tasktitle={item.title}
+                    taskdate={item.date}
+                    status={item.status}
+                  />
+                );
               })
-            // eslint-disable-next-line array-callback-return
-            : taskArrayOwn.map((item, index) => {
-                if (index < 2)
-                  return (
-                    <MyTaskDetails
-                      tasktitle={item.title}
-                      taskdate={item.date}
-                      status= {item.status}
-                    />
-                  );
+            : // eslint-disable-next-line array-callback-return
+              taskArrayOwn.slice(0, 2).map((item, index) => {
+                return (
+                  <MyTaskDetails
+                    tasktitle={item.title}
+                    taskdate={item.date}
+                    status={item.status}
+                  />
+                );
               })}
         </div>
 
         <div className="mytask-footer-div">
-          <Link exact to = '/task'>See more</Link>
+          <Link exact to="/task">
+            See more
+          </Link>
         </div>
       </div>
     </div>

@@ -2,8 +2,8 @@
 .mytask-main-div {
   position: relative;
   background-color: #f6f9ff;
-  width: 25vw;
-  height: 95%;
+  width: 30%;
+  max-height: 95%;
   border-radius: 8px;
   padding-top: 10px;
   padding-left: 10px;
@@ -40,7 +40,7 @@
 .mytask-body-top button {
   padding-right: 20px;
   color: #1f4583;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-weight: 500;
   margin-right: 20px;
@@ -49,7 +49,7 @@
   cursor: pointer;
 }
 
-.mytask-body-top button:hover{
+.mytask-body-top button:hover {
   text-decoration: underline;
 }
 
@@ -57,20 +57,25 @@
   position: absolute;
   width: 100%;
   text-align: center;
-  bottom: -4%;
+  bottom: -5%;
   padding-bottom: 0px;
+  /* border: 1px solid red; */
 }
 
 .mytask-title-div h2 {
   color: #1f4583;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 28px;
   font-weight: 500;
   padding-left: 10px;
 }
 
 .mytask-body-bot {
-  padding: 10px;
+  margin: 10px 0;
+  padding: 0 10px;
+  overflow-y: auto;
+  max-height: 30vh;
+  /* border: 1px solid red; */
 }
 
 .mytask-footer-div a {
@@ -85,3 +90,8 @@
   font-weight: 500;
 }
 
+/* @media only screen and (min-width: 900px) {
+  .mytask-body-bot {
+    max-height: 30vh;
+  }
+} */

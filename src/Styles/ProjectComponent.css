@@ -2,7 +2,7 @@
 .project-main-div {
   position: relative;
   background-color: #f6f9ff;
-  width: 25vw;
+  width: 30%;
   height: 95%;
   border-radius: 8px;
   padding-top: 10px;
@@ -57,7 +57,7 @@
   position: absolute;
   width: 100%;
   text-align: center;
-  bottom: -4%;
+  bottom: -5%;
   padding-bottom: 0px;
 }
 
@@ -70,7 +70,11 @@
 }
 
 .project-body-bot {
-  padding: 10px;
+  margin: 10px 0;
+  padding: 0 10px;
+  overflow-y: auto;
+  max-height: 30vh;
+  /* border: 1px solid red; */
 }
 
 .project-footer-div a {
