@@ -23,7 +23,7 @@ const DashBoard = () => {
         <div className="content-div">
           <div class="body-main-div">
             <div class="body-title-div">
-              <h2>Welcome,{user.firstName} </h2>
+              <h2>Welcome {user.firstName}</h2>
             </div>
             <div class="body-card-div-1">
               <MyTaskComponent
