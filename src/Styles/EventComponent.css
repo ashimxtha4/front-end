@@ -5,15 +5,15 @@
   width: 46%;
   border-radius: 8px;
   padding-top: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   margin-bottom: 20px;
-  height: 250px;
+  max-height: 70%;
 }
 
 .event-title-div h2 {
-  color: #1f4583;
+  color: #273238;
   font-family: 'Roboto', sans-serif;
   font-size: 28px;
   font-weight: 500;
@@ -41,6 +41,8 @@
 .event-date-block-div{
   margin-top: 26px;
   margin-bottom: 26px;
+  display: flex;
+  gap: 20px;
 }
 
 .event-bot-date-div{

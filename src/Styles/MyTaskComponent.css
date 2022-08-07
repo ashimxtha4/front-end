@@ -63,7 +63,7 @@
 }
 
 .mytask-title-div h2 {
-  color: #1f4583;
+  color: #273238;
   font-family: "Roboto", sans-serif;
   font-size: 28px;
   font-weight: 500;
@@ -75,8 +75,13 @@
   padding: 0 10px;
   overflow-y: auto;
   max-height: 30vh;
+  
   /* border: 1px solid red; */
 }
+
+/* .mytask-body-bot::-webkit-scrollbar-thumb{
+  background-color: red;
+} */
 
 .mytask-footer-div a {
   color: #00255d;

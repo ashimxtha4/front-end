@@ -9,14 +9,14 @@ const NoticeComponent = () => {
         <h2>Notice</h2>
       </div>
 
-      <div className="notice-body-top-div">
+      {/* <div className="notice-body-top-div">
         <div className="notice-body-left">
           <button>Today</button>
         </div>
         <div className="notice-body-right">
         <button>History</button>
         </div>
-      </div>
+      </div> */}
       
       <div className="notice-body-bot-div">
         <NoticeDetails />
