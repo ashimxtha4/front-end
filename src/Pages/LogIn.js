@@ -37,10 +37,10 @@ const LogIn = () => {
         // if (loginState.success === true) {
         //   navigate("/dashboard");
         // }
-        else if (loginState.status === false) {
-        console.log("If loginState.user not found ->", loginState);
-        alert(loginState)
-        }
+        // else if (loginState.status === false) {
+        // console.log("If loginState.user not found ->", loginState);
+        // alert(loginState)
+        // }
       }, 500);
       // if (loginState.success === true) {
       //   navigate("/dashboard");
