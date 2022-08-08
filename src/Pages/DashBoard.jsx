@@ -1,6 +1,6 @@
 import React from "react";
 import SideBar from "../Components/SideBar";
-import "./Tempelate.css";
+// import "./Tempelate.css";
 import ProjectComponent from "../Components/ProjectComponent";
 import EventComponent from "../Components/EventComponent";
 import NoticeComponent from "../Components/NoticeComponent";
@@ -10,10 +10,9 @@ import MyTaskComponent from "../Components/MyTaskComponent";
 // import { useSelector } from "react-redux";
 
 const DashBoard = () => {
-  // const { loginState } = useSelector((state) => state.logIn);
-  const user = JSON.parse(localStorage.getItem("response")).user;
 
-  console.log(user, "This is data inside dashboard from loginState.");
+  const user=JSON.parse(localStorage.getItem('response')).user;
+  console.log(user)
   return (
     <>
       <div className="tempelate-div">
@@ -23,7 +22,7 @@ const DashBoard = () => {
         <div className="content-div">
           <div class="body-main-div">
             <div class="body-title-div">
-              <h2>Welcome {user.firstName}</h2>
+              <h2>Welcome,{user?.firstName}  </h2>
             </div>
             <div class="body-card-div-1">
               <MyTaskComponent

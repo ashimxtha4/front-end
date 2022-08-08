@@ -1,19 +1,21 @@
 import React from 'react'
-import './ProjectCard.css'
-import progressgoing from '../Images/progressgoing.png'
+import '../Styles/ProjectCard.css'
+// import progressgoing from '../Images/progressgoing.png'
+import {GoPrimitiveDot} from 'react-icons/go';
 import Group1 from '../Images/Group1.svg'
 
 const ProjectComponent = (props) => {
   return (
     <div className='projectcard'>
         <div className='projectcard-in'>
-            <h2>
-              Project Name
-            </h2>
-            <div className='inprogress-div'>
-              <img src={progressgoing} alt='circle'/>
-              <p>In Progress</p>
+            <div className='status-div' style={{color: props.status==="assigned"? "grey":
+              props.status==="inprogress"?"#FA6B2D":"#00D563" }}>
+              <GoPrimitiveDot />
+              <p>{props.status}</p>
             </div>
+            <h2>
+              {props.name}
+            </h2>
             <p className='pm'>PM Name</p>
         </div>
 

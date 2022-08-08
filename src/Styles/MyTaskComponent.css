@@ -82,9 +82,21 @@
   /* border: 1px solid red; */
 }
 
+<<<<<<< HEAD
+.mytask-footer-div{
+  position: absolute;
+  bottom: 0px;
+}
+=======
 /* .mytask-body-bot::-webkit-scrollbar-thumb{
   background-color: red;
 } */
+>>>>>>> c0e96ed833af1b8aab433df04f4013e77cbb49ae
+
+.mytask-footer-div{
+  position: absolute;
+  bottom: 0px;
+}
 
 .mytask-footer-div a {
   color: #00255d;
