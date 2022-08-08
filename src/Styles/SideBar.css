@@ -139,7 +139,12 @@
     align-items: center;
 }
 
-.list :hover {
+.list div:hover {
+    color:#1F4583;
+    transition-delay: 0.1s;
+}
+
+.list .icons:hover {
     color:#1F4583;
     transition-delay: 0.1s;
 }
@@ -171,7 +176,6 @@
 }
 
 .active div{
-    display: flex;
     color:#1F4583;
     /* border: solid black 1px; */
     transition-delay: 0.1s;
