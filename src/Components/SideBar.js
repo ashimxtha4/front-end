@@ -30,6 +30,11 @@ const routes = [
     name: "Profile",
     icon: <BsPerson />,
   },
+  {
+    path: "/",
+    name: "Log Out",
+    icon: <TbLogout />,
+  },
 ];
 
 const SideBar=()=> {
@@ -58,8 +63,10 @@ const SideBar=()=> {
                 </div>
                 {isOpen && <div className='profile'>
                     <img src= {Ellipse14} alt="profile_image" />
-                    <h3>{user?.firstName}</h3>
-                    <p>{user?.designation}</p>
+                    <div className='profile-details'>
+                      <h3><b>{user?.firstName}</b></h3>
+                      <p>{user?.designation}</p>
+                      </div>
                   </div> }
                   
               </div>
@@ -74,12 +81,12 @@ const SideBar=()=> {
                   </NavLink>                  
                 ))}
               </section>    
-              <div className='logout'>
+              {/* <div className='logout'>
                     <Link exact to='/' className='list'>
                     <div className='icons'>{<TbLogout />}</div>
                     {isOpen && <div className='link_text'>Log Out</div>}
                     </Link>
-              </div>
+              </div> */}
             </motion.div> 
         </div>
       </>
