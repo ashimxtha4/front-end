@@ -1,5 +1,7 @@
 .admin-project-main-div {
   width: 100%;
+  background-color: #F4F4F4;
+  padding-bottom: 30px;
 }
 
 .admin-project-top-div {
@@ -7,7 +9,35 @@
   justify-content: space-between;
   align-items: center;
   padding: 30px 20px;
-  border: 1px solid red;
+  padding-right: 0px;
+  /* border: 1px solid red; */
+  margin-top: 20px;
+}
+
+.admin-project-top-div h2 {
+  color: #273238;
+  font-family: 'Roboto';
+  font-size: 32px;
+  font-weight: 500;
+}
+
+.admin-project-top-div button {
+  color: #FFFFFF;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  background-color: #1F4583;
+  border-radius: 6px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+
+.admin-project-top-div button:hover {
+  background-color: #112950;
+  transition-duration: 0.4s;
+}
+
+.top-btn-div{
+  padding-right: 6%;
 }
 
 .admin-project-body-div {
@@ -15,11 +45,14 @@
   top: 5%;
   height: 30%;
   width: 30%;
-  border: 1px solid red;
   margin-left: 26px; */
   display: flex;
-  height: 100%;
-  width: 100%;
+  /* height: 90%; */
+  /* width: 100%; */
+  flex-wrap: wrap;
+  /* overflow-y: auto; */
+  /* border: 1px solid red; */
+  padding-bottom: 10px;
 }
 
 .top-btn {
@@ -31,22 +64,22 @@
 .admin-project-mid-div {
   display: flex;
   justify-content: space-evenly;
+  
   align-items: center;
   margin-top: 10px;
-  margin-bottom: 1.4rem;
+  margin-bottom: 0.5rem;
 }
 
 .mid-btn {
   border: none;
-  padding: 10px 20px;
+  padding: 10px 10px;
   background-color: red;
 }
 
 .mid-input-div {
-  border: 1px solid black;
   padding: 0;
   margin: 0;
-  width: 20%;
+  width: 28%;
 }
 
 .mid-input-div input {
@@ -58,7 +91,7 @@
   padding-right: 20px;
   color: #1f4583;
   font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  font-size: 1.2rem;
   font-weight: 500;
   margin-right: 20px;
   border: none;
@@ -68,4 +101,31 @@
 
 .mid-btn-div button:hover {
   text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 10px;
+}
+
+.mid-input-form{
+  display: flex;
+  align-items: center;
+  /* border: 1px solid red; */
+  position: relative;
+}
+
+.mid-input-form input{
+  text-align: left;
+  padding-left: 20px;
+  left: -10px;
+  background-color: #DEDEDE;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  color: #646464;
+  border: none;
+}
+
+.input-form-search-icon{
+  font-size: 1.2rem;
+  position: absolute;
+  right: 5%;
+  color: #646464;
 }

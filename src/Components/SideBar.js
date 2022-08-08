@@ -11,26 +11,26 @@ import {TbLogout} from 'react-icons/tb';
 
 const routes = [
   {
-    path:"/dashboard",
-    name:"Dashboard",
-    icon:<MdOutlineDashboard/>
+    path: "/dashboard",
+    name: "Dashboard",
+    icon: <MdOutlineDashboard />,
   },
   {
-    path:"/Projects",
-    name:"Projects",
-    icon:<BsFileEarmarkText/>
+    path: "/Projects",
+    name: "Projects",
+    icon: <BsFileEarmarkText />,
   },
   {
-    path:"/task",
-    name:"Task",
-    icon: <BsClipboardCheck />
+    path: "/task",
+    name: "Task",
+    icon: <BsClipboardCheck />,
   },
   {
-    path:"/profile",
-    name:"Profile",
-    icon: <BsPerson />
-  }
-]
+    path: "/profile",
+    name: "Profile",
+    icon: <BsPerson />,
+  },
+];
 
 const SideBar=()=> {
   const [isOpen,setIsOpen] = useState(true) ;

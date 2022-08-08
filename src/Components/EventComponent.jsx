@@ -1,9 +1,19 @@
 import React from "react";
 import "../Styles/EventComponent.css";
-import { BsFillCircleFill } from "react-icons/bs";
+// import { BsFillCircleFill } from "react-icons/bs";
 import EventCalendarDetails from "./EventCalendarDetails";
 
-const EventComponent = (props) => {
+const EventComponent = () => {
+  const date = new Date();
+  let resultingDate = [("0" + date.getDate()).slice(-2)];
+
+  for (let i = 1; i <= 5; i++) {
+    let result = date.setDate(date.getDate() + 1); // Get tomorrow's date of the next 5 days.
+    result = new Date(result).getDate();
+    let newResult = ("0" + result).slice(-2); // Add 0 to single digit date.
+    resultingDate.push(newResult);
+  }
+
   return (
     <div className="event-main-div">
       <div className="event-title-div">
@@ -15,10 +25,18 @@ const EventComponent = (props) => {
       </div>
       <hr></hr>
       <div className="event-date-block-div">
-        <EventCalendarDetails />
+        {resultingDate
+          .slice(0, 5)
+          .map((items, index) =>
+            index === 0 ? (
+              <EventCalendarDetails todayDate={items} classDot="event-dot" />
+            ) : (
+              <EventCalendarDetails todayDate={items} />
+            )
+          )}
       </div>
 
-      <div className="event-bot-div">
+      {/* <div className="event-bot-div">
         <div className="event-bot-icon-div">
           <BsFillCircleFill />
         </div>
@@ -28,7 +46,7 @@ const EventComponent = (props) => {
         <div className="event-bot-date-div">
           <span>11:30am</span>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

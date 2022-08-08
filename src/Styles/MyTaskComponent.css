@@ -1,9 +1,9 @@
 /* Main card */
 .mytask-main-div {
   position: relative;
-  background-color: #f6f9ff;
-  width: 25vw;
-  height: 95%;
+  background-color: #FFFFFF;
+  width: 30%;
+  max-height: 95%;
   border-radius: 8px;
   padding-top: 10px;
   padding-left: 10px;
@@ -40,38 +40,58 @@
 .mytask-body-top button {
   padding-right: 20px;
   color: #1f4583;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-weight: 500;
   margin-right: 20px;
   border: none;
-  background-color: #f6f9ff;
+  background-color: transparent;
   cursor: pointer;
 }
 
-.mytask-body-top button:hover{
+.mytask-body-top button:hover {
   text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 8px;
 }
 
 .mytask-footer-div {
   position: absolute;
   width: 100%;
   text-align: center;
-  bottom: 0%;
+  bottom: -4%;
   padding-bottom: 0px;
+  margin-top: 20px;
+  /* border: 1px solid red; */
 }
 
 .mytask-title-div h2 {
-  color: #1f4583;
-  font-family: 'Roboto', sans-serif;
+  color: #273238;
+  font-family: "Roboto", sans-serif;
   font-size: 28px;
   font-weight: 500;
   padding-left: 10px;
 }
 
 .mytask-body-bot {
-  padding: 10px;
+  margin: 10px 0;
+  padding: 0 10px;
+  overflow-y: auto;
+  max-height: 30vh;
+  margin-bottom: 20px;
+  /* border: 1px solid red; */
 }
+
+<<<<<<< HEAD
+.mytask-footer-div{
+  position: absolute;
+  bottom: 0px;
+}
+=======
+/* .mytask-body-bot::-webkit-scrollbar-thumb{
+  background-color: red;
+} */
+>>>>>>> c0e96ed833af1b8aab433df04f4013e77cbb49ae
 
 .mytask-footer-div{
   position: absolute;
@@ -90,3 +110,8 @@
   font-weight: 500;
 }
 
+/* @media only screen and (min-width: 900px) {
+  .mytask-body-bot {
+    max-height: 30vh;
+  }
+} */

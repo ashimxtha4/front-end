@@ -17,6 +17,14 @@ const projectArrayOverall = [
     title: "Project 3",
     status: "complete",
   },
+  {
+    title: "Project 3",
+    status: "complete",
+  },
+  {
+    title: "Project 3",
+    status: "complete",
+  },
 ];
 
 const projectCurrently = [
@@ -58,7 +66,7 @@ const ProjectComponent = (props) => {
         </div>
         <div className="project-body-bot">
           {cardStatus === "overall"
-            ? projectArrayOverall.slice(0, 2).map((item, index) => {
+            ? projectArrayOverall.slice(0, 10).map((item, index) => {
                   return (
                     <ProjectTaskDetails
                       projecttitle={item.title}

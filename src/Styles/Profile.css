@@ -25,6 +25,7 @@ select {
   font-family: "Roboto", sans-serif;
   font-size: 20px;
   padding-left: 10px;
+  color: rgb(20, 20, 20);
 }
 
 input:focus,
@@ -33,6 +34,10 @@ select:focus {
   outline: none !important;
   border-color: #1f4583;
   box-shadow: 0 0 4px #719ece;
+}
+
+input:disabled {
+  color: #757575;
 }
 
 .profile-main-div {
@@ -51,14 +56,25 @@ select:focus {
   padding-right: 10px;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
   margin: 20px;
-  padding: 40px 24px;
+  padding: 0 26px;
+  padding-top: 40px;
+  padding-bottom: 10px;
 }
 
 .profile-card-mid-form {
-  display: flex;
   padding: 14px 0px;
   margin-top: 40px;
 }
+
+.profile-card-form {
+  display: flex;
+}
+
+/* .profile-card-mid-form > .profile-mid-right-div {
+  display: flex;
+  padding: 14px 0px;
+  margin-top: 40px;
+} */
 
 .profile-mid-right-div {
   margin-left: 40px;
@@ -187,4 +203,8 @@ select:focus {
   border: 1px solid #646464;
   cursor: pointer;
   transition-duration: 0.2s;
+}
+
+.profile-card-bot-div {
+  padding-top: 20px;
 }

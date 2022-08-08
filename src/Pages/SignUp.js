@@ -13,7 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 const SignUpSchema = Yup.object().shape({
   firstName: Yup.string().required("First name chaincha"),
-  // lastName: Yup.string().required("Last name khai?"),
+  lastName: Yup.string().required("Last name khai?"),
   email: Yup.string()
     .email("Ramro email halna paryo sir")
     .required("Email chaincha hau"),
@@ -24,7 +24,13 @@ const SignUpSchema = Yup.object().shape({
       is: (val) => (val && val.length > 0 ? true : false),
       then: Yup.string().oneOf([Yup.ref("password")], "Password mileko chaina"),
     }),
-  userName: Yup.string().required("Username pani chaincha"),
+  // userName: Yup.string().required("Username pani chaincha"),
+  phoneNumber: Yup.string()
+    .required("Please enter your phone number")
+    .matches(
+      /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/,
+      "Phone number is not valid"
+    ),
   designation: Yup.string().required("Euta designation choose garnuhos"),
   // phoneNumber: Yup.string().required("Phone number k ho?"),
 });
@@ -46,7 +52,8 @@ function SignUp() {
         firstName: values.firstName,
         lastName: values.lastName,
         email: values.email,
-        username: values.userName,
+        // username: values.userName,
+        phoneNumber: values.phoneNumber,
         designation: values.designation,
         password: values.password,
       };
@@ -108,7 +115,8 @@ function SignUp() {
             email: "",
             password: "",
             confirmPassword: "",
-            userName: "",
+            // userName: "",
+            phoneNumber: "",
             designation: "",
           }}
           validationSchema={SignUpSchema}
@@ -153,7 +161,7 @@ function SignUp() {
                 ) : // : signUpState.status === "false" ? (<div className="signup-error-div">{signUpState.msg}</div>)
                 null}
               </div>
-              <div className="signup-input-div">
+              {/* <div className="signup-input-div">
                 <input
                   type="text"
                   className="input"
@@ -163,6 +171,19 @@ function SignUp() {
                 />
                 {errors.userName && touched.userName ? (
                   <div className="signup-error-div">{errors.userName}</div>
+                ) : null}
+              </div> */}
+              <div className="signup-input-div">
+                <input
+                  type="number"
+                  className="input"
+                  placeholder="Phone number"
+                  name="phoneNumber"
+                  onChange={handleChange("phoneNumber")}
+                  // onkeypress="return /[0-9]/i.test(event.key)"
+                />
+                {errors.phoneNumber && touched.phoneNumber ? (
+                  <div className="signup-error-div">{errors.phoneNumber}</div>
                 ) : null}
               </div>
               <div className="signup-input-div">

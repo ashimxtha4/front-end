@@ -1,30 +1,51 @@
 import React from "react";
 import "../Styles/Admin/AdminProjectCard.css";
 import profilepicsmall from "../Images/profilepicsmall1.png";
+import { BsArrowRight, BsFillCircleFill } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
-const AdminProjectCard = () => {
+const AdminProjectCard = (props) => {
   return (
     <div className="admin-project-card">
       <div className="card-status-div">
-        <p>In Progress</p>
+        {props.status === "inprogress" ? (
+          <div className="card-status-div-inner">
+            <BsFillCircleFill className="card-status-inner-icon" style={{ color: "#FA6B2D" }}/>
+            <p style={{ color: "#FA6B2D" }}>In Progress</p>
+          </div>
+        ) : props.status === "completed" ? (
+          <div className="card-status-div-inner">
+            <BsFillCircleFill className="card-status-inner-icon" style={{ color: "#00D563" }}/>
+            <p style={{ color: "#00D563" }}>Completed</p>
+          </div>
+        ) : null}
       </div>
       <div className="card-title-div">
-        <h2>Project Name</h2>
-        <p className="card-pm-div">PM Name</p>
+        <h2>{props.title}</h2>
+        <p className="card-pm-div">{props.pmname}</p>
       </div>
 
       <div className="card-members-div">
         <p className="members-p">Members</p>
 
-        <div className="image-div">
+        <div className="profile-image-div">
           <img src={profilepicsmall} alt="" />
+          <img src={profilepicsmall} alt="" />
+          <img src={profilepicsmall} alt="" />
+          <img src={profilepicsmall} alt="" />
+          <img src={profilepicsmall} alt="" />
+         
+      
         </div>
       </div>
 
       <div className="card-bot-div">
-        <a href="#" className="blue-link" onClick="">
-          View
-        </a>
+        <Link exact to="/dashboard" className="bot-link">
+          View Tasks
+          <BsArrowRight className="bot-icon-div" />
+        </Link>
+
+        
       </div>
     </div>
   );
