@@ -39,7 +39,7 @@ const Profile = () => {
     lastName: localData.lastName,
     email: localData.email,
     // designation: localData.designation,
-    password: localData.password,
+    // password: localData.password,
     phoneNumber: localData.phoneNumber,
     role: localData.role,
   });
@@ -93,7 +93,12 @@ const Profile = () => {
                     <button>Change</button>
                   </div>
                   <div className="profile-top-text-btn-remove">
-                    <button onClick={removeProfileImage}>Remove</button>
+                    <button
+                      onClick={() => removeProfileImage
+                        (setformChange(true))}
+                    >
+                      Remove
+                    </button>
                   </div>
                 </div>
               </div>
@@ -124,6 +129,7 @@ const Profile = () => {
                         onKeyDown={() => {
                           setformChange(true);
                         }}
+                        required
                       />
                       {/* {errors.firstName && touched.firstName ? (
                             <div className="signup-error-div">
@@ -178,7 +184,8 @@ const Profile = () => {
                         onChange={(e) => {
                           setUpdatedData(e.target.value);
                         }}
-                      ></input>
+                        required
+                      />
                     </div>
                     {/* <div className="profile-mid-input-div">
                     <label for="password">Password</label>
@@ -208,7 +215,10 @@ const Profile = () => {
                       <select
                         name="designation"
                         id="designation"
-                        onChange={(e) => setPost(e.target.value)}
+                        onChange={(e) =>
+                          setPost(e.target.value)(setformChange(true))
+                        }
+                        required
                       >
                         <option selected>
                           {/* {updatedData.designation} */}
@@ -216,7 +226,7 @@ const Profile = () => {
                         </option>
                         {designationArray.map(
                           (items) =>
-                            items !== updatedData.designation && (
+                            items !== post && (
                               <option value={items}>{items}</option>
                             )
                         )}
@@ -241,6 +251,7 @@ const Profile = () => {
                     onClick={() => {
                       setformChange(false);
                       setPost(localData.designation);
+                      setProfileImage("profilepicmd");
                       // resetData;
                     }}
                   >

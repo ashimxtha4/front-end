@@ -4,10 +4,13 @@
   justify-content: space-evenly;
   margin-left: 20px;
   position: relative;
-  top: 5%;
-  height: 30%;
+  /* top: 20%; */
+  height: 30vh;
   width: 30%;
-  border: 1px solid red;
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin-top: 2rem;
 }
 
 .card-status-div {
@@ -19,21 +22,84 @@
   padding-left: 10px;
 }
 
-.card-title-div p {
+p {
   margin-top: 10px;
   margin-bottom: 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 200;
+  font-size: 16px;
+  color: #273238;
+}
+
+.card-title-div h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .card-members-div {
   padding-left: 10px;
 }
 
-.image-div {
-  margin-top: 10px;
+.profile-image-div {
+  margin-top: 14px;
+  /* border: 1px solid red; */
+  width: 100%;
+  height: 34px;
+  top: -8px;
+}
+
+.profile-image-div img {
+  height: 26px;
+  width: 26px;
+  margin-right: 8px;
 }
 
 .card-bot-div {
-  text-align: center;
   width: 100%;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
+  display: flex;
+  /* position: static; */
+  /* bottom: 10px; */
+  align-items: center;
+  justify-content: center;
+  color: #002093;
+  height: 100%;
+}
+
+.card-bot-div a {
+  text-decoration: none;
+  color: #002093;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.card-bot-div a:hover {
+  color: #02124e;
+}
+
+.bot-icon-div {
+  margin-left: 4px;
+  font-size: 0.8rem;
+  margin-top: 4px;
+}
+
+.card-status-div-inner {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.card-status-div-inner p {
+  margin-left: 10px;
+}
+
+.card-status-inner-icon {
+  font-size: 10px;
+}
+
+.bot-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

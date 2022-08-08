@@ -3,10 +3,29 @@ import AdminProjectCard from "../../Components/AdminProjectCard";
 import SideBar from "../../Components/SideBar";
 import "../../Styles/Admin/AdminProject.css";
 import smallpic from "../../Images/profilepicsmall.png";
+import { BsSearch } from "react-icons/bs";
 
 const allProjectArray = [
   {
-    title: "Project 1",
+    title: "Task Management System",
+    status: "inprogress",
+    pmname: "Project Manager 1",
+    members: [{ smallpic }],
+  },
+  {
+    title: "Taskit",
+    status: "completed",
+    pmname: "Project Manager 2",
+    members: [{ smallpic }],
+  },
+  {
+    title: "Fantech",
+    status: "completed",
+    pmname: "Project Manager 3",
+    members: [{ smallpic }],
+  },
+  {
+    title: "Nice One",
     status: "inprogress",
     pmname: "Project Manager 1",
     members: [{ smallpic }],
@@ -78,7 +97,7 @@ const AdminProject = () => {
       <div className="admin-project-main-div">
         <div className="admin-project-top-div">
           <div className="top-title-div">
-            <h2>Project</h2>
+            <h2>Projects</h2>
           </div>
           <div className="top-btn-div">
             <button className="top-btn">+ Create</button>
@@ -87,21 +106,24 @@ const AdminProject = () => {
         <div className="admin-project-mid-div">
           <div className="mid-btn-div">
             <button className="mid-btn" onClick={changeToAll}>
-              All
+              All (6)
             </button>
           </div>
           <div className="mid-btn-div">
             <button className="mid-btn" onClick={changeToCompleted}>
-              Completed
+              Completed (4)
             </button>
           </div>
           <div className="mid-btn-div">
             <button className="mid-btn" onClick={changeToInprogress}>
-              In-progress
+              In-progress (2)
             </button>
           </div>
           <div className="mid-input-div">
-            <input type="text" placeholder="search"></input>
+            <form className="mid-input-form">
+              <input type="text" placeholder="Search Project" className="search-input-field"></input>
+              <BsSearch className="input-form-search-icon"/>
+            </form>
           </div>
         </div>
         <hr></hr>

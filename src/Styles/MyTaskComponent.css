@@ -1,7 +1,7 @@
 /* Main card */
 .mytask-main-div {
   position: relative;
-  background-color: #f6f9ff;
+  background-color: #FFFFFF;
   width: 30%;
   max-height: 95%;
   border-radius: 8px;
@@ -45,20 +45,23 @@
   font-weight: 500;
   margin-right: 20px;
   border: none;
-  background-color: #f6f9ff;
+  background-color: transparent;
   cursor: pointer;
 }
 
 .mytask-body-top button:hover {
   text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 8px;
 }
 
 .mytask-footer-div {
   position: absolute;
   width: 100%;
   text-align: center;
-  bottom: -5%;
+  bottom: -4%;
   padding-bottom: 0px;
+  margin-top: 20px;
   /* border: 1px solid red; */
 }
 
@@ -75,7 +78,7 @@
   padding: 0 10px;
   overflow-y: auto;
   max-height: 30vh;
-  
+  margin-bottom: 20px;
   /* border: 1px solid red; */
 }
 
