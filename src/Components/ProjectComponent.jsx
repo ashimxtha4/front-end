@@ -4,7 +4,27 @@ import ProjectTaskDetails from "./ProjectTaskDetails";
 import "../Styles/ProjectComponent.css";
 import { Link } from "react-router-dom";
 
-const projectArrayOverall = [
+const projectArray = [
+  {
+    title: "Project 1",
+    status: "complete",
+  },
+  {
+    title: "Project 2",
+    status: "inprogress",
+  },
+  {
+    title: "Project 3",
+    status: "complete",
+  },
+  {
+    title: "Project 3",
+    status: "complete",
+  },
+  {
+    title: "Project 3",
+    status: "complete",
+  },
   {
     title: "Project 1",
     status: "complete",
@@ -27,31 +47,16 @@ const projectArrayOverall = [
   },
 ];
 
-const projectCurrently = [
-  {
-    title: "Project 4",
-    status: "inprogress",
-  },
-  {
-    title: "Project 5",
-    status: "complete",
-  },
-  {
-    title: "Project 6",
-    status: "complete",
-  },
-];
-
 const ProjectComponent = (props) => {
-  const [cardStatus, setState] = useState("overall");
+  const [cardStatus, setState] = useState("complete");
 
-  const changeOverAll = () => {
-    setState("overall");
-  };
+  // const changeOverAll = () => {
+  //   setState("overall");
+  // };
 
-  const changeCurrently = () => {
-    setState("currently");
-  };
+  // const changeCurrently = () => {
+  //   setState("inprogress");
+  // };
 
   return (
     <div className="project-main-div">
@@ -61,12 +66,38 @@ const ProjectComponent = (props) => {
 
       <div className="project-body-div">
         <div className="project-body-top">
-          <button onClick={changeOverAll}>{props.cardtabtitle1}</button>
-          <button onClick={changeCurrently}>{props.cardtabtitle2}</button>
+          <button onClick={() => setState("complete")}>
+            {props.cardtabtitle1}
+          </button>
+          <button onClick={() => setState("inprogress")}>
+            {props.cardtabtitle2}
+          </button>
         </div>
         <div className="project-body-bot">
-          {cardStatus === "overall"
-            ? projectArrayOverall.slice(0, 10).map((item, index) => {
+          {cardStatus === "complete"
+            ? projectArray.map(
+                (data) => (
+                  // data.status === cardStatus &&
+                  <ProjectTaskDetails
+                    projecttitle={data.title}
+                    projectstatus={data.status}
+                  />
+                )
+                // ) : <ProjectTaskDetails projecttitle={data.title} projectstatus={data.status} />
+              )
+            : cardStatus === "inprogress" &&
+              projectArray.map(
+                (data) =>
+                  data.status === cardStatus && (
+                    <ProjectTaskDetails
+                      projecttitle={data.title}
+                      projectstatus={data.status}
+                    />
+                  )
+                // ) : <ProjectTaskDetails projecttitle={data.title} projectstatus={data.status} />
+              )}
+          {/* {cardStatus === "overall"
+            ? projectArray.slice(0, 10).map((item, index) => {
                   return (
                     <ProjectTaskDetails
                       projecttitle={item.title}
@@ -74,14 +105,14 @@ const ProjectComponent = (props) => {
                     />
                   );
               })
-            : projectCurrently.slice(0, 2).map((item, index) => {
+            : projectArray.slice(0, 2).map((item, index) => {
                   return (
                     <ProjectTaskDetails
                       projecttitle={item.title}
                       projectstatus={item.status}
                     />
                   );
-              })}
+              })} */}
         </div>
 
         <div className="project-footer-div">

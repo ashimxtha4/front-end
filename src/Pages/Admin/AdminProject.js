@@ -105,24 +105,51 @@ const AdminProject = () => {
         </div>
         <div className="admin-project-mid-div">
           <div className="mid-btn-div">
-            <button className="mid-btn" onClick={changeToAll}>
+            <button
+              className="mid-btn"
+              onClick={changeToAll}
+              style={{
+                color: projectState === "All" && "#1f4583",
+                textDecoration: projectState === "All" && "underline",
+                textDecorationThickness: projectState === "All" && "3px",
+                textUnderlineOffset: projectState === "All" && "10px",
+              }}
+            >
               All (6)
             </button>
           </div>
           <div className="mid-btn-div">
-            <button className="mid-btn" onClick={changeToCompleted}>
+            <button className="mid-btn" onClick={changeToCompleted}
+            style={{
+              color: projectState === "Completed" && "#1f4583",
+              textDecoration: projectState === "Completed" && "underline",
+              textDecorationThickness: projectState === "Completed" && "3px",
+              textUnderlineOffset: projectState === "Completed" && "10px",
+            }}>
               Completed (4)
             </button>
           </div>
           <div className="mid-btn-div">
-            <button className="mid-btn" onClick={changeToInprogress}>
-              In-progress (2)
+            <button className="mid-btn" onClick={changeToInprogress}
+            style={{
+              color: projectState === "Inprogress" && "#1f4583",
+              textDecoration: projectState === "Inprogress" && "underline",
+              textDecorationThickness: projectState === "Inprogress" && "3px",
+              textUnderlineOffset: projectState === "Inprogress" && "10px",
+            }}
+            >
+              In Progress (2)
             </button>
           </div>
           <div className="mid-input-div">
             <form className="mid-input-form">
-              <input type="text" placeholder="Search Project" className="search-input-field"></input>
-              <BsSearch className="input-form-search-icon"/>
+              <input
+                type="text"
+                placeholder="Search Project"
+                className="search-input-field"
+                id="search-input-field"
+              ></input>
+              <BsSearch className="input-form-search-icon" />
             </form>
           </div>
         </div>

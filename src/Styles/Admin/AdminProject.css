@@ -89,7 +89,8 @@
 
 .mid-btn-div button {
   padding-right: 20px;
-  color: #1f4583;
+  /* color: #1f4583; */
+  color: #646464;
   font-family: "Roboto", sans-serif;
   font-size: 1.2rem;
   font-weight: 500;
@@ -100,9 +101,10 @@
 }
 
 .mid-btn-div button:hover {
-  text-decoration: underline;
+  /* text-decoration: underline;
   text-decoration-thickness: 3px;
-  text-underline-offset: 10px;
+  text-underline-offset: 10px; */
+  color: #1f4583;
 }
 
 .mid-input-form{
@@ -128,4 +130,5 @@
   position: absolute;
   right: 5%;
   color: #646464;
+  /* clip: rect(0px,400px,0px,0px); */
 }
