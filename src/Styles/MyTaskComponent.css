@@ -1,7 +1,7 @@
 /* Main card */
 .mytask-main-div {
   position: relative;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   width: 30%;
   max-height: 95%;
   border-radius: 8px;
@@ -39,7 +39,7 @@
 
 .mytask-body-top button {
   padding-right: 20px;
-  color: #1f4583;
+  color: #646464;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-weight: 500;
@@ -50,9 +50,7 @@
 }
 
 .mytask-body-top button:hover {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 8px;
+  color: #1f4583;
 }
 
 .mytask-footer-div {
@@ -82,20 +80,16 @@
   /* border: 1px solid red; */
 }
 
-<<<<<<< HEAD
-.mytask-footer-div{
-  position: absolute;
-  bottom: 0px;
-}
-=======
 /* .mytask-body-bot::-webkit-scrollbar-thumb{
   background-color: red;
 } */
->>>>>>> c0e96ed833af1b8aab433df04f4013e77cbb49ae
 
-.mytask-footer-div{
+.mytask-footer-div {
   position: absolute;
-  bottom: 0px;
+  width: 100%;
+  text-align: center;
+  bottom: -4%;
+  padding-bottom: 0px;
 }
 
 .mytask-footer-div a {

@@ -50,27 +50,35 @@ const projectArray = [
 const ProjectComponent = (props) => {
   const [cardStatus, setState] = useState("complete");
 
-  // const changeOverAll = () => {
-  //   setState("overall");
-  // };
-
-  // const changeCurrently = () => {
-  //   setState("inprogress");
-  // };
-
   return (
     <div className="project-main-div">
       <div className="project-title-div">
-        <h2>{props.cardtitle}</h2>
+        <h2>My Projects</h2>
       </div>
 
       <div className="project-body-div">
         <div className="project-body-top">
-          <button onClick={() => setState("complete")}>
-            {props.cardtabtitle1}
+          <button
+            onClick={() => setState("complete")}
+            style={{
+              color: cardStatus === "complete" && "#1f4583",
+              textDecoration: cardStatus === "complete" && "underline",
+              textDecorationThickness: cardStatus === "complete" && "2px",
+              textUnderlineOffset: cardStatus === "complete" && "10px",
+            }}
+          >
+            Overall (3)
           </button>
-          <button onClick={() => setState("inprogress")}>
-            {props.cardtabtitle2}
+          <button
+            onClick={() => setState("inprogress")}
+            style={{
+              color: cardStatus === "inprogress" && "#1f4583",
+              textDecoration: cardStatus === "inprogress" && "underline",
+              textDecorationThickness: cardStatus === "inprogress" && "2px",
+              textUnderlineOffset: cardStatus === "inprogress" && "10px",
+            }}
+          >
+            Currently (1)
           </button>
         </div>
         <div className="project-body-bot">
@@ -94,25 +102,7 @@ const ProjectComponent = (props) => {
                       projectstatus={data.status}
                     />
                   )
-                // ) : <ProjectTaskDetails projecttitle={data.title} projectstatus={data.status} />
               )}
-          {/* {cardStatus === "overall"
-            ? projectArray.slice(0, 10).map((item, index) => {
-                  return (
-                    <ProjectTaskDetails
-                      projecttitle={item.title}
-                      projectstatus={item.status}
-                    />
-                  );
-              })
-            : projectArray.slice(0, 2).map((item, index) => {
-                  return (
-                    <ProjectTaskDetails
-                      projecttitle={item.title}
-                      projectstatus={item.status}
-                    />
-                  );
-              })} */}
         </div>
 
         <div className="project-footer-div">

@@ -3,7 +3,7 @@ import MyTaskDetails from "./MyTaskDetails";
 import "../Styles/MyTaskComponent.css";
 import { Link } from "react-router-dom";
 
-const taskArrayOverall = [
+const taskArray = [
   {
     title: "Ov Title 1",
     date: "2022-01-01",
@@ -12,7 +12,7 @@ const taskArrayOverall = [
   {
     title: "Ov Title 2",
     date: "2022-01-02",
-    status: "complete",
+    status: "assigned",
   },
   {
     title: "Ov Title 3",
@@ -34,36 +34,40 @@ const taskArrayOverall = [
     date: "2022-01-03",
     status: "complete",
   },
-];
-
-const taskArrayOwn = [
   {
-    title: "Own Title 1",
+    title: "Ov Title 1",
     date: "2022-01-01",
     status: "assigned",
   },
   {
-    title: "Own Title 2",
+    title: "Ov Title 2",
     date: "2022-01-02",
-    status: "complete",
+    status: "assigned",
   },
   {
-    title: "Own Title 3",
+    title: "Ov Title 3",
     date: "2022-01-03",
-    status: "complete",
+    status: "assigned",
+  },
+  {
+    title: "Ov Title 3",
+    date: "2022-01-03",
+    status: "assigned",
+  },
+  {
+    title: "Ov Title 3",
+    date: "2022-01-03",
+    status: "assigned",
+  },
+  {
+    title: "Ov Title 3",
+    date: "2022-01-03",
+    status: "assigned",
   },
 ];
 
 const MyTaskComponent = (props) => {
   const [cardStatus, setState] = useState("overall");
-
-  const changeOverAll = () => {
-    setState("overall");
-  };
-
-  const changeToDo = () => {
-    setState("todo");
-  };
 
   return (
     <div className="mytask-main-div">
@@ -73,31 +77,53 @@ const MyTaskComponent = (props) => {
 
       <div className="mytask-body-div">
         <div className="mytask-body-top">
-          <button onClick={changeOverAll}>{props.cardtabtitle1}</button>
-          <button onClick={changeToDo}>{props.cardtabtitle2}</button>
+          <button
+            onClick={() => {
+              setState("overall");
+            }}
+            style={{
+              color: cardStatus === "overall" && "#1f4583",
+              textDecoration: cardStatus === "overall" && "underline",
+              textDecorationThickness: cardStatus === "overall" && "2px",
+              textUnderlineOffset: cardStatus === "overall" && "10px",
+            }}
+          >
+            Overall (4)
+          </button>
+          <button
+            onClick={() => {
+              setState("assigned");
+            }}
+            style={{
+              color: cardStatus === "assigned" && "#1f4583",
+              textDecoration: cardStatus === "assigned" && "underline",
+              textDecorationThickness: cardStatus === "assigned" && "2px",
+              textUnderlineOffset: cardStatus === "assigned" && "10px",
+            }}
+          >
+            To-do (2)
+          </button>
         </div>
         <div className="mytask-body-bot">
           {cardStatus === "overall"
-            ? // eslint-disable-next-line array-callback-return
-              taskArrayOverall.slice(0, 10).map((item, index) => {
-                return (
-                  <MyTaskDetails
-                    tasktitle={item.title}
-                    taskdate={item.date}
-                    status={item.status}
-                  />
-                );
-              })
-            : // eslint-disable-next-line array-callback-return
-              taskArrayOwn.slice(0, 2).map((item, index) => {
-                return (
-                  <MyTaskDetails
-                    tasktitle={item.title}
-                    taskdate={item.date}
-                    status={item.status}
-                  />
-                );
-              })}
+            ? taskArray.map((item) => (
+                <MyTaskDetails
+                  tasktitle={item.title}
+                  taskdate={item.date}
+                  status={item.status}
+                />
+              ))
+            : cardStatus === "assigned" &&
+              taskArray.map(
+                (item) =>
+                  item.status === cardStatus && (
+                    <MyTaskDetails
+                      tasktitle={item.title}
+                      taskdate={item.date}
+                      status={item.status}
+                    />
+                  )
+              )}
         </div>
 
         <div className="mytask-footer-div">

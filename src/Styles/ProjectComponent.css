@@ -1,7 +1,7 @@
 /* Main card */
 .project-main-div {
   position: relative;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   width: 30%;
   height: 95%;
   border-radius: 8px;
@@ -13,7 +13,7 @@
   flex-direction: column;
 }
 
-.project-title-div{
+.project-title-div {
   height: 13%;
 }
 
@@ -39,8 +39,8 @@
 
 .project-body-top button {
   padding-right: 20px;
-  color: #1f4583;
-  font-family: 'Roboto', sans-serif;
+  color: #646464;
+  font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-weight: 500;
   margin-right: 20px;
@@ -49,10 +49,11 @@
   cursor: pointer;
 }
 
-.project-body-top button:hover{
-  text-decoration: underline;
+.project-body-top button:hover {
+  /* text-decoration: underline;
   text-decoration-thickness: 2px;
-  text-underline-offset: 8px;
+  text-underline-offset: 8px; */
+  color: #1f4583;
 }
 
 .project-footer-div {
@@ -65,7 +66,7 @@
 
 .project-title-div h2 {
   color: #273238;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 28px;
   font-weight: 500;
   padding-left: 10px;
