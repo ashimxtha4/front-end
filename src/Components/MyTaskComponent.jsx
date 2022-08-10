@@ -22,17 +22,17 @@ const taskArray = [
   {
     title: "Ov Title 3",
     date: "2022-01-03",
-    status: "complete",
+    status: "inprogress",
   },
   {
     title: "Ov Title 3",
     date: "2022-01-03",
-    status: "complete",
+    status: "inprogress",
   },
   {
     title: "Ov Title 3",
     date: "2022-01-03",
-    status: "complete",
+    status: "inprogress",
   },
   {
     title: "Ov Title 1",
@@ -47,12 +47,12 @@ const taskArray = [
   {
     title: "Ov Title 3",
     date: "2022-01-03",
-    status: "assigned",
+    status: "inprogress",
   },
   {
     title: "Ov Title 3",
     date: "2022-01-03",
-    status: "assigned",
+    status: "inprogress",
   },
   {
     title: "Ov Title 3",
@@ -72,7 +72,7 @@ const MyTaskComponent = (props) => {
   return (
     <div className="mytask-main-div">
       <div className="mytask-title-div">
-        <h2>{props.cardtitle}</h2>
+        <h2>My Tasks</h2>
       </div>
 
       <div className="mytask-body-div">
@@ -92,13 +92,13 @@ const MyTaskComponent = (props) => {
           </button>
           <button
             onClick={() => {
-              setState("assigned");
+              setState("todo");
             }}
             style={{
-              color: cardStatus === "assigned" && "#1f4583",
-              textDecoration: cardStatus === "assigned" && "underline",
-              textDecorationThickness: cardStatus === "assigned" && "2px",
-              textUnderlineOffset: cardStatus === "assigned" && "10px",
+              color: cardStatus === "todo" && "#1f4583",
+              textDecoration: cardStatus === "todo" && "underline",
+              textDecorationThickness: cardStatus === "todo" && "2px",
+              textUnderlineOffset: cardStatus === "todo" && "10px",
             }}
           >
             To-do (2)
@@ -113,17 +113,17 @@ const MyTaskComponent = (props) => {
                   status={item.status}
                 />
               ))
-            : cardStatus === "assigned" &&
+            : cardStatus === "todo" ?
               taskArray.map(
                 (item) =>
-                  item.status === cardStatus && (
+                  item.status !== "complete" && (
                     <MyTaskDetails
                       tasktitle={item.title}
                       taskdate={item.date}
                       status={item.status}
                     />
                   )
-              )}
+              ): null}
         </div>
 
         <div className="mytask-footer-div">

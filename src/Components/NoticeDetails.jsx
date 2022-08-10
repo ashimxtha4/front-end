@@ -9,7 +9,7 @@ const NoticeDetails = () => {
             <h3>Login page design reviewed and finalized.</h3>
         </div>
         <div className="notice-details-date-div">
-            40 July, 2022
+            Dec 12, 2022
         </div>
       </div>
       <div className="notice-details-bot-div">
