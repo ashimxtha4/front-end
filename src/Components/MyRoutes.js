@@ -7,6 +7,7 @@ import DashBoard from "../Pages/DashBoard";
 import SignUp from "../Pages/SignUp";
 import LogIn from "../Pages/LogIn";
 import AdminProject from "../Pages/Admin/AdminProject";
+import AdminDashboard from "../Pages/Admin/AdminDashboard";
 
 const MyRoutes = () => {
   return (
@@ -18,6 +19,8 @@ const MyRoutes = () => {
       <Route path="/signup" element={<SignUp />} />
       <Route path="/" element={<LogIn />} />
       <Route path="/admin/project" element={<AdminProject />} />
+      <Route path="/admin/dashboard" element={<AdminDashboard />} />
+
     </Routes>
   );
 };

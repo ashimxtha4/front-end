@@ -10,6 +10,7 @@
   align-items: center;
   border-radius: 5%;
   /* border:solid 1px; */
+  overflow: hidden;
 }
 
 .main-div h1 {
@@ -147,7 +148,7 @@
 .back-image {
   height: 100vh;
   width: 100%;
-  position: relative;
+  position: absolute;
   left: -12%;
 }
 

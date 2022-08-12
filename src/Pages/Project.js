@@ -24,8 +24,8 @@ const Project = () => {
       <div className='content-div'>
         <div className='selection-div'>
             <div className='button-div'>
-              <button className='selection-button' style={{borderBottom:status==="overall"&&"solid 1px",color:status==="overall"&&"#002093"}} onClick={()=>{setStatus("overall")}}>Overall</button>
-              <button className='selection-button' style={{borderBottom:status==="currently"&&"solid 1px",color:status==="currently"&&"#002093"}} onClick={()=>{setStatus("currently")}}>Currently</button>
+              <button className='selection-button' style={{borderBottom:status==="overall"&&"solid 3px",color:status==="overall"&&"#002093"}} onClick={()=>{setStatus("overall")}}>Overall</button>
+              <button className='selection-button' style={{borderBottom:status==="currently"&&"solid 3px",color:status==="currently"&&"#002093"}} onClick={()=>{setStatus("currently")}}>Currently</button>
             </div>
           <from className='selection-div-form'>
             <input type="text" className='search' placeholder='search' />

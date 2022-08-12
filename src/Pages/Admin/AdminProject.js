@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AdminProjectCard from "../../Components/AdminProjectCard";
-import SideBar from "../../Components/SideBar";
+import AdminSidebar from "../../Components/Admin/AdminSidebar";
 import "../../Styles/Admin/AdminProject.css";
 import smallpic from "../../Images/profilepicsmall.png";
 import { BsSearch } from "react-icons/bs";
@@ -92,7 +92,7 @@ const AdminProject = () => {
   return (
     <div className="tempelate-div">
       <div className="side-div">
-        <SideBar />
+        <AdminSidebar />
       </div>
       <div className="admin-project-main-div">
         <div className="admin-project-top-div">

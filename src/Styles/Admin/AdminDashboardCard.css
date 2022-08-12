@@ -1,0 +1,54 @@
+.admin-dashboard-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 41px;
+    gap: 8px;
+    width: 18.5%;
+    height: 100%;
+    /* card color */
+    background: #FFFFFF;
+    /* shadow */
+    box-shadow: 0px 4px 10px rgba(31, 69, 131, 0.25);
+    border-radius: 6px;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    /* border: solid 1px black; */
+}
+
+.lable {
+    /* border: solid 1px; */
+    width: 112px;
+    height: 19px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+    color: #646464;
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.number {
+    width: 37px;
+    height: 38px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 38px;
+    /* identical to box height */
+    text-align: center;
+    /* text color */
+    color: #273238;
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}

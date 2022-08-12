@@ -1,33 +1,33 @@
 import React, { useState } from 'react'
-import '../Styles/SideBar.css'
-import Ellipse14 from "../Images/Ellipse14.svg"
+import '../../Styles/SideBar.css'
+import Ellipse14 from "../../Images/Ellipse14.svg"
 import {motion} from "framer-motion";
 import {BsFileEarmarkText,BsClipboardCheck,BsPerson} from 'react-icons/bs';
 import {FaBars} from 'react-icons/fa'
 import {NavLink,Link} from 'react-router-dom';
 import {MdOutlineDashboard} from 'react-icons/md';
 import {TbLogout} from 'react-icons/tb';
-import cil_task from "../Images/cil_task.svg"
+import cil_task from "../../Images/cil_task.svg"
 
 
 const routes = [
   {
-    path: "/dashboard",
+    path: "/admin/dashboard",
     name: "Dashboard",
     icon: <MdOutlineDashboard />,
   },
   {
-    path: "/Projects",
+    path: "/admin/project",
     name: "Projects",
     icon: <BsFileEarmarkText />,
   },
   {
-    path: "/task",
-    name: "Task",
+    path: "/admin/employee",
+    name: "Employee",
     icon: <BsClipboardCheck />,
   },
   {
-    path: "/profile",
+    path: "/admin/profile",
     name: "Profile",
     icon: <BsPerson />,
   },
@@ -38,7 +38,7 @@ const routes = [
   },
 ];
 
-const SideBar=()=> {
+const AdminSidebar=()=> {
   const [isOpen,setIsOpen] = useState(true) ;
   const user=JSON.parse(localStorage.getItem('response')).user;
 
@@ -94,4 +94,4 @@ const SideBar=()=> {
   )
 }
 
-export default SideBar
+export default AdminSidebar

@@ -11,7 +11,7 @@
 }
 
 .sidebar {
-    background-color:#EAEFFF;
+    background-color:#FFF;
     color: white;
     height: 100vh;
     /* border-right: 1px solid rgba(39, 50, 56, 0.5);  */
@@ -30,6 +30,7 @@
     height: fit-content;
     width: 100%;
     padding-bottom:10% ;
+    gap: 5%;
 }
 
 .manage-bars {
@@ -48,8 +49,21 @@
     height : 60px;
     background-color: #273238;
     color: white;
+    align-items: center;
 }
 
+.logo {
+    position: relative;
+    align-items: center;
+    top: 10%;
+    left: 15%;
+}
+
+.logo img{
+    font-size: 95%;
+    align-items: center;
+    align-self: center;
+}
 
 .bars {
     font-size: x-large;
@@ -67,7 +81,7 @@
     justify-content: space-around;
     align-items: center;
     /* padding-bottom: 10vh; */
-    width: 90%;
+    width: 100%;
     /* border: #273238 solid; */
 }
 
@@ -76,9 +90,21 @@
     flex-direction: column;
     /* border: solid 1px; */
     width: 45%;
-    height: 70%;
+    height: 80%;
     align-items: center;
-    justify-content: space-around;
+    /* justify-content: space-evenly; */
+}
+
+.profile-details h3{
+    text-align: center;
+    font-size: large;
+    padding: 0%;
+}
+
+.profile-details p{
+    padding: 0%;
+    text-align: center;
+    font-size: medium;
 }
 
 .bars:hover {

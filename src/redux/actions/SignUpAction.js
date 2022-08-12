@@ -18,7 +18,7 @@ const SingUpAction = (credentials) => async (dispatch) => {
     await dispatch({ type: SIGN_UP, payload: err.response.data });
 
     if (err.response.data.status === "false") {
-      toast.error("This email is not available");
+      toast.error(err.response.data.msg);
     }
   }
 };
