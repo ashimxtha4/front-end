@@ -1,4 +1,4 @@
-.admin-project-card {
+.task-project-card {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -38,22 +38,25 @@ p {
   font-weight: 500;
 }
 
-.card-members-div {
+.task-members-div {
   padding-left: 10px;
 }
 
-.profile-image-div {
-  margin-top: 14px;
+.task-assigned-by-div{
+  display: flex;
   /* border: 1px solid red; */
-  width: 100%;
-  max-height: 26px;
-  top: -8px;
+  align-items: center;
+  margin-top: 4%;
+  
 }
 
-.profile-image-div img {
-  max-height: 26px;
-  max-width: 26px;
-  margin-right: 8px;
+.task-assigned-img-div{
+  padding-left: 2%;
+}
+
+.task-assigned-img-div > img{
+  width: 30px;
+  height: 30px;
 }
 
 .card-bot-div {

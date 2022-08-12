@@ -6,6 +6,13 @@ import EventCalendarDetails from "./EventCalendarDetails";
 const EventComponent = () => {
   const date = new Date();
   let resultingDate = [("0" + date.getDate()).slice(-2)];
+  let todayDate =
+    date.getFullYear().toString() +
+    "-" +
+    ("0" + (date.getMonth() + 1)).slice(-2) +
+    "-" +
+    resultingDate;
+  // date.toLocaleString("default", {month: "narrow"})
 
   for (let i = 1; i <= 5; i++) {
     let result = date.setDate(date.getDate() + 1); // Get tomorrow's date of the next 5 days.
@@ -21,7 +28,7 @@ const EventComponent = () => {
       </div>
 
       <div className="event-date-details-div">
-        <h3>July 22, 2022</h3>
+        <h3>{todayDate}</h3>
       </div>
       <hr></hr>
       <div className="event-date-block-div">

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Form.css";
 import Vector1 from "../Images/Vector2.svg";
 import Vector2 from "../Images/Vector1.svg";
@@ -7,32 +7,29 @@ import { useDispatch, useSelector } from "react-redux";
 import SignUpAction from "../redux/actions/SignUpAction";
 import { Formik } from "formik";
 import * as Yup from "yup";
-// import { SIGN_UP } from "../redux/container/constant";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const SignUpSchema = Yup.object().shape({
-  firstName: Yup.string().required("First name chaincha"),
-  lastName: Yup.string().required("Last name khai?"),
+  firstName: Yup.string().required("First name is required"),
+  lastName: Yup.string().required("Last name is required"),
   email: Yup.string()
-    .email("Ramro email halna paryo sir")
-    .required("Email chaincha hau"),
-  password: Yup.string().required("Password halnu paryo"), // .min(8, "Too short.").matches(/[a-zA-Z]/, "Password can only contain Latin letters."),
+    .email("Incorrect email format")
+    .required("Email is required"),
+  password: Yup.string().required("Password is required"), // .min(8, "Too short.").matches(/[a-zA-Z]/, "Password can only contain Latin letters."),
   confirmPassword: Yup.string()
-    .required("Password pheri rakha la")
+    .required("Please confirm password")
     .when("password", {
       is: (val) => (val && val.length > 0 ? true : false),
-      then: Yup.string().oneOf([Yup.ref("password")], "Password mileko chaina"),
+      then: Yup.string().oneOf([Yup.ref("password")], "Password doesn't match"),
     }),
-  // userName: Yup.string().required("Username pani chaincha"),
   phoneNumber: Yup.string()
     .required("Please enter your phone number")
     .matches(
       /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/,
       "Phone number is not valid"
     ),
-  designation: Yup.string().required("Euta designation choose garnuhos"),
-  // phoneNumber: Yup.string().required("Phone number k ho?"),
+  designation: Yup.string().required("Select one designation"),
 });
 
 function SignUp() {
@@ -57,57 +54,29 @@ function SignUp() {
         designation: values.designation,
         password: values.password,
       };
-      // [
-      //   { firstName: values.firstName },
-      //   { lastName: values.lastName },
-      //   { email: values.email },
-      //   { user_name: values.userName },
-      //   { designation: values.designation },
-      //   { password: values.password },
-      // ];
 
       dispatch(SignUpAction(form_data));
       console.log(signUpState, "Yo signupState console ho signup.js page ma.");
 
       setTimeout(async () => {
         const user = await JSON.parse(localStorage.getItem("response"));
-        // console.log(user, "This is submitted user data.");
         if (user.success === true) {
-          alert("User created successfully.");
           navigate("/");
         }
-      }, 500);
-
-      // if (signUpState.success) {
-      //   alert("User created successfully.");
-      //   navigate("/");
-      //   // dispatch(SignUpAction("kill"));
-      // }
-      // !!signUpState.success ?
-      //   (alert("User created successfully.") && navigate("/"))
-      //   // dispatch(SignUpAction("kill"));
-      //  : signUpState.status === "false"?
-      //   (toast.error("This email is not available."))
+      }, 200);
     } catch (err) {
       console.log("Catching error if not able to signup.", err);
     }
-
-    // try {
-    //   console.log(values, "yo signup values ho");
-    //   // const abc = { email: values.email, password: values.password };
-    // } catch (err) {
-    //   console.log(err);
-    // }
   };
 
   return (
-    <>
+    <div className="signup-main-div">
       <div className="image-div">
         <img src={Vector1} alt="effect" className="back-image" />
         <img src={Vector2} alt="effect" className="front-image" />
       </div>
       <div className="main-div">
-        <h1 className="form-heading">Welcome to Asterdio</h1>
+        <h1 className="form-heading">Create an Account</h1>
         <Formik
           initialValues={{
             firstName: "",
@@ -158,21 +127,8 @@ function SignUp() {
                 />
                 {errors.email && touched.email ? (
                   <div className="signup-error-div">{errors.email}</div>
-                ) : // : signUpState.status === "false" ? (<div className="signup-error-div">{signUpState.msg}</div>)
-                null}
-              </div>
-              {/* <div className="signup-input-div">
-                <input
-                  type="text"
-                  className="input"
-                  placeholder="Username"
-                  name="userName"
-                  onChange={handleChange("userName")}
-                />
-                {errors.userName && touched.userName ? (
-                  <div className="signup-error-div">{errors.userName}</div>
                 ) : null}
-              </div> */}
+              </div>
               <div className="signup-input-div">
                 <input
                   type="number"
@@ -213,49 +169,56 @@ function SignUp() {
                 ) : null}
               </div>
               <div className="signup-input-div">
-                <input
-                  list="browsers"
-                  name="browser"
-                  id="designatio"
-                  className="input"
-                  placeholder="Designation"
+                <select
+                  name="designation"
+                  id="designation"
                   onChange={handleChange("designation")}
-                />
+                  required
+                >
+                  <option
+                    value="Select Your Designation"
+                    selected
+                    hidden
+                    disabled
+                  >
+                    Select Your Designation
+                  </option>
+                  <option value="Front-End Developer">
+                    Front-End Developer
+                  </option>
+                  <option value="Back-End Developer">Back-End Developer</option>
+                  <option value="Full-Stack Developer">
+                    Full-Stack Developer
+                  </option>
+                  <option value="QA Engineer">QA Engineer</option>
+                  <option value="Designer">Designer</option>
+                  <option value="Finance">Finance</option>
+                </select>
                 {errors.designation && touched.designation ? (
                   <div className="signup-error-div">{errors.designation}</div>
                 ) : null}
               </div>
-              <datalist id="browsers">
-                <option value="Front-End Developer" />
-                <option value="Back-End Developer" />
-                <option value="QA Engineer" />
-                <option value="Designer" />
-                <option value="Finance" />
-              </datalist>
 
               <button
                 type="submit"
-                value="Sign-Up"
+                value="Signup"
                 className="button"
-                // onClick={() => {
-                //   navigate("/");
-                // }}
                 onClick={handleSubmit}
               >
-                Sign-Up
+                Signup
               </button>
               <ToastContainer position="top-left" autoClose={6000} />
             </form>
           )}
         </Formik>
-        <p>
-          Already a User{" "}
+        <p className="login-form-register-link">
+          Already a user?{" "}
           <Link exact to="/">
-            Log In
+            Login
           </Link>
         </p>
       </div>
-    </>
+    </div>
   );
 }
 

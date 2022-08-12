@@ -8,6 +8,8 @@ import SignUp from "../Pages/SignUp";
 import LogIn from "../Pages/LogIn";
 import AdminProject from "../Pages/Admin/AdminProject";
 import AdminDashboard from "../Pages/Admin/AdminDashboard";
+import ChangePassword from "../Pages/ChangePassword";
+import ResetPassword from "../Pages/ResetPassword";
 
 const MyRoutes = () => {
   return (
@@ -16,9 +18,11 @@ const MyRoutes = () => {
       <Route path="/projects" element={<Projects />} />
       <Route path="/task" element={<Task />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/profile/changepassword" element={<ChangePassword />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/" element={<LogIn />} />
       <Route path="/admin/project" element={<AdminProject />} />
+      <Route path="/resetpassword" element={<ResetPassword />} />
       <Route path="/admin/dashboard" element={<AdminDashboard />} />
 
     </Routes>

@@ -12,6 +12,15 @@ const SingUpAction = (credentials) => async (dispatch) => {
     console.log(response.data, "Data from axios post request.");
     await dispatch({ type: SIGN_UP, payload: response.data });
     localStorage.setItem("response", JSON.stringify(response.data));
+
+    setTimeout(() => {
+      if (response.data.success === true) {
+        toast.success(
+          "Registration successful. Please login with your credentials.",
+          { autoClose: 8000 }
+        );
+      }
+    }, 300);
   } catch (err) {
     console.log("Yo signupaction ko catch error ho.", err.response.data.msg);
     // console.log(err.response.data);

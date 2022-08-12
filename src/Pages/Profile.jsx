@@ -3,6 +3,7 @@ import SideBar from "../Components/SideBar";
 import "../Styles/Profile.css";
 import profilepicmd from "../Images/profilepicmedium.png";
 import defaultprofilepic from "../Images/Taskit_Default.png";
+import { Link } from "react-router-dom";
 // import { Formik } from "formik";
 // import * as Yup from "yup";
 // import { toast } from "react-toastify";
@@ -37,13 +38,13 @@ const Profile = () => {
     firstName: localData.firstName,
     lastName: localData.lastName,
     email: localData.email,
-    // designation: localData.designation,
-    // password: localData.password,
+    password: localData.password,
     phoneNumber: localData.phoneNumber,
-    role: localData.role,
   });
 
   console.log(post);
+  console.log(localData);
+  console.log(updatedData)
 
   const removeProfileImage = () => {
     setProfileImage("defaultprofilepic");
@@ -65,10 +66,6 @@ const Profile = () => {
       : (btnSaveClass.className = "bot-save-btn-inact") &&
         (btnCancelClass.className = "bot-cancel-btn-inact");
   };
-
-  // const resetData = () => {
-  //   return
-  // }
 
   return (
     <>
@@ -93,8 +90,7 @@ const Profile = () => {
                   </div>
                   <div className="profile-top-text-btn-remove">
                     <button
-                      onClick={() => removeProfileImage
-                        (setformChange(true))}
+                      onClick={() => removeProfileImage(setformChange(true))}
                     >
                       Remove
                     </button>
@@ -164,6 +160,7 @@ const Profile = () => {
                         }}
                         pattern="[1-9]{1}[0-9]{9}"
                         onkeypress="return /[0-9]/i.test(event.key)"
+                        required
                       ></input>
                     </div>
                   </div>
@@ -186,25 +183,24 @@ const Profile = () => {
                         required
                       />
                     </div>
-                    {/* <div className="profile-mid-input-div">
-                    <label for="password">Password</label>
-                    <br></br>
-                    <input
-                      type="password"
-                      value={updatedData.password}
-                      onKeyDown={() => {
-                        setformChange(true);
-                      }}
-                    ></input>
-                  </div> */}
                     <div className="profile-mid-input-div">
-                      <label for="role">Role</label>
+                      <label for="password">Password</label>
+                      <Link
+                        exact
+                        to="/profile/changepassword"
+                        className="password-change-link"
+                      >
+                        Change
+                      </Link>
                       <br></br>
                       <input
-                        type="text"
-                        name="role"
-                        id="role"
-                        value={updatedData.role}
+                        type="password"
+                        id="password"
+                        name="password"
+                        value={updatedData.password}
+                        onKeyDown={() => {
+                          setformChange(true);
+                        }}
                         disabled
                       ></input>
                     </div>
@@ -219,10 +215,7 @@ const Profile = () => {
                         }
                         required
                       >
-                        <option selected>
-                          {/* {updatedData.designation} */}
-                          {post}
-                        </option>
+                        <option selected>{post}</option>
                         {designationArray.map(
                           (items) =>
                             items !== post && (
@@ -244,20 +237,18 @@ const Profile = () => {
                   </button>
                   <button
                     type="reset"
-                    value="reset"
+                    // value="reset"
                     className="bot-cancel-btn-inact"
                     id="bot-cancel-btn"
-                    onClick={() => {
+                    onClick={(e) => {
                       setformChange(false);
                       setPost(localData.designation);
                       setProfileImage("profilepicmd");
-                      // resetData;
                     }}
                   >
                     Cancel
                   </button>
                 </div>
-                {/* <ToastContainer position="top-left" autoClose={6000} /> */}
               </form>
               {/* )}
               </Formik> */}
