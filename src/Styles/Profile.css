@@ -32,7 +32,7 @@ input:focus,
 option:focus,
 select:focus {
   outline: none !important;
-  border-color: #1f4583;
+  border-color: #6288c5;
   box-shadow: 0 0 4px #719ece;
 }
 
@@ -41,7 +41,7 @@ input:disabled {
 }
 
 .profile-main-div {
-  background-color: #eaefff;
+  background-color: #F4F4F4;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -165,6 +165,8 @@ input:disabled {
 
 .profile-top-text button:hover {
   text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
 .bot-cancel-btn {
@@ -207,4 +209,18 @@ input:disabled {
 
 .profile-card-bot-div {
   padding-top: 20px;
+}
+
+.profile-mid-input-div .password-change-link {
+  font-family: "Roboto", sans-serif;
+  color: #002093;
+  font-size: 12px;
+  text-decoration: none;
+  position: absolute;
+  top: 8px;
+  right: 2px;
+}
+
+.profile-mid-input-div {
+  position: relative;
 }

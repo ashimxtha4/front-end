@@ -1,12 +1,11 @@
 import React from "react";
-import "../Styles/Admin/AdminProjectCard.css";
+import "../Styles/TaskCard.css";
 import profilepicsmall from "../Images/profilepicsmall1.png";
 import { BsArrowRight, BsFillCircleFill } from "react-icons/bs";
-// import { Link } from "react-router-dom";
 
-const ProjectCard = (props) => {
+const TaskCard = (props) => {
   return (
-    <div className="admin-project-card">
+    <div className="task-project-card">
       <div className="card-status-div">
         {props.status === "inprogress" ? (
           <div className="card-status-div-inner">
@@ -24,22 +23,36 @@ const ProjectCard = (props) => {
             />
             <p style={{ color: "#00D563" }}>Completed</p>
           </div>
+        ) : props.status === "assigned" ? (
+          <div className="card-status-div-inner">
+            <BsFillCircleFill
+              className="card-status-inner-icon"
+              style={{ color: "#65c0c0" }}
+            />
+            <p style={{ color: "#65c0c0" }}>Assigned</p>
+          </div>
         ) : null}
       </div>
       <div className="card-title-div">
-        <h2>{props.title}</h2>
-        <p className="card-pm-div">{props.pmname}</p>
+        <h2>{props.taskName}</h2>
       </div>
 
-      <div className="card-members-div">
-        <p className="members-p">Members</p>
-
-        <div className="profile-image-div">
-          <img src={profilepicsmall} alt="" />
-          <img src={profilepicsmall} alt="" />
-          <img src={profilepicsmall} alt="" />
-          <img src={profilepicsmall} alt="" />
-          <img src={profilepicsmall} alt="" />
+      <div className="task-members-div">
+        <div className="task-assigned-by-div">
+          <div className="task-assigned-by-div-p">
+            <p>Assigned by: {props.pmname}</p>
+          </div>
+          <div className="task-assigned-img-div">
+            <img src={profilepicsmall} alt="nice"/>
+          </div>
+        </div>
+        <div className="task-assigned-by-div">
+        <div className="task-assigned-by-div-p">
+            <p>Assigned to: {props.firstName} {props.lastName}</p>
+          </div>
+          <div className="task-assigned-img-div">
+            <img src={profilepicsmall} alt="nice"/>
+          </div>
         </div>
       </div>
 
@@ -53,4 +66,4 @@ const ProjectCard = (props) => {
   );
 };
 
-export default ProjectCard;
+export default TaskCard;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SideBar from "../Components/SideBar";
 import "../Styles/ChangePassword.css";
 import { BsArrowLeftCircle } from "react-icons/bs";
@@ -21,14 +21,31 @@ const ChangePassword = () => {
       }),
   });
 
+  const [formState, setformState] = useState(false);
+
+  const changeFormCSS = () => {
+    let btnSaveClass = document.getElementById("password-save-btn");
+    let btnCancelClass = document.getElementById("password-cancel-btn");
+
+    formState === true
+      ? (btnSaveClass.className = "password-save-btn-act") &&
+        (btnCancelClass.className = "password-cancel-btn-act")
+      : (btnSaveClass.className = "password-save-btn-inact") &&
+        (btnCancelClass.className = "password-cancel-btn-inact");
+  };
+
+  useEffect(() => {
+    changeFormCSS();
+  });
+
   const handlePasswordChangeForm = (values) => {
     const passwordChangeData = {
       currentPassword: values.currentPassword,
       newPassword: values.newPassword,
       confirmPassword: values.confirmPassword,
-    }
-    console.log(passwordChangeData)
-  }
+    };
+    console.log(passwordChangeData);
+  };
 
   return (
     <div className="tempelate-div">
@@ -65,7 +82,7 @@ const ChangePassword = () => {
                     id="currentPassword"
                     onChange={handleChange("currentPassword")}
                     onKeyDown={() => {
-                      // setformChange(true);
+                      setformState(true);
                     }}
                     className="password-current-input"
                   />
@@ -84,7 +101,7 @@ const ChangePassword = () => {
                     id="newPassword"
                     onChange={handleChange("newPassword")}
                     onKeyDown={() => {
-                      // setformChange(true);
+                      setformState(true);
                     }}
                     className="password-new-input"
                   />
@@ -103,7 +120,7 @@ const ChangePassword = () => {
                     id="confirmPassword"
                     onChange={handleChange("confirmPassword")}
                     onKeyDown={() => {
-                      // setformChange(true);
+                      setformState(true);
                     }}
                     className="password-confirm-input"
                   />
@@ -127,10 +144,7 @@ const ChangePassword = () => {
                     className="password-cancel-btn-inact"
                     id="password-cancel-btn"
                     onClick={() => {
-                      // setformChange(false);
-                      // setPost(localData.designation);
-                      // setProfileImage("profilepicmd");
-                      // resetData;
+                      setformState(false);
                     }}
                   >
                     Cancel

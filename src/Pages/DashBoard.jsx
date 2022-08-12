@@ -1,18 +1,17 @@
-import React from "react";
+// import React, { useEffect, useState } from "react";
 import SideBar from "../Components/SideBar";
-// import "./Tempelate.css";
 import ProjectComponent from "../Components/ProjectComponent";
 import EventComponent from "../Components/EventComponent";
 import NoticeComponent from "../Components/NoticeComponent";
 import "../Styles/DashboardHome.css";
 import TeamMemberComponent from "../Components/TeamMemberComponent";
 import MyTaskComponent from "../Components/MyTaskComponent";
-// import { useSelector } from "react-redux";
+import { ToastContainer } from "react-toastify";
 
 const DashBoard = () => {
+  const user = JSON.parse(localStorage.getItem("response"));
+  console.log(user);
 
-  const user=JSON.parse(localStorage.getItem('response')).user;
-  console.log(user)
   return (
     <>
       <div className="tempelate-div">
@@ -22,7 +21,7 @@ const DashBoard = () => {
         <div className="content-div">
           <div class="body-main-div">
             <div class="body-title-div">
-              <h2>Welcome,{user?.firstName}  </h2>
+              <h2>Welcome {user?.firstName} </h2>
             </div>
             <div class="body-card-div-1">
               <MyTaskComponent
@@ -47,6 +46,7 @@ const DashBoard = () => {
             </div>
           </div>
         </div>
+        <ToastContainer position="top-right" autoClose={6000} />
       </div>
     </>
   );

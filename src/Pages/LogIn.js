@@ -18,34 +18,25 @@ const LogIn = () => {
   // console.log(error_msg);
 
   const navigate = useNavigate();
-  // const [email, setEmail] = useState("");
-  // const [pwd, setPwd] = useState("");
   const dispatch = useDispatch();
   const { loginState } = useSelector((state) => state.logIn);
+  // const user = JSON.parse(localStorage.getItem("response"));
 
   const handleFormSubmit = (values) => {
     try {
       console.log(values, "Yo form submit garda ko values ho.");
       const form_data = { email: values.email, password: values.password };
       dispatch(LogInAction(form_data));
+
       console.log(loginState, "Yo loginState console ho login.js page ma.");
 
       setTimeout(async () => {
         const user = await JSON.parse(localStorage.getItem("response"));
-        console.log(user.success);
-        if (user.success) navigate("/dashboard");
-        // if (loginState.success === true) {
-        //   navigate("/dashboard");
-        // }
-        // else if (loginState.status === false) {
-        // console.log("If loginState.user not found ->", loginState);
-        // }
-      }, 500);
-      // if (loginState.success === true) {
-      //   navigate("/dashboard");
-      // } else if (loginState.status === false) {
-      //   console.log("If loginState.user not found ->", loginState);
-      // }
+
+        if (user.success) {
+          navigate("/dashboard");
+        }
+      }, 400);
     } catch (err) {
       console.log("Catching error if not able to login.", err);
     }
@@ -53,9 +44,9 @@ const LogIn = () => {
 
   const LogInSchema = Yup.object().shape({
     email: Yup.string()
-      .email("Email thik chaina hai")
-      .required("Email chaincha"),
-    password: Yup.string().required("Password halnu paryo"), // .min(8, "Too short.").matches(/[a-zA-Z]/, "Password can only contain Latin letters."),
+      .email("Not a valid email")
+      .required("Email is required"),
+    password: Yup.string().required("Password is required"), // .min(8, "Too short.").matches(/[a-zA-Z]/, "Password can only contain Latin letters."),
   });
 
   return (
@@ -65,7 +56,7 @@ const LogIn = () => {
         <img src={Vector2} alt="effect" className="front-image" />
       </div>
       <div className="main-div">
-        <h1 className="form-heading">Welcome to Asterdio</h1>
+        <h1 className="form-heading">Welcome to Taskit</h1>
         <Formik
           initialValues={{
             email: "",
@@ -108,28 +99,23 @@ const LogIn = () => {
                   </div>
                 ) : null}
               </div>
-              <a className="forget-pass" href="ForgerPassword.js">
-                Forget your password ?
-              </a>
+              <button className="forget-pass">Forgot your password?</button>
               <button
                 type="button"
                 value="Log-In"
                 className="button"
                 onClick={handleSubmit}
-                // onClick={() => {
-                //   handleSubmit();
-                // }}
               >
-                Log-In
+                Login
               </button>
               <ToastContainer position="top-left" autoClose={6000} />
             </form>
           )}
         </Formik>
-        <p>
-          Register if you are new{" "}
+        <p className="login-form-register-link">
+          Don't have an account yet?{" "}
           <Link exact to="/signup">
-            Sign Up?
+            Sign Up
           </Link>
         </p>
       </div>

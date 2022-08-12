@@ -119,24 +119,29 @@ const AdminProject = () => {
             </button>
           </div>
           <div className="mid-btn-div">
-            <button className="mid-btn" onClick={changeToCompleted}
-            style={{
-              color: projectState === "Completed" && "#1f4583",
-              textDecoration: projectState === "Completed" && "underline",
-              textDecorationThickness: projectState === "Completed" && "3px",
-              textUnderlineOffset: projectState === "Completed" && "10px",
-            }}>
+            <button
+              className="mid-btn"
+              onClick={changeToCompleted}
+              style={{
+                color: projectState === "Completed" && "#1f4583",
+                textDecoration: projectState === "Completed" && "underline",
+                textDecorationThickness: projectState === "Completed" && "3px",
+                textUnderlineOffset: projectState === "Completed" && "10px",
+              }}
+            >
               Completed (4)
             </button>
           </div>
           <div className="mid-btn-div">
-            <button className="mid-btn" onClick={changeToInprogress}
-            style={{
-              color: projectState === "Inprogress" && "#1f4583",
-              textDecoration: projectState === "Inprogress" && "underline",
-              textDecorationThickness: projectState === "Inprogress" && "3px",
-              textUnderlineOffset: projectState === "Inprogress" && "10px",
-            }}
+            <button
+              className="mid-btn"
+              onClick={changeToInprogress}
+              style={{
+                color: projectState === "Inprogress" && "#1f4583",
+                textDecoration: projectState === "Inprogress" && "underline",
+                textDecorationThickness: projectState === "Inprogress" && "3px",
+                textUnderlineOffset: projectState === "Inprogress" && "10px",
+              }}
             >
               In Progress (2)
             </button>
@@ -148,9 +153,12 @@ const AdminProject = () => {
                 placeholder="Search Project"
                 className="search-input-field"
                 id="search-input-field"
-              ></input>
-              <BsSearch className="input-form-search-icon" />
+                // maxLength={30}
+              />
             </form>
+            <div className="input-form-search-icon-div">
+              <BsSearch className="input-form-search-icon" />
+            </div>
           </div>
         </div>
         <hr></hr>
