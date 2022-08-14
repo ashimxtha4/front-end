@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
@@ -22,6 +22,8 @@ const theme = createTheme({
 
 export default function LoginForgotPasswordForm() {
   const [open, setOpen] = React.useState(false);
+  const [emailData, setEmailData] = useState("");
+  const [isFormInvalid, setIsFormInvalid] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -29,6 +31,21 @@ export default function LoginForgotPasswordForm() {
 
   const handleClose = () => {
     setOpen(false);
+    setIsFormInvalid(false);
+    setEmailData("");
+  };
+
+  const handleResetSubmit = () => {
+    console.log(emailData);
+    handleEmptyError();
+  };
+
+  const handleEmptyError = () => {
+    if (emailData === "") {
+      setIsFormInvalid(true);
+    } else {
+      setIsFormInvalid(false);
+    }
   };
 
   return (
@@ -53,19 +70,31 @@ export default function LoginForgotPasswordForm() {
             <TextField
               autoFocus
               margin="dense"
+              name="password-reset-email"
               id="password-reset-email"
               label="Email Address"
               type="email"
               fullWidth
               variant="standard"
               required
+              onChange={(e) => {
+                setEmailData(e.target.value);
+                console.log(emailData, "from input onchange");
+                setIsFormInvalid(false);
+              }}
+              error={isFormInvalid}
+              helperText={isFormInvalid && "Can not be empty"}
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleClose} style={{ fontSize: "14px" }}>
+            <Button
+              onClick={handleClose}
+              style={{ fontSize: "14px" }}
+              type="reset"
+            >
               Cancel
             </Button>
-            <Button onClick={handleClose} style={{ fontSize: "14px" }}>
+            <Button onClick={handleResetSubmit} style={{ fontSize: "14px" }}>
               Submit
             </Button>
           </DialogActions>
