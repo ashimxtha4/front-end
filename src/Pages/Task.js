@@ -245,18 +245,18 @@ const Task = () => {
                 Completed (4)
               </button>
             </div>
-            <div className="mid-input-div">
-              <form className="mid-input-form">
+            <div className="task-mid-input-div">
+              <form className="task-mid-input-form">
                 <input
                   type="text"
                   placeholder="Search Project"
-                  className="search-input-field"
+                  className="task-search-input-field"
                   id="search-input-field"
                   // maxLength={30}
                 />
               </form>
-              <div className="input-form-search-icon-div">
-                <BsSearch className="input-form-search-icon" />
+              <div className="task-input-form-search-icon-div">
+                <BsSearch className="task-input-form-search-icon" />
               </div>
             </div>
           </div>

@@ -189,17 +189,17 @@
 }
 
 .forget-pass {
-  text-decoration: none;
-  font-family: "Roboto";
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  font-size: 16px;
-  color: #1f4583;
+  text-decoration: none !important;
+  font-family: "Roboto", "sans-serif" !important;
+  border: none !important;
+  background-color: transparent !important;
+  cursor: pointer !important;
+  /* font-size: 14px !important; */
+  color: #1f4583 !important;
 }
 
 .forget-pass:hover {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 5px;
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 5px !important;
 }

@@ -1,5 +1,5 @@
 import React from 'react'
-import "E:/front-end/src/Styles/Admin/AdminDashboardCard.css";
+import "../../Styles/Admin/AdminDashboardCard.css";
 
 function AdminDashboardCard(props) {
   return (

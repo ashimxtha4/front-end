@@ -10,6 +10,7 @@ import AdminProject from "../Pages/Admin/AdminProject";
 import AdminDashboard from "../Pages/Admin/AdminDashboard";
 import ChangePassword from "../Pages/ChangePassword";
 import ResetPassword from "../Pages/ResetPassword";
+import FormDialog from "./LoginForgotPasswordForm";
 
 const MyRoutes = () => {
   return (
@@ -20,6 +21,7 @@ const MyRoutes = () => {
       <Route path="/profile" element={<Profile />} />
       <Route path="/profile/changepassword" element={<ChangePassword />} />
       <Route path="/signup" element={<SignUp />} />
+      <Route path="/formdialog" element={<FormDialog />} />
       <Route path="/" element={<LogIn />} />
       <Route path="/admin/project" element={<AdminProject />} />
       <Route path="/resetpassword" element={<ResetPassword />} />

@@ -17,3 +17,71 @@
   margin-bottom: 0.5rem;
 }
 
+.task-mid-input-div {
+  padding: 0;
+  margin: 0;
+  width: 26%;
+  position: relative;
+  background-color: #e5eeff;
+  border-radius: 6px;
+  /* border: 1px solid red; */
+}
+
+.task-mid-input-div input {
+  margin: 0;
+  width: 100%;
+}
+
+.task-mid-input-form {
+  display: flex;
+  align-items: center;
+  /* border: 1px solid red; */
+  position: relative;
+  max-width: 98%;
+}
+
+.task-mid-input-form input {
+  text-align: left;
+  padding-left: 20px;
+  left: -10px;
+  background-color: #e5eeff;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.2rem;
+  color: #646464;
+  /* border: 1px solid red; */
+  border: none;
+  width: 85%;
+  border-radius: 0;
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.task-mid-input-form input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.task-input-form-search-icon-div {
+  /* border: 1px solid red; */
+  position: absolute;
+  right: 1%;
+  height: 100%;
+  /* width: 8%; */
+  top: 0;
+  background-color: #e5eeff;
+  padding: 1%;
+  /* padding-right: 0.2vw; */
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.task-input-form-search-icon {
+  font-size: 1.3rem;
+  position: absolute;
+  right: 20%;
+  top: 14%;
+  color: #646464;
+  margin-top: 3px;
+  min-width: 25px;
+  /* clip: rect(0px,400px,0px,0px); */
+}

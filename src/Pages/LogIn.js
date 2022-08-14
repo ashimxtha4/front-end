@@ -9,6 +9,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import LoginForgotPasswordForm from "../Components/LoginForgotPasswordForm";
 
 const LogIn = () => {
   useEffect(() => {
@@ -99,7 +100,8 @@ const LogIn = () => {
                   </div>
                 ) : null}
               </div>
-              <button className="forget-pass">Forgot your password?</button>
+              {/* <button className="forget-pass" onClick={<FormDialog/>}>Forgot your password?</button> */}
+              <LoginForgotPasswordForm/>
               <button
                 type="button"
                 value="Log-In"
