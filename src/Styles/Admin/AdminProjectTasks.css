@@ -1,51 +1,45 @@
-.admin-project-main-div {
+.admin-projectdetails-main-div {
   width: 100%;
   background-color: #f4f4f4;
   padding-bottom: 30px;
 }
 
-.admin-project-top-div {
+.admin-projectdetails-top-div {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
+  gap: 4%;
   align-items: center;
-  padding: 20px 20px;
+  padding: 10px 20px;
   padding-right: 10px;
   /* border: 1px solid red; */
   margin-top: 20px;
 }
 
-.admin-project-top-div h2 {
+.admin-projectdetails-top-div .admin-projectdetails-title-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.admin-projectdetails-top-div .admin-projectdetails-title-icon {
+  font-size: 30px;
+  border: none;
+  color: #757575;
+}
+
+.admin-projectdetails-top-div .admin-projectdetails-title-icon:hover {
+  color: #1f4583;
+}
+
+.admin-projectdetails-top-div h2 {
   color: #273238;
   font-family: "Roboto";
   font-size: 32px;
   font-weight: 500;
 }
 
-.admin-project-top-div button {
-  color: #ffffff;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
-  background-color: #1f4583;
-  border-radius: 6px;
-  cursor: pointer;
-  transition-duration: 0.4s;
-}
-
-.admin-project-top-div button:hover {
-  background-color: #112950;
-  transition-duration: 0.4s;
-}
-
-.top-btn-div {
-  padding-right: 6%;
-}
-
 .admin-project-body-div {
-  /* position: relative;
-  top: 5%;
-  height: 30%;
-  width: 30%;
-  margin-left: 26px; */
   display: flex;
   /* height: 90%; */
   /* width: 100%; */
@@ -55,16 +49,9 @@
   padding-bottom: 10px;
 }
 
-.top-btn {
-  border: none;
-  padding: 10px 20px;
-  background-color: red;
-}
-
-.admin-project-mid-div {
+.admin-projectdetails-mid-div {
   display: flex;
-  justify-content: space-evenly;
-
+  /* justify-content: space-evenly; */
   align-items: center;
   margin-top: 10px;
   margin-bottom: 0.5rem;
@@ -72,21 +59,23 @@
 
 .mid-btn {
   border: none;
-  padding: 10px 10px;
+  padding: 10px 0px;
+  margin-left: 40px;
   /* background-color: red; */
 }
 
-.mid-input-div {
+.admindetails-mid-input-div {
   padding: 0;
   margin: 0;
-  width: 26%;
+  width: 30%;
   position: relative;
   background-color: #e5eeff;
   border-radius: 6px;
   /* border: 1px solid red; */
+  margin-left: 25vw;
 }
 
-.mid-input-div input {
+.admindetails-mid-input-div input {
   margin: 0;
   width: 100%;
 }
@@ -106,12 +95,12 @@
 
 .mid-btn-div button:hover {
   /* text-decoration: underline;
-  text-decoration-thickness: 3px;
-  text-underline-offset: 10px; */
+    text-decoration-thickness: 3px;
+    text-underline-offset: 10px; */
   color: #1f4583;
 }
 
-.mid-input-form {
+.admindetails-mid-input-form {
   display: flex;
   align-items: center;
   /* border: 1px solid red; */
@@ -119,7 +108,7 @@
   max-width: 98%;
 }
 
-.mid-input-form input {
+.admindetails-mid-input-form input {
   text-align: left;
   padding-left: 20px;
   left: -10px;
@@ -135,7 +124,7 @@
   border-bottom-left-radius: 6px;
 }
 
-.mid-input-form input:focus {
+.admindetails-mid-input-form input:focus {
   outline: none;
   box-shadow: none;
 }
@@ -163,4 +152,12 @@
   margin-top: 3px;
   min-width: 25px;
   /* clip: rect(0px,400px,0px,0px); */
+}
+
+.admin-projectdetails-body-div{
+  width: 100%;
+  /* border: 1px solid red; */
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
 }

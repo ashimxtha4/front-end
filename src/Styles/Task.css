@@ -10,11 +10,11 @@
 
 .task-project-mid-div {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
-  margin: 0 8%;
   margin-top: 10px;
   margin-bottom: 0.5rem;
+  padding-right: 20px;
 }
 
 .task-mid-input-div {

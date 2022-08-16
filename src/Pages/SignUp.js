@@ -15,7 +15,11 @@ const SignUpSchema = Yup.object().shape({
   lastName: Yup.string().required("Last name is required"),
   email: Yup.string()
     .email("Incorrect email format")
-    .required("Email is required"),
+    .required("Email is required")
+    .matches(
+      /^[A-Za-z0-9._%+-]+@[a-z._-]{1,12}\.com$/,
+      "Email pattern is not correct"
+    ),
   password: Yup.string().required("Password is required"), // .min(8, "Too short.").matches(/[a-zA-Z]/, "Password can only contain Latin letters."),
   confirmPassword: Yup.string()
     .required("Please confirm password")

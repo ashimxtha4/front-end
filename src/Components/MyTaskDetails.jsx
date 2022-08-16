@@ -11,7 +11,7 @@ const MyTaskDetails = (props) => {
         ) : props.status === "inprogress" ? (
           <BsFillCircleFill style={{ color: "orange" }} />
         ) : (
-          <BsFillCircleFill style={{ color: "gray" }} />
+          <BsFillCircleFill style={{ color: "#65c0c0" }} />
         )}
       </div>
       <div className="mytask-details-right-div">

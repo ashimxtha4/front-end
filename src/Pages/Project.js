@@ -117,9 +117,6 @@ const Project = () => {
             <div className="top-title-div">
               <h2>Projects</h2>
             </div>
-            <div className="top-btn-div">
-              <button className="top-btn">+ Create</button>
-            </div>
           </div>
           <div className="user-project-mid-div">
             <div className="mid-btn-div">

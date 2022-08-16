@@ -16,7 +16,7 @@ const LogInAction = (credentials) => async (dispatch) => {
       if (response.data.success === true) {
         toast.success("Logged in successfully", { autoClose: 5000 });
       }
-    }, 500);
+    }, 600);
   } catch (error) {
     console.log("LoginAction ko error ->", error.response.data.msg);
     await dispatch({ type: LOG_IN, payload: error.response.data });

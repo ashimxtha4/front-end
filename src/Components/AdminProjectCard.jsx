@@ -10,12 +10,18 @@ const AdminProjectCard = (props) => {
       <div className="card-status-div">
         {props.status === "inprogress" ? (
           <div className="card-status-div-inner">
-            <BsFillCircleFill className="card-status-inner-icon" style={{ color: "#FA6B2D" }}/>
+            <BsFillCircleFill
+              className="card-status-inner-icon"
+              style={{ color: "#FA6B2D" }}
+            />
             <p style={{ color: "#FA6B2D" }}>In Progress</p>
           </div>
         ) : props.status === "completed" ? (
           <div className="card-status-div-inner">
-            <BsFillCircleFill className="card-status-inner-icon" style={{ color: "#00D563" }}/>
+            <BsFillCircleFill
+              className="card-status-inner-icon"
+              style={{ color: "#00D563" }}
+            />
             <p style={{ color: "#00D563" }}>Completed</p>
           </div>
         ) : null}
@@ -34,18 +40,14 @@ const AdminProjectCard = (props) => {
           <img src={profilepicsmall} alt="" />
           <img src={profilepicsmall} alt="" />
           <img src={profilepicsmall} alt="" />
-         
-      
         </div>
       </div>
 
       <div className="card-bot-div">
-        <Link exact to="/dashboard" className="bot-link">
+        <Link exact to="/admin/projectdetails" className="bot-link">
           View Tasks
           <BsArrowRight className="bot-icon-div" />
         </Link>
-
-        
       </div>
     </div>
   );

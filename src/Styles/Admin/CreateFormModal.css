@@ -1,0 +1,111 @@
+.createprojectpopup-inner {
+  margin: auto;
+  width: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(31, 69, 131, 0.25);
+}
+
+.createprojectpopup-inner h2 {
+  font-family: "roboto";
+  font-weight: 200;
+  margin-bottom: 30px;
+}
+
+/* Button styling */
+.createprojectpopup-form-cancel-btn {
+  margin-left: 20px;
+  padding: 8px 18px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #1f4583;
+  background-color: transparent;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+
+.createprojectpopup-form-cancel-btn:hover {
+  transition-duration: 0.2s;
+  border: 1px solid #1f4583;
+  color: white;
+  background-color: #1f4583;
+  cursor: pointer;
+}
+
+.createprojectpopup-form-create-btn {
+  padding: 8px 18px;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  border-radius: 4px;
+  background-color: #1f4583;
+  color: white;
+  border: 1px solid #1f4583;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+
+.createprojectpopup-form-create-btn:hover {
+  transition-duration: 0.2s;
+  border: 1px solid #081f46;
+  background-color: #081f46;
+  cursor: pointer;
+}
+
+/* .createprojectpopup-form-top {
+  border: 1px solid red;
+} */
+
+.createprojectpopup-form-top input {
+  width: 100%;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+.createprojectpopup-form-top textarea {
+  max-width: 100%;
+  min-width: 100%;
+  margin-top: 10px;
+  border-radius: 4px;
+  font-family: "Roboto", sans-serif;
+  font-size: 20px;
+  padding-left: 10px;
+  padding-top: 6px;
+}
+
+.createprojectpopup-form-top textarea:focus {
+  outline: none !important;
+  border-color: #6288c5;
+  box-shadow: 0 0 4px #719ece;
+}
+
+.createprojectpopup-form-bot {
+  display: flex;
+  margin-top: 20px;
+  /* border: 1px solid green; */
+}
+
+.createprojectpopup-form-bot-assignpm {
+  /* border: 1px solid red; */
+  width: 60%;
+}
+
+.createprojectpopup-form-bot-assignpm select {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.createprojectpopup-form-bot-duedate {
+  /* border: 1px solid blue; */
+  width: 40%;
+  margin-left: 20px;
+}
+
+.createprojectpopup-form-bot-duedate input {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.createprojectpopup-form-btn {
+  margin-top: 20px;
+}

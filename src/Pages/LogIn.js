@@ -37,7 +37,7 @@ const LogIn = () => {
         if (user.success) {
           navigate("/dashboard");
         }
-      }, 400);
+      }, 500);
     } catch (err) {
       console.log("Catching error if not able to login.", err);
     }
@@ -46,8 +46,12 @@ const LogIn = () => {
   const LogInSchema = Yup.object().shape({
     email: Yup.string()
       .email("Not a valid email")
-      .required("Email is required"),
-    password: Yup.string().required("Password is required"), // .min(8, "Too short.").matches(/[a-zA-Z]/, "Password can only contain Latin letters."),
+      .required("Email is required")
+      .matches(
+        /^[A-Za-z0-9._%+-]+@[a-z._-]{1,12}\.com$/,
+        "Email pattern is not correct"
+      ),
+    password: Yup.string().required("Password is required"), // .min(8, "Too short.").matches(/[a-zA-Z]/, "Password can only contain Latin letters"),
   });
 
   return (
@@ -101,7 +105,7 @@ const LogIn = () => {
                 ) : null}
               </div>
               {/* <button className="forget-pass" onClick={<FormDialog/>}>Forgot your password?</button> */}
-              <LoginForgotPasswordForm/>
+              <LoginForgotPasswordForm />
               <button
                 type="button"
                 value="Log-In"

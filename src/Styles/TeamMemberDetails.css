@@ -4,8 +4,9 @@
 }
 
 .members-details-assigned-div {
-  width: 18%;
+  /* width: 18%; */
   margin-top: 5px;
+  margin-left: 5px;
 }
 
 .members-details-right-div {
@@ -13,6 +14,7 @@
   font-family: "Roboto", sans-serif;
   font-size: 14px;
   position: relative;
+  margin-left: 8px;
 }
 
 .members-details-name-div h3 {

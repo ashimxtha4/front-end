@@ -1,0 +1,83 @@
+.admintask-project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 20px;
+  position: relative;
+  /* top: 20%; */
+  height: 160px;
+  width: 30%;
+  background-color: #ffffff;
+  border-radius: 6px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  margin-top: 2rem;
+  padding-left: 10px;
+}
+
+.admincard-status-div {
+  padding-left: 10px;
+}
+
+.admincard-title-div {
+  padding-left: 10px;
+}
+
+.admintask-members-div p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 200;
+  font-size: 15px;
+  color: #273238;
+}
+
+.admincard-title-div h2 {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.admintask-members-div {
+  padding-left: 10px;
+}
+
+.admintask-assigned-by-div{
+  display: flex;
+  /* border: 1px solid red; */
+  align-items: center;
+  
+}
+
+.task-assigned-img-div{
+  padding-left: 2%;
+}
+
+.task-assigned-img-div > img{
+  width: 30px;
+  height: 30px;
+}
+
+.card-status-div-inner {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.card-status-div-inner p {
+  margin-left: 10px;
+}
+
+.card-status-inner-icon {
+  font-size: 10px;
+}
+
+.adminprojecttask-date-div{
+  display: flex;
+  /* border: 1px solid red; */
+  align-items: center;
+}
+
+.adminprojecttask-icon{
+  margin-left: 10px;
+  color: #646464;
+}

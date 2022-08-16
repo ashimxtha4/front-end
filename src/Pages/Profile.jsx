@@ -42,19 +42,14 @@ const Profile = () => {
     phoneNumber: localData.phoneNumber,
   });
 
-  console.log(post);
-  console.log(localData);
-  console.log(updatedData)
-
   const removeProfileImage = () => {
     setProfileImage("defaultprofilepic");
   };
 
   useEffect(() => {
     formChange();
+    console.log(updatedData, "this is updatedData state");
   });
-
-  console.log(formChangeState);
 
   const formChange = () => {
     let btnSaveClass = document.getElementById("bot-save-btn");
@@ -65,6 +60,18 @@ const Profile = () => {
         (btnCancelClass.className = "bot-cancel-btn-act")
       : (btnSaveClass.className = "bot-save-btn-inact") &&
         (btnCancelClass.className = "bot-cancel-btn-inact");
+  };
+
+  const handleOnSave = () => {
+    console.log(post, "this is post state");
+    const submitData = {
+      firstName: updatedData.firstName,
+      lastName: updatedData.lastName,
+      phoneNumber: updatedData.phoneNumber,
+      designation: post,
+    };
+    console.log(submitData, "this is submitData state");
+    alert("nice");
   };
 
   return (
@@ -90,7 +97,9 @@ const Profile = () => {
                   </div>
                   <div className="profile-top-text-btn-remove">
                     <button
-                      onClick={() => removeProfileImage(setformChange(true))}
+                      onClick={() => {
+                        removeProfileImage(setformChange(true));
+                      }}
                     >
                       Remove
                     </button>
@@ -118,7 +127,10 @@ const Profile = () => {
                         id="firstName"
                         value={updatedData.firstName}
                         onChange={(e) => {
-                          setUpdatedData(e.target.value);
+                          setUpdatedData((prevState) => ({
+                            ...prevState,
+                            firstName: e.target.value,
+                          }));
                           // handleChange("firstName");
                         }}
                         onKeyDown={() => {
@@ -156,7 +168,10 @@ const Profile = () => {
                           setformChange(true);
                         }}
                         onChange={(e) => {
-                          setUpdatedData(e.target.value);
+                          setUpdatedData((prevState) => ({
+                            ...prevState,
+                            phoneNumber: e.target.value,
+                          }));
                         }}
                         pattern="[1-9]{1}[0-9]{9}"
                         onkeypress="return /[0-9]/i.test(event.key)"
@@ -178,7 +193,10 @@ const Profile = () => {
                           setformChange(true);
                         }}
                         onChange={(e) => {
-                          setUpdatedData(e.target.value);
+                          setUpdatedData((prevState) => ({
+                            ...prevState,
+                            lastName: e.target.value,
+                          }));
                         }}
                         required
                       />
@@ -210,9 +228,10 @@ const Profile = () => {
                       <select
                         name="designation"
                         id="designation"
-                        onChange={(e) =>
-                          setPost(e.target.value)(setformChange(true))
-                        }
+                        onChange={(e) => {
+                          setPost(e.target.value);
+                          setformChange(true);
+                        }}
                         required
                       >
                         <option selected>{post}</option>
@@ -232,6 +251,7 @@ const Profile = () => {
                     className="bot-save-btn-inact"
                     id="bot-save-btn"
                     // onClick={handleSubmit}
+                    onClick={handleOnSave}
                   >
                     Save
                   </button>
@@ -240,10 +260,15 @@ const Profile = () => {
                     // value="reset"
                     className="bot-cancel-btn-inact"
                     id="bot-cancel-btn"
-                    onClick={(e) => {
+                    onClick={() => {
                       setformChange(false);
                       setPost(localData.designation);
                       setProfileImage("profilepicmd");
+                      setUpdatedData({
+                        firstName: localData.firstName,
+                        lastName: localData.lastName,
+                        phoneNumber: localData.phoneNumber,
+                      });
                     }}
                   >
                     Cancel

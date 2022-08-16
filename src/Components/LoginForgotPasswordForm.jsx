@@ -21,7 +21,7 @@ const theme = createTheme({
 });
 
 export default function LoginForgotPasswordForm() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const [emailData, setEmailData] = useState("");
   const [isFormInvalid, setIsFormInvalid] = useState(false);
 
