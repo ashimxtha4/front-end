@@ -1,0 +1,140 @@
+
+.content-div {
+    background-color:#f4f4f4;
+    align-items: center;
+}
+
+
+
+.employee-header {
+    height: 16%;
+    position: relative;
+    left: 5%;
+    width: 90%;
+}
+
+.mid-input-div {
+    position:relative;
+    top: 20%;
+    left: 74%;
+    
+}
+
+.employee-header .employee-title {
+    width: 157px;
+    height: 38px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 38px;
+    color: #273238;
+    flex: none;
+    flex-grow: 0;
+    padding-top: 2%;
+    padding-left: 1%;
+    
+}
+
+.admin-employee-table {
+    height: 80%;
+    width: 90%;
+    align-self: center;
+    /* border:solid; */
+    margin-top:1% ;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    position: relative;
+    left: 5%;
+}
+
+.emp-table-row {
+  height: 10%;
+  /* border: solid 1px; */
+  display: flex;
+  border-bottom:1px solid #EBEBEB ;
+}
+
+.emp-table-row .table-data {
+  width: 12.5%;
+  height: 100%;
+  /* border: solid 1px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter';
+  text-align: center;
+  background-color: #EBEBEB;
+}
+
+.table-tauko {
+  width: 12.5%;
+  height: 100%;
+  /* border: solid 1px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter';
+  text-align: center;
+  text-decoration: bold;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: #1F4583;
+  color: white;
+}
+
+.admin-dash-button-div {
+  border: soild 1px;
+  width: 100%;
+  height: 60%;
+  /* background-color: pink; */
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+}
+
+.admin-dash-button-div .edit {
+  width: 5vh;
+  height: 5vh;
+  background: #1F4583;
+  border-radius: 4px;
+  color: white;
+  border: 0;
+  align-items: center;
+}
+
+.admin-dash-button-div .delete {
+  box-sizing: border-box;
+  align-items: center;
+  /* gap: 4px; */
+  width: 5vh;
+  height: 5vh;
+  border: 1px solid #1F4583;
+  color: #1F4583;
+  border-radius: 4px;
+}
+
+/* AiOutlineEdit {
+  height: 100px;
+} */
+
+.table-footer-div {
+    position: relative;
+    bottom: 0px;
+    align-self: center;
+}
+
+.table-footer-div a {
+    color: #00255d;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 5%;
+  }
+  
+  .table-footer-div a:hover {
+    color: #01204e;
+    font-weight: 500;
+  } 
+

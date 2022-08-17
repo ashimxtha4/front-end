@@ -11,15 +11,27 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const LogIn = () => {
-  useEffect(() => {
-    localStorage.removeItem("response");
-  }, []);
-  // let { error_msg } = useSelector((state) => state.logIn);
-  // console.log(error_msg);
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { loginState } = useSelector((state) => state.logIn);
+
+
+  useEffect(() => {
+    // localStorage.removeItem("response");
+    const checkLogin = async () => {
+      document.title="Log In"
+      const user = await JSON.parse(localStorage.getItem("response"));
+      if (user) {
+        navigate("/dashboard");
+      }
+    };
+    checkLogin()
+  }, []);
+  // let { error_msg } = useSelector((state) => state.logIn);
+  // console.log(error_msg);
+
+
   // const user = JSON.parse(localStorage.getItem("response"));
 
   const handleFormSubmit = (values) => {
