@@ -70,7 +70,7 @@ const AdminDashboard = () => {
                       <div className="table-data table-head">{data?.firstName}</div>
                       <div className="table-data table-head">{data?.lastName}</div>
                       <div className="table-data table-head">{data?.email}</div>
-                      <div className="table-data table-head">{data?.phone}</div>
+                      <div className="table-data table-head">{data?.phoneNumber}</div>
                       <div className="table-data table-head">{data?.designation}</div>
                       <div className="table-data table-head">{data?.projects}</div>
                       <div className="table-data table-head">
