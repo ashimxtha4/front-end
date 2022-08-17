@@ -9,6 +9,9 @@ import {AiOutlineEdit,AiOutlineDelete} from "react-icons/ai"
 import axios from "axios";
 
 const AdminDashboard = () => {
+  useEffect(() => {
+    document.title = 'Admin Dashboard';
+  });
 //   const dispatch = useDispatch();
 //   // dispatch(GetAllUserAction);
 // useEffect(()=>{
@@ -70,7 +73,7 @@ const AdminDashboard = () => {
                       <div className="table-data table-head">{data?.firstName}</div>
                       <div className="table-data table-head">{data?.lastName}</div>
                       <div className="table-data table-head">{data?.email}</div>
-                      <div className="table-data table-head">{data?.phone}</div>
+                      <div className="table-data table-head">{data?.phoneNumber}</div>
                       <div className="table-data table-head">{data?.designation}</div>
                       <div className="table-data table-head">{data?.projects}</div>
                       <div className="table-data table-head">

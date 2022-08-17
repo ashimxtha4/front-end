@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AdminProjectCard from "../../Components/AdminProjectCard";
 import AdminSidebar from "../../Components/Admin/AdminSidebar";
 import "../../Styles/Admin/AdminProject.css";
@@ -46,6 +46,10 @@ const allProjects = [
 ];
 
 const AdminProject = () => {
+  useEffect(() => {
+    document.title = 'Admin Project';
+  });
+
   const [projectState, setProjectState] = useState("all");
 
   const changeToAll = () => {

@@ -143,7 +143,9 @@ const taskArray = [
 ];
 
 const Task = () => {
-  useEffect(() => {}, []);
+  useEffect(() => {
+    document.title = 'User Task';
+  });
 
   const [taskStatus, setTaskStatus] = useState("all");
   const user = JSON.parse(localStorage.getItem("response")).user;

@@ -30,9 +30,9 @@ const MyRoutes = () => {
       <Route path="/resetpassword" element={<ResetPassword />} />
       <Route path="/admin/dashboard" element={<AdminDashboard />} />
       <Route path="/admin/employee" element={<AdminEmployee />} />
-      <Route path="/admin/profile" element={<AdminProfile />} />
+      {/* <Route path="/admin/profile" element={<AdminProfile />} /> */}
       <Route path="/admin/project/details" element={<AdminProjectTasks />} />
-      <Route path="/admin/profile" element={<Profile />} />
+      {/* <Route path="/admin/profile" element={<Profile />} /> */}
     </Routes>
   );
 };

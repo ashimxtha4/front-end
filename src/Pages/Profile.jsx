@@ -21,6 +21,10 @@ import { Link } from "react-router-dom";
 // });
 
 const Profile = () => {
+  useEffect(() => {
+    document.title = 'User Profile';
+  });
+
   const localData = JSON.parse(localStorage.getItem("response")).user;
 
   const designationArray = [

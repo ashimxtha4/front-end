@@ -13,7 +13,14 @@ import LoginForgotPasswordForm from "../Components/LoginForgotPasswordForm";
 
 const LogIn = () => {
   useEffect(() => {
-    localStorage.removeItem("response");
+    // localStorage.removeItem("response");
+    const checkLogin = async () => {
+      const user = await JSON.parse(localStorage.getItem("response"));
+      if (user) {
+        navigate("/dashboard");
+      }
+    };
+    checkLogin()
   }, []);
   // let { error_msg } = useSelector((state) => state.logIn);
   // console.log(error_msg);
@@ -33,7 +40,6 @@ const LogIn = () => {
 
       setTimeout(async () => {
         const user = await JSON.parse(localStorage.getItem("response"));
-
         if (user.success) {
           navigate("/dashboard");
         }

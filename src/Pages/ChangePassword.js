@@ -10,6 +10,7 @@ import { useDispatch } from "react-redux";
 
 const ChangePassword = () => {
   const dispatch = useDispatch();
+  const user = JSON.parse(localStorage.getItem("response"));
 
   const changePasswordSchema = Yup.object().shape({
     currentPassword: Yup.string().required("Current password is required"),
@@ -44,7 +45,8 @@ const ChangePassword = () => {
 
   const handlePasswordChangeForm = (values) => {
     const passwordChangeData = {
-      currentPassword: values.currentPassword,
+      user: user.user,
+      oldPassword: values.currentPassword,
       newPassword: values.newPassword,
       confirmPassword: values.confirmPassword,
     };

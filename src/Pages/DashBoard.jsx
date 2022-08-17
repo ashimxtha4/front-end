@@ -7,8 +7,13 @@ import "../Styles/DashboardHome.css";
 import TeamMemberComponent from "../Components/TeamMemberComponent";
 import MyTaskComponent from "../Components/MyTaskComponent";
 import { ToastContainer } from "react-toastify";
+import { useEffect } from "react";
 
 const DashBoard = () => {
+  useEffect(() => {
+    document.title = 'User Dashboard';
+  });
+
   const user = JSON.parse(localStorage.getItem("response"));
   console.log(user);
 

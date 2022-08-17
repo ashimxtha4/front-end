@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import SideBar from "../Components/SideBar";
 import "../Styles/Project.css";
 import { BsSearch } from "react-icons/bs";
@@ -83,6 +83,9 @@ const projectArray = [
 ];
 
 const Project = () => {
+  useEffect(() => {
+    document.title = 'User Project';
+  });
   // const [status, setStatus] = useState("overall");
   const [projectState, setProjectState] = useState("all");
 
