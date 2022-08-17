@@ -2,13 +2,13 @@ import React, { useState } from 'react'
 import '../../Styles/SideBar.css'
 import Ellipse14 from "../../Images/Ellipse14.svg"
 import {motion} from "framer-motion";
-import {BsFileEarmarkText,BsClipboardCheck,BsPerson} from 'react-icons/bs';
+import {BsFileEarmarkText,BsPerson} from 'react-icons/bs';
 import {FaBars} from 'react-icons/fa'
 import {NavLink,Link} from 'react-router-dom';
 import {MdOutlineDashboard} from 'react-icons/md';
+import {HiOutlineUserGroup} from 'react-icons/hi';
 import {TbLogout} from 'react-icons/tb';
 import cil_task from "../../Images/cil_task.svg"
-
 
 const routes = [
   {
@@ -24,7 +24,7 @@ const routes = [
   {
     path: "/admin/employee",
     name: "Employee",
-    icon: <BsClipboardCheck />,
+    icon: <HiOutlineUserGroup />,
   },
   {
     path: "/admin/profile",
