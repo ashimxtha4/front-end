@@ -30,12 +30,7 @@ const routes = [
     path: "/profile",
     name: "Profile",
     icon: <BsPerson />,
-  },
-  {
-    path: "/",
-    name: "Log Out",
-    icon: <TbLogout />,
-  },
+  }
 ];
 
 const SideBar=()=> {
@@ -81,13 +76,11 @@ const SideBar=()=> {
                     {isOpen && <div className='link_text'>{route.name}</div>} 
                   </NavLink>                  
                 ))}
-              </section>    
-              {/* <div className='logout'>
-                    <Link exact to='/' className='list'>
-                    <div className='icons'>{<TbLogout />}</div>
-                    {isOpen && <div className='link_text'>Log Out</div>}
-                    </Link>
-              </div> */}
+                  <Link exact to='/' className='list' onClick={()=>localStorage.removeItem("response")}>
+                  <div className='icons'>{<TbLogout />}</div>
+                  {isOpen && <div className='link_text'>Log Out</div>}
+                  </Link>
+                </section>
             </motion.div> 
         </div>
       </>

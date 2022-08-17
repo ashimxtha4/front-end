@@ -65,18 +65,18 @@ const AdminDashboard = () => {
                     <div className="table-data table-head"><b>Phone Number</b></div>
                     <div className="table-data table-head"><b>Designations</b></div>
                     <div className="table-data table-head"><b>No. of Projects</b></div>
-                    <div className="table-data table-head"><b>ashim</b></div>
+                    <div className="table-data table-head"><b>Ation</b></div>
                     </div>
                     {members.slice(5,9).map((data,index)=>
                     <div className="table-row">
-                      <div className="table-data table-head">{index+1}</div>
-                      <div className="table-data table-head">{data?.firstName}</div>
-                      <div className="table-data table-head">{data?.lastName}</div>
-                      <div className="table-data table-head">{data?.email}</div>
-                      <div className="table-data table-head">{data?.phoneNumber}</div>
-                      <div className="table-data table-head">{data?.designation}</div>
-                      <div className="table-data table-head">{data?.projects}</div>
-                      <div className="table-data table-head">
+                      <div className="table-data ">{index+1}</div>
+                      <div className="table-data ">{data?.firstName}</div>
+                      <div className="table-data ">{data?.lastName}</div>
+                      <div className="table-data ">{data?.email}</div>
+                      <div className="table-data ">{data?.phoneNumber}</div>
+                      <div className="table-data ">{data?.designation}</div>
+                      <div className="table-data ">{data?.projects}</div>
+                      <div className="table-data ">
                         <div className="admin-dash-button-div">
                           <button className="edit"><AiOutlineEdit /></button>
                           <button className="delete"><AiOutlineDelete /></button>

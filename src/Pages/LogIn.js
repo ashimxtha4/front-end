@@ -12,9 +12,16 @@ import "react-toastify/dist/ReactToastify.css";
 import LoginForgotPasswordForm from "../Components/LoginForgotPasswordForm";
 
 const LogIn = () => {
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { loginState } = useSelector((state) => state.logIn);
+
+
   useEffect(() => {
     // localStorage.removeItem("response");
     const checkLogin = async () => {
+      document.title="Log In"
       const user = await JSON.parse(localStorage.getItem("response"));
       if (user) {
         navigate("/dashboard");
@@ -24,10 +31,10 @@ const LogIn = () => {
   }, []);
   // let { error_msg } = useSelector((state) => state.logIn);
   // console.log(error_msg);
+=======
+>>>>>>> bd7d0a1db8998fd0bae869e23b6c09210e948b97
 
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-  const { loginState } = useSelector((state) => state.logIn);
+
   // const user = JSON.parse(localStorage.getItem("response"));
 
   const handleFormSubmit = (values) => {
