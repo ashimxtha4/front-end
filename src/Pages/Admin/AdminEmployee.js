@@ -1,7 +1,7 @@
 import React from "react";
-import AdimSidebar from "E:/front-end/src/Components/Admin/AdminSidebar.js";
+import AdimSidebar from "../../Components/Admin/AdminSidebar.js";
 import {Link} from "react-router-dom"
-import "E:/front-end/src/Styles/Admin/AdminDashboard.css";
+import "../../Styles/Admin/AdminDashboard.css";
 // import AdminDashboardCard from "../../Components/Admin/AdminDashboardCard";
 
 const AdminDashboard = () => {

@@ -44,7 +44,7 @@ const AdminProjectCard = (props) => {
       </div>
 
       <div className="card-bot-div">
-        <Link exact to="/admin/projectdetails" className="bot-link">
+        <Link exact to="/admin/project/details" className="bot-link">
           View Tasks
           <BsArrowRight className="bot-icon-div" />
         </Link>
