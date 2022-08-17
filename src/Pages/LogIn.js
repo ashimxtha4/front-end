@@ -31,9 +31,6 @@ const LogIn = () => {
   }, []);
   // let { error_msg } = useSelector((state) => state.logIn);
   // console.log(error_msg);
-=======
->>>>>>> bd7d0a1db8998fd0bae869e23b6c09210e948b97
-
 
   // const user = JSON.parse(localStorage.getItem("response"));
 

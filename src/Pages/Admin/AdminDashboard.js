@@ -4,13 +4,13 @@ import {Link} from "react-router-dom"
 import "../../Styles/Admin/AdminDashboard.css";
 import AdminDashboardCard from "../../Components/Admin/AdminDashboardCard";
 import {AiOutlineEdit,AiOutlineDelete} from "react-icons/ai"
-// import { useDispatch, useSelector } from "react-redux";
-// import GetAllUserAction from "../../redux/actions/GetAllUserAction";
+import {URL} from "../../redux/container/constant"
 import axios from "axios";
 
 const AdminDashboard = () => {
   useEffect(() => {
     document.title = 'Admin Dashboard';
+    
   });
 //   const dispatch = useDispatch();
 //   // dispatch(GetAllUserAction);
@@ -21,7 +21,7 @@ const AdminDashboard = () => {
   const [members,setMembers]=useState([]);
   useEffect( ()=>{
       const retrive = async()=>{
-      const response= await axios.get('http://localhost:3000/user/getall-users');
+      const response= await axios.get(`${URL}/user/getall-users`);
       setMembers(response.data.users);
       console.log(response.data.users,"use effect");
     }

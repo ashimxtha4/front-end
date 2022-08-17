@@ -6,6 +6,7 @@ import {BsSearch} from 'react-icons/bs';
 import TaskPopupComponent from '../Components/TaskPopupComponent';
 // import { useDispatch} from "react-redux";
 import TaskCard from "../Components/TaskCard";
+import CreateFormModal from '../Components/Admin/CreateFormModal';
 
 const taskArray = [
   {
@@ -187,6 +188,10 @@ const Task = () => {
           <div className="admin-project-top-div">
             <div className="top-title-div">
               <h2>Tasks</h2>
+            </div>
+            <div className="top-btn-div">
+              {/* <button className="top-btn">+ Create</button> */}
+              <CreateFormModal />
             </div>
           </div>
 

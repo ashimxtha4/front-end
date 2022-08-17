@@ -65,6 +65,7 @@ function SignUp() {
       setTimeout(async () => {
         const user = await JSON.parse(localStorage.getItem("response"));
         if (user.success === true) {
+          localStorage.removeItem("response");
           navigate("/");
         }
       }, 500);

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MyTaskDetails from "./MyTaskDetails";
 import "../Styles/MyTaskComponent.css";
 import { Link } from "react-router-dom";
@@ -68,6 +68,10 @@ const taskArray = [
 
 const MyTaskComponent = (props) => {
   const [cardStatus, setState] = useState("overall");
+  const [res, setRes] = useState([]);
+  useEffect(()=>{
+    // const getTask = 
+  })
 
   return (
     <div className="mytask-main-div">

@@ -26,16 +26,11 @@ const routes = [
     name: "Employee",
     icon: <HiOutlineUserGroup />,
   },
-  {
-    path: "/admin/profile",
-    name: "Profile",
-    icon: <BsPerson />,
-  },
-  {
-    path: "/",
-    name: "Log Out",
-    icon: <TbLogout />,
-  },
+  // {
+  //   path: "/",
+  //   name: "Log Out",
+  //   icon: <TbLogout />,
+  // },
 ];
 
 const AdminSidebar=()=> {
@@ -69,7 +64,6 @@ const AdminSidebar=()=> {
                       <p>{user?.designation}</p>
                       </div>
                   </div> }
-                  
               </div>
               
 
@@ -81,6 +75,10 @@ const AdminSidebar=()=> {
                     {isOpen && <div className='link_text'>{route.name}</div>} 
                   </NavLink>                  
                 ))}
+                <Link exact to='/' className='list' onClick={()=>localStorage.removeItem("response")}>
+                  <div className='icons'>{<TbLogout />}</div>
+                  {isOpen && <div className='link_text'>Log Out</div>}
+                  </Link>
               </section>    
               {/* <div className='logout'>
                     <Link exact to='/' className='list'>
