@@ -5,7 +5,7 @@ import { LOG_IN } from "../container/constant";
 const LogInAction = (credentials) => async (dispatch) => {
   try {
     const response = await axios.post(
-      "http://localhost:3000/user/login",
+      "http://192.168.0.106:3000/user/login",
       credentials
     );
     console.log(response.data, "Yo axios post ko response data ho.");

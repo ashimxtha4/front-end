@@ -20,7 +20,7 @@ const SingUpAction = (credentials) => async (dispatch) => {
           { autoClose: 8000 }
         );
       }
-    }, 300);
+    }, 600);
   } catch (err) {
     console.log("Yo signupaction ko catch error ho.", err.response.data.msg);
     // console.log(err.response.data);

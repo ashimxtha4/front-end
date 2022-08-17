@@ -43,6 +43,7 @@ const CreateFormModal = () => {
     e.preventDefault();
     console.log(formData);
     setFormData("")
+    
   };
 
   return (

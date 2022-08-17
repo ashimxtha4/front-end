@@ -67,7 +67,7 @@ function SignUp() {
         if (user.success === true) {
           navigate("/");
         }
-      }, 200);
+      }, 500);
     } catch (err) {
       console.log("Catching error if not able to signup.", err);
     }

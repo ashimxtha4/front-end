@@ -5,8 +5,12 @@ import { BsArrowLeftCircle } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from "yup";
+import ChangePasswordAction from "../redux/actions/ChangePasswordAction";
+import { useDispatch } from "react-redux";
 
 const ChangePassword = () => {
+  const dispatch = useDispatch();
+
   const changePasswordSchema = Yup.object().shape({
     currentPassword: Yup.string().required("Current password is required"),
     newPassword: Yup.string().required("New password is required"),
@@ -45,6 +49,9 @@ const ChangePassword = () => {
       confirmPassword: values.confirmPassword,
     };
     console.log(passwordChangeData);
+    try {
+      dispatch(ChangePasswordAction(passwordChangeData))
+    } catch {}
   };
 
   return (
