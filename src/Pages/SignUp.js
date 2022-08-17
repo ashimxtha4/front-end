@@ -63,9 +63,10 @@ function SignUp() {
       console.log(signUpState, "Yo signupState console ho signup.js page ma.");
 
       setTimeout(async () => {
-        const user = await JSON.parse(localStorage.getItem("response"));
-        if (user.success === true) {
+        const token = localStorage.getItem("token");
+        if (token) {
           navigate("/");
+          localStorage.removeItem("token");
         }
       }, 500);
     } catch (err) {

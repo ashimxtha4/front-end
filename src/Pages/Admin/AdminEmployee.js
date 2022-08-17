@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from "react";
-import AdimSidebar from "E:/front-end/src/Components/Admin/AdminSidebar.js";
+import AdimSidebar from "../../Components/Admin/AdminSidebar.js";
 import axios from "axios"
-import "E:/front-end/src/Styles/Admin/AdminEmployee.css";
+import "../../Styles/Admin/AdminEmployee.css";
 import { BsSearch } from "react-icons/bs";
 import {AiOutlineEdit,AiOutlineDelete} from "react-icons/ai"
 // import AdminDashboardCard from "../../Components/Admin/AdminDashboardCard";

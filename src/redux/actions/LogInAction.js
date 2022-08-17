@@ -11,6 +11,7 @@ const LogInAction = (credentials) => async (dispatch) => {
     console.log(response.data, "Yo axios post ko response data ho.");
     await dispatch({ type: LOG_IN, payload: response.data });
     localStorage.setItem("response", JSON.stringify(response.data));
+    sessionStorage.setItem("token", response.data.token);
 
     setTimeout(async () => {
       if (response.data.success === true) {
