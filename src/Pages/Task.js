@@ -148,7 +148,7 @@ const Task = () => {
   });
 
   const [taskStatus, setTaskStatus] = useState("all");
-  const user = JSON.parse(localStorage.getItem("response")).user;
+  const user = sessionStorage.getItem("token");
 
   const id = user._id;
   // dispatch(TaskAction(id));

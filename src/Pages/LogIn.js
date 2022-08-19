@@ -17,10 +17,10 @@ const LogIn = () => {
   const { loginState } = useSelector((state) => state.logIn);
 
   useEffect(() => {
+    document.title="Log In"
     // localStorage.removeItem("response");
     const checkLogin = async () => {
-      document.title="Log In"
-      const user = await JSON.parse(localStorage.getItem("response"));
+      const user = sessionStorage.getItem("token")
       if (user) {
         navigate("/dashboard");
       }

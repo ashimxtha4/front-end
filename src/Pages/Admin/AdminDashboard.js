@@ -34,7 +34,7 @@ const AdminDashboard = () => {
   },[])
 
 
-  const user=JSON.parse(localStorage.getItem('response')).user;
+  // const user=JSON.parse(localStorage.getItem('response')).user;
   console.log(members,"aaru")
   return (
     <>

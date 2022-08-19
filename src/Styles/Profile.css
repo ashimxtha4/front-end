@@ -88,7 +88,7 @@ input:disabled {
 }
 
 /* Button styling */
-.bot-cancel-btn-act {
+.bot-cancel-btn-active {
   margin-left: 20px;
   padding: 10px 20px;
   font-family: "Roboto", sans-serif;
@@ -100,7 +100,7 @@ input:disabled {
   transition-duration: 0.2s;
 }
 
-.bot-cancel-btn-act:hover {
+.bot-cancel-btn-active:hover {
   transition-duration: 0.2s;
   border: 1px solid #1f4583;
   color: white;
@@ -108,7 +108,7 @@ input:disabled {
   cursor: pointer;
 }
 
-.bot-save-btn-act {
+.bot-save-btn-active {
   padding: 10px 20px;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
@@ -120,7 +120,7 @@ input:disabled {
   transition-duration: 0.2s;
 }
 
-.bot-save-btn-act:hover {
+.bot-save-btn-active:hover {
   transition-duration: 0.2s;
   border: 1px solid #081f46;
   background-color: #081f46;
