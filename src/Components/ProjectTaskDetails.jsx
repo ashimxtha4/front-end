@@ -24,7 +24,7 @@ const Projectprojectsprojects = (props) => {
         </div>
         <div className="projects-details-name">
           {/* <h3>{props.projectstatus}</h3> */}
-          {props.projectstatus === "inprogress" ? (
+          {props.projectstatus === "pending" ? (
             <h3 style={{ color: "orange" }}>In Progress</h3>
           ) : props.projectstatus === "complete" ? (
             <h3 style={{ color: "green" }}>Completed</h3>

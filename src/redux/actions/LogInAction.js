@@ -5,12 +5,12 @@ import { LOG_IN,URL } from "../container/constant";
 const LogInAction = (credentials) => async (dispatch) => {
   try {
     const response = await axios.post(
-      `${URL}/user/login`,
+      "http://localhost:3000/user/login",
       credentials
     );
     console.log(response.data, "Yo axios post ko response data ho.");
     await dispatch({ type: LOG_IN, payload: response.data });
-    localStorage.setItem("response", JSON.stringify(response.data));
+    // localStorage.setItem("response", JSON.stringify(response.data));
     sessionStorage.setItem("token", response.data.token);
 
     setTimeout(async () => {

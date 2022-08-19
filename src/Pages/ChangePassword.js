@@ -6,11 +6,12 @@ import { Link } from "react-router-dom";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import ChangePasswordAction from "../redux/actions/ChangePasswordAction";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 
 const ChangePassword = () => {
   const dispatch = useDispatch();
+  const { changePasswordState } = useSelector((state) => state.changePassword);
   // const token = sessionStorage.getItem("token");
 
   const changePasswordSchema = Yup.object().shape({
@@ -52,9 +53,14 @@ const ChangePassword = () => {
       confirmPassword: values.confirmPassword,
     };
     console.log(passwordChangeData);
-    try {
-      dispatch(ChangePasswordAction(passwordChangeData))
-    } catch {}
+    setTimeout(() => {
+      dispatch(ChangePasswordAction(passwordChangeData));
+    }, 500);
+
+    // if(){
+
+    // }
+    document.getElementById("passwordChangeForm").reset()
   };
 
   return (
@@ -82,7 +88,7 @@ const ChangePassword = () => {
             onSubmit={handlePasswordChangeForm}
           >
             {({ errors, touched, handleChange, handleSubmit }) => (
-              <form className="password-card-form" action="" method="">
+              <form className="password-card-form" action="" method="" id="passwordChangeForm">
                 <div className="changepassword-div">
                   <label for="currentPassword">Current Password</label>
                   <br></br>
@@ -160,13 +166,11 @@ const ChangePassword = () => {
                     Cancel
                   </button>
                 </div>
-
-                {/* <ToastContainer position="top-left" autoClose={6000} /> */}
               </form>
             )}
           </Formik>
         </div>
-        <ToastContainer position="top-left" autoClose={6000} />
+        <ToastContainer position="top-right" autoClose={6000} />
       </div>
     </div>
   );

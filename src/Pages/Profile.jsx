@@ -4,6 +4,8 @@ import "../Styles/Profile.css";
 import profilepicmd from "../Images/profilepicmedium.png";
 import defaultprofilepic from "../Images/Taskit_Default.png";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
 // import { Formik } from "formik";
 // import * as Yup from "yup";
 // import { toast } from "react-toastify";
@@ -22,10 +24,38 @@ import { Link } from "react-router-dom";
 
 const Profile = () => {
   useEffect(() => {
-    document.title = 'User Profile';
+    document.title = "User Profile";
+    formChange();
   });
 
-  const localData = JSON.parse(localStorage.getItem("response")).user;
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const userTokenData = await axios.get(
+          "http://localhost:3000/user/get-user",
+          {
+            headers: {
+              Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+            },
+          }
+        );
+
+        console.log(userTokenData.data.user, "User token getone data.");
+        setUpdatedData((prevState) => ({
+          ...prevState,
+          firstName: userTokenData.data.user.firstName,
+          lastName: userTokenData.data.user.lastName,
+          email: userTokenData.data.user.email,
+          password: "randompassword",
+          phoneNumber: userTokenData.data.user.phoneNumber,
+          designation: userTokenData.data.user.designation,
+        }));
+      } catch (err) {
+        console.log("Error get request:", err);
+      }
+    };
+    getUser();
+  }, []);
 
   const designationArray = [
     "Front-End Developer",
@@ -37,45 +67,65 @@ const Profile = () => {
 
   const [formChangeState, setformChange] = useState(false); // Empty string results in false.
   const [profileImage, setProfileImage] = useState("profilepicmd");
-  const [post, setPost] = useState(localData.designation);
+  // const [post, setPost] = useState(localData.designation);
   const [updatedData, setUpdatedData] = useState({
-    firstName: localData.firstName,
-    lastName: localData.lastName,
-    email: localData.email,
-    password: localData.password,
-    phoneNumber: localData.phoneNumber,
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    phoneNumber: "",
+    designation: "",
   });
 
   const removeProfileImage = () => {
     setProfileImage("defaultprofilepic");
   };
 
-  useEffect(() => {
-    formChange();
-    console.log(updatedData, "this is updatedData state");
-  });
-
   const formChange = () => {
     let btnSaveClass = document.getElementById("bot-save-btn");
     let btnCancelClass = document.getElementById("bot-cancel-btn");
 
     formChangeState === true
-      ? (btnSaveClass.className = "bot-save-btn-act") &&
-        (btnCancelClass.className = "bot-cancel-btn-act")
+      ? (btnSaveClass.className = "bot-save-btn-active") &&
+        (btnCancelClass.className = "bot-cancel-btn-active")
       : (btnSaveClass.className = "bot-save-btn-inact") &&
         (btnCancelClass.className = "bot-cancel-btn-inact");
   };
 
-  const handleOnSave = () => {
-    console.log(post, "this is post state");
+  const handleOnSave = (e) => {
+    e.preventDefault();
+    // console.log(post, "this is post state");
     const submitData = {
       firstName: updatedData.firstName,
       lastName: updatedData.lastName,
       phoneNumber: updatedData.phoneNumber,
-      designation: post,
+      designation: updatedData.designation,
     };
     console.log(submitData, "this is submitData state");
-    alert("nice");
+
+    const axiosUpdateUser = async () => {
+      try {
+        const response = await axios.put(
+          "http://localhost:3000/user/update-user",
+          submitData,
+          {
+            headers: {
+              Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+            },
+          }
+        );
+        setTimeout(async () => {
+          if (response.data.status === true) {
+            toast.success("User updated successfully", { autoClose: 5000 });
+          }
+        }, 500);
+        console.log(response.data, "Axios update user response");
+      } catch (err) {
+        console.log("Error updating user:", err);
+      }
+    };
+
+    axiosUpdateUser();
   };
 
   return (
@@ -119,7 +169,12 @@ const Profile = () => {
                 validationSchema={profileValidationSchema}
               > */}
               {/* {({ errors, touched, handleChange, handleSubmit }) => ( */}
-              <form className="profile-card-mid-form" action="" method="">
+              <form
+                className="profile-card-mid-form"
+                action=""
+                method=""
+                onSubmit={handleOnSave}
+              >
                 <div className="profile-card-form">
                   <div className="profile-mid-left-div">
                     <div className="profile-mid-input-div">
@@ -177,6 +232,7 @@ const Profile = () => {
                             phoneNumber: e.target.value,
                           }));
                         }}
+                        maxLength="14"
                         pattern="[1-9]{1}[0-9]{9}"
                         onkeypress="return /[0-9]/i.test(event.key)"
                         required
@@ -233,15 +289,18 @@ const Profile = () => {
                         name="designation"
                         id="designation"
                         onChange={(e) => {
-                          setPost(e.target.value);
+                          setUpdatedData((prevState) => ({
+                            ...prevState,
+                            designation: e.target.value,
+                          }));
                           setformChange(true);
                         }}
                         required
                       >
-                        <option selected>{post}</option>
+                        <option selected>{updatedData.designation}</option>
                         {designationArray.map(
                           (items) =>
-                            items !== post && (
+                            items !== updatedData.designation && (
                               <option value={items}>{items}</option>
                             )
                         )}
@@ -252,27 +311,29 @@ const Profile = () => {
                 <div className="profile-card-bot-div">
                   <button
                     type="submit"
-                    className="bot-save-btn-inact"
+                    className="bot-save-btn"
                     id="bot-save-btn"
                     // onClick={handleSubmit}
-                    onClick={handleOnSave}
+                    // onClick={handleOnSave}
                   >
                     Save
                   </button>
                   <button
                     type="reset"
                     // value="reset"
-                    className="bot-cancel-btn-inact"
+                    className="bot-cancel-btn"
                     id="bot-cancel-btn"
                     onClick={() => {
                       setformChange(false);
-                      setPost(localData.designation);
+                      // setPost(localData.designation);
                       setProfileImage("profilepicmd");
-                      setUpdatedData({
-                        firstName: localData.firstName,
-                        lastName: localData.lastName,
-                        phoneNumber: localData.phoneNumber,
-                      });
+                      setUpdatedData((prevState)=>({
+                        ...prevState,
+                        // firstName: updatedData.firstName,
+                        // lastName: updatedData.lastName,
+                        // phoneNumber: updatedData.phoneNumber,
+                        // designation: updatedData.designation,
+                      }));
                     }}
                   >
                     Cancel
@@ -284,6 +345,7 @@ const Profile = () => {
             </div>
           </div>
         </div>
+        <ToastContainer position="top-left" autoClose={6000} />
       </div>
     </>
   );

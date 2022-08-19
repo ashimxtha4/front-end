@@ -8,11 +8,30 @@ import TeamMemberComponent from "../Components/TeamMemberComponent";
 import MyTaskComponent from "../Components/MyTaskComponent";
 import { ToastContainer } from "react-toastify";
 import { useEffect } from "react";
+import axios from "axios";
 
 const DashBoard = () => {
   useEffect(() => {
-    document.title = 'User Dashboard';
+    document.title = "User Dashboard";
+
+    if(!!sessionStorage.getItem("token") === false){
+
+    }
+
+    // try {
+    //   const response = axios.post("http://localhost:3000/project/getall", {
+    //     headers: { Authorization: `Bearer ${sessionStorage.getItem("token")}` },
+    //   });
+    //   console.log(response.data, "Data from axios post request.");
+
+    //   // localStorage.setItem("response", JSON.stringify(response.data));
+    //   localStorage.setItem("token", response.data.token);
+    // } catch (err) {
+    //   console.log("Yo signupaction ko catch error ho.", err.response.data.msg);
+    // }
   });
+
+  // /project/getall
 
   const user = JSON.parse(localStorage.getItem("response"));
   console.log(user);

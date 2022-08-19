@@ -54,15 +54,14 @@
 }
 
 .members-body-bot {
-  margin: 10px 0;
   padding: 0 10px;
   overflow-y: auto;
-  margin-bottom: 20px;
+
   /* border: 1px solid red; */
   max-height: 34vh;
 }
 
-.members-footer-div a {
+/* .members-footer-div a {
   color: #00255d;
   text-decoration: none;
   font-size: 14px;
@@ -71,7 +70,7 @@
 .members-footer-div a:hover {
   color: #01204e;
   font-weight: 500;
-}
+} */
 
 /* .members-details-main-div {
   display: flex;

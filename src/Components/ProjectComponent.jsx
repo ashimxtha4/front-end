@@ -5,69 +5,32 @@ import "../Styles/ProjectComponent.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const projectArray = [
-  {
-    title: "Project 1",
-    status: "complete",
-  },
-  {
-    title: "Project 2",
-    status: "inprogress",
-  },
-  {
-    title: "Project 3",
-    status: "complete",
-  },
-  {
-    title: "Project 3",
-    status: "complete",
-  },
-  {
-    title: "Project 3",
-    status: "complete",
-  },
-  {
-    title: "Project 1",
-    status: "complete",
-  },
-  {
-    title: "Project 2",
-    status: "inprogress",
-  },
-  {
-    title: "Project 3",
-    status: "complete",
-  },
-  {
-    title: "Project 3",
-    status: "complete",
-  },
-  {
-    title: "Project 3",
-    status: "complete",
-  },
-];
-
 const ProjectComponent = (props) => {
-  const [cardStatus, setState] = useState("complete");
-  const [projects,setProject] = useState([]);
   useEffect(() => {
-      const getProject = async()=>{
-      const authToken = sessionStorage.getItem("token")
-      const projects= await axios.get(`${URL}/project/getall`,
-      { headers: { 'Authorization': `Bearer ${authToken}`}});
+    const getAllProject = async () => {
+      try {
+        const allProjectData = await axios.get(
+          "http://localhost:3000/project/getall",
+          {
+            headers: {
+              Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+            },
+          }
+        );
 
-      var arr = []
-      projects.map((data)=>{
-        const user= JSON.parse(localStorage.getItem("response")).user.id
-        const projectmembers =axios.get (`${URL}/getAllProjectMembers/:${data.id}`)
-        if (projectmembers.includes(user))
-          arr.push(data)
-      })
-      setProject(arr);
-    }
-    getProject();
-  });
+        // console.log(allProjectData.data, "User token getone data.");
+        setAllProjectsData(allProjectData.data.projects);
+      } catch (err) {
+        console.log("Error get request:", err);
+      }
+    };
+    getAllProject();
+  }, []);
+
+  const [cardStatus, setState] = useState("complete");
+  const [allProjectsData, setAllProjectsData] = useState();
+
+  // console.log(allProjectsData, "Data state");
 
   return (
     <div className="project-main-div">
@@ -89,12 +52,12 @@ const ProjectComponent = (props) => {
             Overall (3)
           </button>
           <button
-            onClick={() => setState("inprogress")}
+            onClick={() => setState("pending")}
             style={{
-              color: cardStatus === "inprogress" && "#1f4583",
-              textDecoration: cardStatus === "inprogress" && "underline",
-              textDecorationThickness: cardStatus === "inprogress" && "2px",
-              textUnderlineOffset: cardStatus === "inprogress" && "10px",
+              color: cardStatus === "pending" && "#1f4583",
+              textDecoration: cardStatus === "pending" && "underline",
+              textDecorationThickness: cardStatus === "pending" && "2px",
+              textUnderlineOffset: cardStatus === "pending" && "10px",
             }}
           >
             Currently (1)
@@ -102,23 +65,23 @@ const ProjectComponent = (props) => {
         </div>
         <div className="project-body-bot">
           {cardStatus === "complete"
-            ? projectArray.map(
+            ? allProjectsData?.slice(0, 2).map(
                 (data) => (
                   // data.status === cardStatus &&
                   <ProjectTaskDetails
-                    projecttitle={data.title}
-                    projectstatus={data.status}
+                    projecttitle={data?.project_name}
+                    projectstatus={data?.project_status}
                   />
                 )
                 // ) : <ProjectTaskDetails projecttitle={data.title} projectstatus={data.status} />
               )
-            : cardStatus === "inprogress" &&
-              projectArray.map(
+            : cardStatus === "pending" &&
+              allProjectsData?.slice(0, 2).map(
                 (data) =>
-                  data.status === cardStatus && (
+                  data.project_status === cardStatus && (
                     <ProjectTaskDetails
-                      projecttitle={data.title}
-                      projectstatus={data.status}
+                      projecttitle={data?.project_name}
+                      projectstatus={data?.project_status}
                     />
                   )
               )}

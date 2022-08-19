@@ -68,23 +68,30 @@ const taskArray = [
 ];
 
 const MyTaskComponent = (props) => {
+  useEffect(() => {
+    const getAllTasks = async () => {
+      try {
+        const allTaskData = await axios.get(
+          "http://localhost:3000/task/getalltasks",
+          {
+            headers: {
+              Authorization: `Bearer ${sessionStorage.getItem("token")}`,
+            },
+          }
+        );
+
+        console.log(allTaskData.data.tasks, "User token getone data.");
+        setAllTaskData(allTaskData.data.tasks);
+      } catch (err) {
+        console.log("Error get request:", err);
+      }
+    };
+    getAllTasks();
+  }, []);
+
+
   const [cardStatus, setState] = useState("overall");
-  const [res, setRes] = useState([]);
-  useEffect(()=>{
-   const getTask=async()=> {
-      const response = await axios.get(
-      "http://localhost:3000/task/getalltask",
-       {headers: {"Authorization":`Bearer ${sessionStorage.getItem("token")}`}})
-      var arr=[]
-      const user = JSON.parse(localStorage.getItem("response"))
-      response.map((data)=>{
-        if (data.user_id===user.user.id)
-        arr.push(data);
-      })
-      setRes(arr)
-    }
-    getTask();
-})
+  const [allTaskData, setAllTaskData] = useState();
 
   return (
     <div className="mytask-main-div">
@@ -123,21 +130,21 @@ const MyTaskComponent = (props) => {
         </div>
         <div className="mytask-body-bot">
           {cardStatus === "overall"
-            ? taskArray.map((item) => (
+            ? allTaskData?.slice(0, 2).map((item) => (
                 <MyTaskDetails
-                  tasktitle={item.title}
-                  taskdate={item.date}
-                  status={item.status}
+                  tasktitle={item?.title}
+                  taskdate={item?.date}
+                  status={item?.status}
                 />
               ))
             : cardStatus === "todo" ?
-              taskArray.map(
+            allTaskData?.slice(0, 2).map(
                 (item) =>
                   item.status !== "complete" && (
                     <MyTaskDetails
-                      tasktitle={item.title}
-                      taskdate={item.date}
-                      status={item.status}
+                      tasktitle={item?.title}
+                      taskdate={item?.date}
+                      status={item?.status}
                     />
                   )
               ): null}
