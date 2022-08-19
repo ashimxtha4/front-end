@@ -64,7 +64,7 @@ function SignUp() {
 
       setTimeout(async () => {
         const token = localStorage.getItem("token");
-        if (token) {
+        if (token !== "") {
           navigate("/");
           localStorage.removeItem("token");
         }
