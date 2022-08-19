@@ -1,19 +1,19 @@
 
+
 .content-div {
     background-color:#f4f4f4;
     align-items: center;
+    overflow-y: hidden;
 }
 
-
-
 .employee-header {
-    height: 18%;
+    height: 15%;
     position: relative;
     left: 2.5%;
     width: 85%;
 }
 
-.mid-input-div {
+.employee-header .mid-input-div {
     position:relative;
     top: 30%;
     left: 85%;
@@ -37,7 +37,7 @@
 }
 
 .admin-employee-table {
-    height: 75%;
+    height: 55%;
     width: 95%;
     align-self: center;
     /* border:solid; */
@@ -51,7 +51,7 @@
     overflow-y: scroll;
 }
 
-.emp-table-row {
+.admin-employee-table .emp-table-row {
   height: 10%;
   /* border: solid 1px; */
   display: flex;

@@ -24,23 +24,29 @@ let todayDate =
   "-" +
   resultingDate;
 
-const CreateFormModal = () => {
-  const [pm,setPm]=useState([]);
+const CreateTask = () => {
+  const [member,setMember]=useState([]);
+  const [pid,setPid]=useState();
   const [open, setOpen] = React.useState(false);
   const [formData, setFormData] = useState({
-    project_name: "",
-    project_desc: "",
-    id: "",
-    project_deadline: "",
+    task_name: "",
+    task_desc: "",
+    user_id: "",
+    task_deadline: "",
   });
 
   useEffect(()=>{
-    const getPm=async()=>{
-      const response= await axios.get('http://localhost:3000/user/getall-users');
-      setPm(response.data.users);
+    const getMember=async()=>{
+    //   const response= await axios.get('http://localhost:3000/projectmember/getAllProjectMembers',
+    //   { headers: { 'Authorization':`Bearer sessionStorage.getItem("token")`}});
+    const response = await axios.get('http://localhost:3000/user/getall-users')
+      setMember(response.data.users);
+      const projId= await axios.get('http://localhost:3000/project/getall',
+      { headers: { 'Authorization':`Bearer sessionStorage.getItem("token")`}});
+      setPid(projId);
     }
-    getPm();
-  },[])
+    getMember();
+  })
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -60,8 +66,9 @@ const CreateFormModal = () => {
     //   projectManager: pmid
     // }));
     try{
-      const response = await axios.post("http://localhost:3000/project/addproject",formData);
-      alert("project created sucessfully")
+    const response = await axios.post(
+      "http://localhost:3000/task/createTask?",formData)
+      if (response.data.success==="true")
       toast.success("Project created successfully");
     }catch(err){
       toast.error(err.response.data.msg);
@@ -85,13 +92,13 @@ const CreateFormModal = () => {
       </Button>
       <Dialog open={open} onClose={handleClose}>
         <div className="createprojectpopup-inner">
-          <h2 className="createprojectpopup-title">Create a Project</h2>
+          <h2 className="createprojectpopup-title">Create a Task</h2>
           <form
             className="createprojectpopup-form"
             onSubmit={formSubmitHandler}
           >
             <div className="createprojectpopup-form-top">
-              <label htmlFor="projectName">Project Name</label>
+              <label htmlFor="projectName">Task Name</label>
               <br />
               <input
                 typeof="text"
@@ -109,7 +116,7 @@ const CreateFormModal = () => {
                 // placeholder="Max 50 characters"
               />
               <br />
-              <label htmlFor="projectDesc">Project Description</label>
+              <label htmlFor="projectDesc">Task Description</label>
               <br />
               <textarea
                 rows="4"
@@ -128,7 +135,7 @@ const CreateFormModal = () => {
             </div>
             <div className="createprojectpopup-form-bot">
               <div className="createprojectpopup-form-bot-assignpm">
-                <label htmlFor="assignPm">Assign Project Manager</label>
+                <label htmlFor="assignPm">Assign Team Member</label>
                 <br />
                 <select
                   name="assignPm"
@@ -137,14 +144,14 @@ const CreateFormModal = () => {
                   onChange={(e) => {
                     setFormData((prevState) => ({
                       ...prevState,
-                      id: e.target.value
+                      project_manager: e.target.value
                     }));
                   }}
                 >
                   <option value="" disabled>
-                    Select a PM
+                    Select a Member
                   </option>
-                  {pm.map((items) => (
+                  {member.map((items) => (
                     <option value={items._id}>{items.firstName} {items.lastName} </option>  
                   ))}
                 </select>
@@ -191,4 +198,4 @@ const CreateFormModal = () => {
   );
 };
 
-export default CreateFormModal;
+export default CreateTask;

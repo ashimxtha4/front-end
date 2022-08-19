@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from "react";
-import AdimSidebar from "E:/front-end/src/Components/Admin/AdminSidebar.js";
+import AdimSidebar from "../../Components/Admin/AdminSidebar.js";
 import axios from "axios"
-import "E:/front-end/src/Styles/Admin/AdminEmployee.css";
+import "../../Styles/Admin/AdminEmployee.css";
 import { BsSearch } from "react-icons/bs";
 import {AiOutlineEdit,AiOutlineDelete} from "react-icons/ai"
 // import AdminDashboardCard from "../../Components/Admin/AdminDashboardCard";
@@ -17,6 +17,7 @@ const AdminDashboard = () => {
   useEffect( ()=>{
       const retrive = async()=>{
       const response= await axios.get('http://localhost:3000/user/getall-users');
+      
       setMembers(response.data.users);
       console.log(response.data.users,"use effect");
     }
@@ -53,7 +54,7 @@ const AdminDashboard = () => {
               </div>
             </div>
           </div>
-          <div className="admin-employee-table">
+          <div className="admin-employee-table" >
           <div className="emp-table-row">
             <div className=" table-tauko"><b>S.No</b></div>
               <div className=" table-tauko"><b>First Name</b></div>
@@ -63,8 +64,8 @@ const AdminDashboard = () => {
               <div className=" table-tauko"><b>Designations</b></div>
               <div className=" table-tauko"><b>No. of Projects</b></div>
               <div className=" table-tauko"><b>Action</b></div>
-              </div>
-            {members.slice(5,9).map((data,index)=>
+            </div>
+            {members.map((data,index)=>
             <div className="emp-table-row">
               <div className="table-data ">{index+1}</div>
               <div className="table-data ">{data?.firstName}</div>

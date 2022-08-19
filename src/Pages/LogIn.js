@@ -12,11 +12,9 @@ import "react-toastify/dist/ReactToastify.css";
 import LoginForgotPasswordForm from "../Components/LoginForgotPasswordForm";
 
 const LogIn = () => {
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { loginState } = useSelector((state) => state.logIn);
-
 
   useEffect(() => {
     // localStorage.removeItem("response");
@@ -31,7 +29,6 @@ const LogIn = () => {
   }, []);
   // let { error_msg } = useSelector((state) => state.logIn);
   // console.log(error_msg);
-
   // const user = JSON.parse(localStorage.getItem("response"));
 
   const handleFormSubmit = (values) => {
@@ -43,8 +40,9 @@ const LogIn = () => {
       console.log(loginState, "Yo loginState console ho login.js page ma.");
 
       setTimeout(async () => {
-        const user = await JSON.parse(localStorage.getItem("response"));
-        if (user.success) {
+        // const user = await JSON.parse(localStorage.getItem("response"));
+        const token = sessionStorage.getItem("token");
+        if (token) {
           navigate("/dashboard");
         }
       }, 500);

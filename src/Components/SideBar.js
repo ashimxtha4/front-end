@@ -76,7 +76,8 @@ const SideBar=()=> {
                     {isOpen && <div className='link_text'>{route.name}</div>} 
                   </NavLink>                  
                 ))}
-                  <Link exact to='/' className='list' onClick={()=>localStorage.removeItem("response")}>
+                  <Link exact to='/' className='list' onClick={()=>{localStorage.removeItem("response");
+                sessionStorage.removeItem("token")}}>
                   <div className='icons'>{<TbLogout />}</div>
                   {isOpen && <div className='link_text'>Log Out</div>}
                   </Link>

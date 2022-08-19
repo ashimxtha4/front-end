@@ -1,8 +1,9 @@
 /* eslint-disable array-callback-return */
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import ProjectTaskDetails from "./ProjectTaskDetails";
 import "../Styles/ProjectComponent.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const projectArray = [
   {
@@ -49,6 +50,24 @@ const projectArray = [
 
 const ProjectComponent = (props) => {
   const [cardStatus, setState] = useState("complete");
+  const [projects,setProject] = useState([]);
+  useEffect(() => {
+      const getProject = async()=>{
+      const authToken = sessionStorage.getItem("token")
+      const projects= await axios.get(`${URL}/project/getall`,
+      { headers: { 'Authorization': `Bearer ${authToken}`}});
+
+      var arr = []
+      projects.map((data)=>{
+        const user= JSON.parse(localStorage.getItem("response")).user.id
+        const projectmembers =axios.get (`${URL}/getAllProjectMembers/:${data.id}`)
+        if (projectmembers.includes(user))
+          arr.push(data)
+      })
+      setProject(arr);
+    }
+    getProject();
+  });
 
   return (
     <div className="project-main-div">

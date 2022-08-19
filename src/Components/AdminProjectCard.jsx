@@ -8,7 +8,7 @@ const AdminProjectCard = (props) => {
   return (
     <div className="admin-project-card">
       <div className="card-status-div">
-        {props.status === "inprogress" ? (
+        {props.status === "pending" ? (
           <div className="card-status-div-inner">
             <BsFillCircleFill
               className="card-status-inner-icon"

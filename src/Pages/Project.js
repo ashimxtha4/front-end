@@ -5,6 +5,7 @@ import { BsSearch } from "react-icons/bs";
 import ProjectCard from "../Components/ProjectCard";
 import PopupComponent from "../Components/PopupComponent";
 import smallpic from "../Images/profilepicsmall.png";
+import axios from "axios"
 // import AdminProjectCard from "../Components/AdminProjectCard";
 
 const projectArray = [
@@ -83,11 +84,22 @@ const projectArray = [
 ];
 
 const Project = () => {
+  const [project,setProject] = useState([]);
+
   useEffect(() => {
     document.title = 'User Project';
-  });
+    const getProject = async()=>{
+      const authToken = sessionStorage.getItem("token")
+      const response= await axios.get("http://localhost:3000/project/getall",
+      { headers: { 'Authorization': `Bearer ${authToken}`}});
+      setProject(response.data.projects);
+      // console.log(response.data.projects);
+    }
+    getProject();
+  },[]);
   // const [status, setStatus] = useState("overall");
   const [projectState, setProjectState] = useState("all");
+  console.log(project)
 
   const toggle = () => {
     var blur = document.getElementById("blur");
@@ -184,37 +196,37 @@ const Project = () => {
           <hr></hr>
           <div className="user-project-body-div">
             {projectState === "all"
-              ? projectArray.map((items) => (
+              ? project.map((items) => (
                   <ProjectCard
-                    title={items.title}
-                    status={items.status}
+                    title={items.project_name}
+                    status={items.project_status}
                     pmname={items.pmname}
-                    members={items.members}
+                    members={ smallpic }
                     onClick={toggle}
                   />
                 ))
               : projectState === "inprogress"
-              ? projectArray.map(
+              ? project.map(
                   (items) =>
                     items.status === projectState && (
                       <ProjectCard
-                        title={items.title}
-                        status={items.status}
+                        title={items.project_name}
+                        status={items.project_status}
                         pmname={items.pmname}
-                        members={items.members}
+                        members={ smallpic }
                         onClick={toggle}
                       />
                     )
                 )
               : projectState === "completed"
-              ? projectArray.map(
+              ? project.map(
                   (items) =>
                     items.status === projectState && (
                       <ProjectCard
-                        title={items.title}
-                        status={items.status}
+                        title={items.project_name}
+                        status={items.project_status}
                         pmname={items.pmname}
-                        members={items.members}
+                        members={ smallpic }
                         onClick={toggle}
                       />
                     )

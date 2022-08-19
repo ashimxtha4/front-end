@@ -5,6 +5,8 @@ import "../../Styles/Admin/AdminProject.css";
 import smallpic from "../../Images/profilepicsmall.png";
 import { BsSearch } from "react-icons/bs";
 import CreateFormModal from "../../Components/Admin/CreateFormModal";
+import {URL} from "../../redux/container/constant"
+import axios from "axios";
 
 const allProjects = [
   {
@@ -46,8 +48,17 @@ const allProjects = [
 ];
 
 const AdminProject = () => {
+  const [projects,setProject] = useState([]);
+
   useEffect(() => {
     document.title = 'Admin Project';
+    const getProject = async()=>{
+      const authToken = sessionStorage.getItem("token")
+      const response= await axios.get(`${URL}/project/getall`,{ headers: { 'Authorization': `Bearer ${authToken}`}});
+      setProject(response.data.projects);
+      // console.log(response.data.projects);
+    }
+    getProject();
   });
 
   const [projectState, setProjectState] = useState("all");
@@ -143,33 +154,33 @@ const AdminProject = () => {
           <hr></hr>
           <div className="admin-project-body-div">
             {projectState === "all"
-              ? allProjects.map((items) => (
+              ? projects.map((items) => (
                   <AdminProjectCard
-                    title={items.title}
-                    status={items.status}
+                    title={items.project_name}
+                    status={items.project_status}
                     pmname={items.pmname}
                     members={items.members}
                   />
                 ))
               : projectState === "inprogress"
-              ? allProjects.map(
+              ? projects.map(
                   (items) =>
-                    items.status === projectState && (
+                    items.project_status === "pending" && (
                       <AdminProjectCard
-                        title={items.title}
-                        status={items.status}
+                        title={items.project_name}
+                        status={items.project_status}
                         pmname={items.pmname}
                         members={items.members}
                       />
                     )
                 )
               : projectState === "completed"
-              ? allProjects.map(
+              ? projects.map(
                   (items) =>
                     items.status === projectState && (
                       <AdminProjectCard
-                        title={items.title}
-                        status={items.status}
+                        title={items.project_name}
+                        status={items.project_status}
                         pmname={items.pmname}
                         members={items.members}
                       />

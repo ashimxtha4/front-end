@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import MyTaskDetails from "./MyTaskDetails";
 import "../Styles/MyTaskComponent.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const taskArray = [
   {
@@ -70,8 +71,20 @@ const MyTaskComponent = (props) => {
   const [cardStatus, setState] = useState("overall");
   const [res, setRes] = useState([]);
   useEffect(()=>{
-    // const getTask = 
-  })
+   const getTask=async()=> {
+      const response = await axios.get(
+      "http://localhost:3000/task/getalltask",
+       {headers: {"Authorization":`Bearer ${sessionStorage.getItem("token")}`}})
+      var arr=[]
+      const user = JSON.parse(localStorage.getItem("response"))
+      response.map((data)=>{
+        if (data.user_id===user.user.id)
+        arr.push(data);
+      })
+      setRes(arr)
+    }
+    getTask();
+})
 
   return (
     <div className="mytask-main-div">

@@ -7,10 +7,16 @@ const ChangePasswordAction = (formData) => async (dispatch) => {
   try {
     const response = await axios.put(
       "http://localhost:3000/user/password/update",
-      formData
+      formData, {headers: {"Authorization":`Bearer ${sessionStorage.getItem("token")}`}}
     );
     console.log(response.data, "Axios put response");
     await dispatch({ type: CHANGE_PASSWORD, payload: response.data });
+
+    setTimeout(async () => {
+      if (response.data.success === true) {
+        toast.success("Password changed successfully", { autoClose: 5000 });
+      }
+    }, 600);
   } catch (err) {
     console.log("Error updating password", err);
     await dispatch({ type: CHANGE_PASSWORD, payload: err.response.data });

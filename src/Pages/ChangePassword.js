@@ -7,10 +7,11 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import ChangePasswordAction from "../redux/actions/ChangePasswordAction";
 import { useDispatch } from "react-redux";
+import { ToastContainer } from "react-toastify";
 
 const ChangePassword = () => {
   const dispatch = useDispatch();
-  const user = JSON.parse(localStorage.getItem("response"));
+  // const token = sessionStorage.getItem("token");
 
   const changePasswordSchema = Yup.object().shape({
     currentPassword: Yup.string().required("Current password is required"),
@@ -45,7 +46,7 @@ const ChangePassword = () => {
 
   const handlePasswordChangeForm = (values) => {
     const passwordChangeData = {
-      user: user.user,
+      // user: user.user,
       oldPassword: values.currentPassword,
       newPassword: values.newPassword,
       confirmPassword: values.confirmPassword,
@@ -165,6 +166,7 @@ const ChangePassword = () => {
             )}
           </Formik>
         </div>
+        <ToastContainer position="top-left" autoClose={6000} />
       </div>
     </div>
   );

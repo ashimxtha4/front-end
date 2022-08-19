@@ -11,7 +11,8 @@ const SingUpAction = (credentials) => async (dispatch) => {
     );
     console.log(response.data, "Data from axios post request.");
     await dispatch({ type: SIGN_UP, payload: response.data });
-    localStorage.setItem("response", JSON.stringify(response.data));
+    // localStorage.setItem("response", JSON.stringify(response.data));
+    sessionStorage.setItem("token", response.data.token);
 
     setTimeout(() => {
       if (response.data.success === true) {

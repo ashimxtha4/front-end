@@ -48,11 +48,11 @@ const AdminDashboard = () => {
               <h2>Welcome, ADMIN  </h2>
             </div>
             <div class="admin-body-card-div-1">
-              <AdminDashboardCard/>
-              <AdminDashboardCard/>
-              <AdminDashboardCard/>
-              <AdminDashboardCard/>
-              <AdminDashboardCard/>
+              <AdminDashboardCard title="total-employee" value="" />
+              <AdminDashboardCard title="total-employee" value=""  />
+              <AdminDashboardCard title="total-employee" value=""  />
+              <AdminDashboardCard title="total-employee" value=""  />
+              <AdminDashboardCard title="total-employee" value=""  />
             </div>
             <div class="admin-body-card-div-2">
                 <p className="table-lable">Employee</p>

@@ -6,7 +6,7 @@ import {BsSearch} from 'react-icons/bs';
 import TaskPopupComponent from '../Components/TaskPopupComponent';
 // import { useDispatch} from "react-redux";
 import TaskCard from "../Components/TaskCard";
-import CreateFormModal from '../Components/Admin/CreateFormModal';
+import CreateTask from '../Components/Admin/CreateTask';
 
 const taskArray = [
   {
@@ -150,6 +150,7 @@ const Task = () => {
 
   const [taskStatus, setTaskStatus] = useState("all");
   const user = JSON.parse(localStorage.getItem("response")).user;
+  console.log(user)
 
   const id = user._id;
   // dispatch(TaskAction(id));
@@ -191,7 +192,10 @@ const Task = () => {
             </div>
             <div className="top-btn-div">
               {/* <button className="top-btn">+ Create</button> */}
-              <CreateFormModal />
+              {/* { */}
+                {/* user.role_id.role==="PM"&& */}
+                 <CreateTask />
+              {/* } */}
             </div>
           </div>
 
